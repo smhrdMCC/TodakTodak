@@ -36,7 +36,7 @@ class CalendarAdapter(
 
 
         for (i in 0..emotionList.size-1) {
-            if (emotionList[i].createdAt.toString() == day) {
+            if (emotionList[i].createdAt?.substring(8) == day) {
                 if (emotionList[i].emotionClassification=="기쁨") {
                     holder.dayEmotion.setImageResource(R.drawable.glad)
                 }// else if () {
