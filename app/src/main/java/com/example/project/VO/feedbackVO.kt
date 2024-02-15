@@ -9,3 +9,7 @@ data class feedbackVO(
     @SerializedName("ai_recommendation") var aiRecommendation: String? = null,
     @SerializedName("created_at") var createdAt: String? = null
 )
+
+data class feedbackResponse(
+    val feedbacklist: List<feedbackVO>
+)

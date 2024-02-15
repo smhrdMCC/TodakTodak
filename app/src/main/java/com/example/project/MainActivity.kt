@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project.VO.feedbackVO
 import com.example.project.VO.datemailVO
+import com.example.project.VO.feedbackResponse
 import com.example.project.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -156,12 +157,12 @@ class MainActivity : AppCompatActivity(), OnItemListener {
     private fun loadEmotion(datemail: datemailVO) {
         val call = CalenderEmotion.service.getEmotion(datemail)
 
-        call.enqueue(object : Callback<List<feedbackVO>> {
+        call.enqueue(object : Callback<feedbackResponse> {
 
             // 통신에 성공한 경우
             override fun onResponse(
-                call: Call<List<feedbackVO>>,
-                response: Response<List<feedbackVO>>
+                call: Call<feedbackResponse>,
+                response: Response<feedbackResponse>
             ) {
                 if(response.isSuccessful()){ // 응답을 잘 받은 경우
                     Log.d("RESPONSE: ", response.body().toString())
@@ -171,7 +172,7 @@ class MainActivity : AppCompatActivity(), OnItemListener {
             }
 
             // 통신에 실패한 경우
-            override fun onFailure(call: Call<List<feedbackVO>>, t: Throwable) {
+            override fun onFailure(call: Call<feedbackResponse>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
