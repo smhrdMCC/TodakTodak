@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TodakTodak"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".view.DiaryListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".adapter.DiaryListAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".adapter.CalendarAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".view.WriteDiaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.FeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.DiaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ChartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="true">
+            <intent-filter>
+
+                <!--
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                -->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao49901b6cc756bd95d67c1f267bad3995" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
