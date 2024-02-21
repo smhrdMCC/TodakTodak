@@ -16,6 +16,12 @@ public interface API {
     @POST("feedback")
     fun getFeedResponse(@Body feedback:String): Call<String>
 
+    @POST("diary")
+    fun doGetDiary(@Body diary: String): Call<String>
+
+    @POST("findDiary")
+    fun findDiary(@Body diary: String) : Call<String>
+
 //    @POST("getmsg")
 //    fun getMsgResponse(@Body text: Diary): Call<String>
 

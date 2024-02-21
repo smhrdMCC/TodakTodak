@@ -1,3 +1,8 @@
-package com.todaktodak.model
+package com.example.mccproject.Model
 
-data class Diary()
+import com.google.gson.annotations.SerializedName
+
+class Diary() {
+    @SerializedName("user_email")        var userEmail: String? = null
+    @SerializedName("diary_content")     var diaryContent: String? = null
+}
