@@ -9,15 +9,6 @@ import retrofit2.http.POST
 
 interface API {
 
-    @POST("join")
-    fun getLoginResponse(@Body user: User): Call<String>
-
-    @POST("chat")
-    fun updateFeedResponse(@Body prompt:String): Call<String>
-
-    @POST("feedback")
-    fun getFeedResponse(@Body feedback:String): Call<String>
-
     @POST("emotion")
     fun getEmotion(@Body info: datemailVO): Call<ArrayList<feedbackVO>>
 
