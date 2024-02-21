@@ -6,7 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 public interface API {
-    // login
+    // kakao login
     @POST("join")
     fun getLoginResponse(@Body user: User): Call<String>
 
@@ -18,6 +18,7 @@ public interface API {
 
 //    @POST("getmsg")
 //    fun getMsgResponse(@Body text: Diary): Call<String>
+
 
 
 }
