@@ -1,6 +1,5 @@
 package com.todaktodak.Interface
 
-import com.todaktodak.model.User
 import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emotionContentVO
 import com.todaktodak.model.feedbackVO
