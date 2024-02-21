@@ -1,12 +1,15 @@
 package com.todaktodak.Interface
 
 import com.todaktodak.model.User
+import com.todaktodak.model.datemailVO
+import com.todaktodak.model.emotionContentVO
+import com.todaktodak.model.feedbackVO
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-public interface API {
-    // login
+interface API {
+
     @POST("join")
     fun getLoginResponse(@Body user: User): Call<String>
 
@@ -16,8 +19,10 @@ public interface API {
     @POST("feedback")
     fun getFeedResponse(@Body feedback:String): Call<String>
 
-//    @POST("getmsg")
-//    fun getMsgResponse(@Body text: Diary): Call<String>
+    @POST("emotion")
+    fun getEmotion(@Body info: datemailVO): Call<ArrayList<feedbackVO>>
 
+    @POST("dairyList")
+    fun getDiaryList(@Body info: datemailVO): Call<ArrayList<emotionContentVO>>
 
 }

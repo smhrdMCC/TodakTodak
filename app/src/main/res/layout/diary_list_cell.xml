@@ -3,7 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".adapter.DiaryListAdapter">
+    android:layout_height="60dp"
+    tools:context=".DiaryListAdapter">
+
+    <TextView
+        android:id="@+id/listDayMonthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="02.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/listEmotionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="행복했던 날"
+        app:layout_constraintBottom_toBottomOf="@+id/listDayMonthText"
+        app:layout_constraintStart_toEndOf="@+id/listDayMonthText"
+        app:layout_constraintTop_toTopOf="@+id/listDayMonthText" />
+
+    <TextView
+        android:id="@+id/listDiaryContent"
+        android:layout_width="346dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/listEmotionText"
+        app:layout_constraintTop_toBottomOf="@+id/listEmotionText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
