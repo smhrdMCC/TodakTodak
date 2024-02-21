@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.todaktodak.R
+import com.todaktodak.model.emotionContentVO
 import com.todaktodak.view.DiaryListActivity
 
 class DiaryListAdapter(
-    private val dayMonthList: List<String?>?,
-    private val emotionList: List<String?>?,
-    private val contentList: List<String?>?,
+    private val DiaryList: List<emotionContentVO>?,
     private val onItemListener: DiaryListActivity
 ) :
     RecyclerView.Adapter<DiaryListAdapter.ItemViewHolder>() {
@@ -31,12 +30,12 @@ class DiaryListAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         // 날짜와 감정 변수에 담기
-        var dayMonth = dayMonthList?.get(holder.adapterPosition)
-        var emotion = emotionList?.get(holder.adapterPosition)
-        var content = contentList?.get(holder.adapterPosition)
+        var day = DiaryList?.get(holder.adapterPosition)?.createdAt
+        var emotion = DiaryList?.get(holder.adapterPosition)?.emotionClassification
+        var content = DiaryList?.get(holder.adapterPosition)?.diaryContent
 
         // 날짜 입력
-        holder.dayMonthText.text = dayMonth
+        holder.dayMonthText.text = day?.substring(5)
 
         // 감정 입력
         if (emotion == "기쁨") {
@@ -51,13 +50,13 @@ class DiaryListAdapter(
         // 날짜 클릭 이벤트
         holder.itemView.setOnClickListener{
             // 인터페이스를 통해 날짜를 넘겨준다
-            if (dayMonth != null) {
-                onItemListener.onItemClick(dayMonth)
+            if (day != null) {
+                onItemListener.onItemClick(day)
             }
         }
     }
 
     override fun getItemCount(): Int {
-        return dayMonthList?.size ?: itemCount
+        return DiaryList?.size ?: itemCount
     }
 }

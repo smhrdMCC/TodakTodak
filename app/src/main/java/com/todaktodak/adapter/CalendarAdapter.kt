@@ -11,11 +11,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.todaktodak.Interface.OnItemListener
 import com.todaktodak.R
+import com.todaktodak.model.emotiondate
 import com.todaktodak.model.feedbackVO
 
 class CalendarAdapter(
     private val dayList: ArrayList<String>,
-    private val emotionList: ArrayList<feedbackVO>?,
+    private val emotionList: ArrayList<emotiondate>?,
     private val onItemListener: OnItemListener
 ) :
     RecyclerView.Adapter<CalendarAdapter.ItemViewHolder>() {
@@ -44,7 +45,7 @@ class CalendarAdapter(
 
         for (i in 0..listleng!!-1) {
             if (emotionList?.get(i)?.createdAt?.substring(8) == day) {
-                if (emotionList?.get(i)?.emotionClassification.toString() =="기쁨") {
+                if (emotionList?.get(i)?.emotion.toString() =="기쁨") {
                     holder.dayEmotion.visibility = View.VISIBLE
                     holder.dayEmotion.setImageResource(R.drawable.glad)
                 }

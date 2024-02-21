@@ -13,6 +13,7 @@ import com.todaktodak.Interface.OnItemListener
 import com.todaktodak.adapter.CalendarAdapter
 import com.todaktodak.databinding.ActivityCalendarBinding
 import com.todaktodak.model.datemailVO
+import com.todaktodak.model.emotiondate
 import com.todaktodak.model.feedbackVO
 import com.todaktodak.retrofit.RetrofitBuilder2
 import retrofit2.Call
@@ -65,7 +66,7 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
 
 
     // 날짜와 감정이모티콘 화면에 보여주기
-    private fun setMonthView(body: ArrayList<feedbackVO>?) {
+    private fun setMonthView(body: ArrayList<emotiondate>?) {
         // 년월 텍스트뷰 세팅
         binding.calendarMonthYearText.text = monthYearFromDate(selectedDate)
 
@@ -149,12 +150,12 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
     // 감정 HTTP 요청과 응답
     private fun loadEmotion(selectedDate: LocalDate) {
         val call = RetrofitBuilder2.api.getEmotion(datemailVO(searchingFromMonth(selectedDate).toString(), "user_email 0001"))
-        call.enqueue(object : Callback<ArrayList<feedbackVO>> {
+        call.enqueue(object : Callback<ArrayList<emotiondate>> {
 
             // 통신에 성공한 경우
             override fun onResponse(
-                call: Call<ArrayList<feedbackVO>>,
-                response: Response<ArrayList<feedbackVO>>
+                call: Call<ArrayList<emotiondate>>,
+                response: Response<ArrayList<emotiondate>>
             ) {
                 if(response.isSuccessful()){ // 응답을 잘 받은 경우
                     Log.d("RESPONSE: ", response.body().toString())
@@ -165,7 +166,7 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
             }
 
             // 통신에 실패한 경우
-            override fun onFailure(call: Call<ArrayList<feedbackVO>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<emotiondate>>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })

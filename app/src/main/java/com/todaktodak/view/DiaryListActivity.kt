@@ -7,6 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.todaktodak.R
 import com.todaktodak.adapter.DiaryListAdapter
 import com.todaktodak.databinding.ActivityDiaryListBinding
@@ -92,22 +94,15 @@ class DiaryListActivity : AppCompatActivity() {
         // 년월 텍스트뷰 세팅
         binding.listMonthYearText.text = monthYearFromDate(selectedDate)
 
-        // 날짜, 감정, 다이어리 내용 리스트에 담기
-        val dayMonthList = body?.map { it.createdAt }
-
-        val emotionList = body?.map { it.emotionClassification }
-
-        val contentList = body?.map { it.diaryContent }
-
         // 어댑터 초기화
-        val adapter = DiaryListAdapter(dayMonthList, emotionList, contentList, this)
+        val adapter = DiaryListAdapter(body, this)
 
-//        // 레이아웃 설정(열 7개)
-//        var manager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 7)
-//
-//        // 레이아웃 적용
-//        binding.listView.layoutManager = manager
-//
+        // 레이아웃 설정(열 7개)
+        var manager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 1)
+
+        // 레이아웃 적용
+        binding.listView.layoutManager = manager
+
         // 어댑터 적용
         binding.listView.adapter = adapter
     }
