@@ -1,3 +1,7 @@
 package com.todaktodak.model
 
-data class User()
+data class User(
+    var id: String? = null,
+    var nickname: String? = null
+
+)
