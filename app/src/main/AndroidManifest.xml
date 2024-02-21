@@ -31,7 +31,7 @@
             android:name=".view.WriteDiaryActivity"
             android:exported="false" />
         <activity
-            android:name=".view.FeedbackActivity"
+            android:name=".view.MainActivity"
             android:exported="false" />
         <activity
             android:name=".view.DiaryActivity"
@@ -40,7 +40,7 @@
             android:name=".view.ChartActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.FeedbackActivity"
             android:exported="true">
             <intent-filter>
 
