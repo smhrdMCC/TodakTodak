@@ -4,6 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.WriteDiaryActivity">
+    tools:context=".WriteDiary">
 
+    <!--    <EditText-->
+    <!--&lt;!&ndash;        android:id="@+id/mydiary"&ndash;&gt;-->
+    <!--        android:layout_marginTop="148dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="    일기를 작성해주세요"-->
+    <!--        android:inputType="text"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <EditText
+        android:id="@+id/writeDiary"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="일기 작성"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/shareBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writeDiary" />
+
+    <Button
+        android:id="@+id/shareBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="공유 일기"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/sendBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/sendBtn"
+        app:layout_constraintTop_toTopOf="@+id/sendBtn"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="316dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
