@@ -27,17 +27,22 @@ class FeedbackActivity : AppCompatActivity() {
         var intent: Intent = getIntent()
 
         var result = intent.getStringExtra("data")
+        var result2 = intent.getStringExtra("data2")
+        var result3: Int = Integer.parseInt(result2)
+        var result4 : Long = result3.toLong()
+        Log.d("text13", result2.toString())
 
         val feedback = Feedback()
         feedback.prompt = result
         lifecycleScope.launch { Dispatchers.IO
             Feed(feedback.prompt.toString())
             delay(10000)
-            feedback.feedback = binding.textView.text.toString()
-            backFeed(feedback.feedback.toString() + ":" + feedback.prompt.toString())
+            feedback.aiRecommendation = binding.textView.text.toString()
+            feedback.diarySeq = result4
+            backFeed(feedback)
         }
 
-        Log.d("FEED",feedback.feedback.toString())
+        Log.d("FEED",feedback.aiRecommendation.toString())
         Log.d("FEED_Prompt",feedback.prompt.toString())
     }
 
@@ -52,6 +57,7 @@ class FeedbackActivity : AppCompatActivity() {
                 if(response.isSuccessful()){ // 응답 잘 받은 경우
                     Log.d("RESPONSE: ", "성공!"+response.body().toString())
                     binding.textView.text=response.body().toString()
+                    
 
                 }else{
                     // 통신 성공 but 응답 실패
@@ -66,7 +72,7 @@ class FeedbackActivity : AppCompatActivity() {
             }
         })
     }
-    suspend fun backFeed(feedback: String){
+    suspend fun backFeed(feedback: Feedback){
         val call = RetrofitBuilder2.api.getFeedResponse(feedback)
 
         call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
