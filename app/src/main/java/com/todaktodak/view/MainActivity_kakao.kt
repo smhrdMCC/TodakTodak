@@ -18,6 +18,7 @@ import com.todaktodak.kakao.KakaoOauthViewModel
 import com.todaktodak.kakao.KakaoOauthViewModelFactory
 import com.todaktodak.model.User
 import com.todaktodak.retrofit.RetrofitBuilder
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -95,7 +96,9 @@ class MainActivity_kakao : AppCompatActivity() {
                 Log.e(TAG, "사용자 정보 요청 실패", error)
 
             } else if (user != null) {
-
+            usersingleton.userId= user.id!!
+            usersingleton.userNick = user.kakaoAccount?.profile?.nickname!!
+                Log.d("싱글톤에 저장한 유저 아이디", usersingleton.userId.toString())
                 Log.d(
                     "abcdef", "사용자 정보 요청 성공" +
                             "\n회원번호: ${user.id}" +
