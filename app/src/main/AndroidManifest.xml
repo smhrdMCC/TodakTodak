@@ -39,7 +39,7 @@
             android:name=".view.FeedbackActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DiaryActivity"
+            android:name=".view.GetDiaryActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity_kakao"
