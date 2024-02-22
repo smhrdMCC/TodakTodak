@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.MyPage"
+            android:exported="false" />
+        <activity
             android:name=".view.DiaryListActivity"
             android:exported="false" />
         <activity
@@ -40,20 +43,21 @@
             android:name=".view.CalendarActivity"
             android:exported="true">
             <intent-filter>
-
-
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
 
-<!--                <action android:name="android.intent.action.VIEW" />-->
+                <!-- <action android:name="android.intent.action.VIEW" /> -->
 
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--                <category android:name="android.intent.category.BROWSABLE" />-->
 
-<!--                &lt;!&ndash; Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" &ndash;&gt;-->
-<!--                <data-->
-<!--                    android:host="oauth"-->
-<!--                    android:scheme="kakao49901b6cc756bd95d67c1f267bad3995" />-->
+                <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+                <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+
+
+                <!-- &lt;!&ndash; Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" &ndash;&gt; -->
+                <!-- <data -->
+                <!-- android:host="oauth" -->
+                <!-- android:scheme="kakao49901b6cc756bd95d67c1f267bad3995" /> -->
             </intent-filter>
         </activity>
     </application>
