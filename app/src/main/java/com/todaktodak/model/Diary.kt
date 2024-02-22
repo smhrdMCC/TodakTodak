@@ -10,9 +10,4 @@ data class Diary(
 
 )
 
-//data class FindDiary(
-//    @SerializedName("user_email")       val userEmail:String,
-//    @SerializedName("diary_content")    val diaryContent: String,
-//    @SerializedName("created_at")       val createdAt:String
-//)
 

@@ -31,7 +31,7 @@ class WriteDiaryActivity : AppCompatActivity() {
 
             //saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString())
 
-            var intent = Intent(this, DiaryActivity::class.java)
+            var intent = Intent(this, GetDiaryActivity::class.java)
             intent.putExtra("diaryContent", diary_content)
             intent.putExtra("userEmail", user_email) // 위에 변수 선언 부분 참고하기
             mainLauncher.launch(intent)
