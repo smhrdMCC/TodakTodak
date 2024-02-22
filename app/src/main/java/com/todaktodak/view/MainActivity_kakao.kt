@@ -27,14 +27,11 @@ class MainActivity_kakao : AppCompatActivity() {
     lateinit var binding: ActivityKakakoMainBinding
     private lateinit var kakaoOauthViewModel: KakaoOauthViewModel
 
-
-    //lateinit var userInfo: User2
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityKakakoMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         // ViewModelProvider를 통해 ViewModel 인스턴스 생성
         kakaoOauthViewModel = ViewModelProvider(
@@ -45,11 +42,6 @@ class MainActivity_kakao : AppCompatActivity() {
         val btnKakaoLogin = findViewById<ImageButton>(R.id.btnlogin)
         val btnKakaoLogout = findViewById<Button>(R.id.btn_kakao_logout)
         val tvLoginStatus = findViewById<TextView>(R.id.tv_login_status)
-        var tvNickname = findViewById<TextView>(R.id.nickname)
-        val tvId = findViewById<TextView>(R.id.id)
-
-        Log.d("NAME", findViewById<TextView>(R.id.nickname).text.toString())
-
 
         btnKakaoLogin.setOnClickListener {
             kakaoOauthViewModel.kakaoLogin()
@@ -57,11 +49,8 @@ class MainActivity_kakao : AppCompatActivity() {
 
             var user = User()
 
-            user.id = binding.id.text.toString()
-            user.nickname = binding.nickname.text.toString()
-            Log.d("check", user.id.toString())
-            Log.d("check1", user.nickname.toString())
-
+            user.userEmail = binding.id.text.toString()
+            user.userNick = binding.nickname.text.toString()
             Login(user)
 
         }
@@ -76,25 +65,13 @@ class MainActivity_kakao : AppCompatActivity() {
 
         }
 
-        binding.btnnext.setOnClickListener{
+        binding.btnnext.setOnClickListener {
             val intent = Intent(this, DiaryListActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 
-
-//    fun getInfo(): User2? {
     fun getInfo() {
-        // 사용자 정보 요청 (기본)
-
-        //var tvNickname = findViewById<TextView>(R.id.tvNickname)
-        var userInfo: User? = User()
-        var email : String? = "test"
-        var nick : String
-        var test2 : String = ""
-
         UserApiClient.instance.me { user, error ->
 
             if (error != null) {
@@ -106,20 +83,11 @@ class MainActivity_kakao : AppCompatActivity() {
                     "abcdef", "사용자 정보 요청 성공" +
                             "\n회원번호: ${user.id}" +
                             "\n닉네임: ${user.kakaoAccount?.profile?.nickname}"
-
                 )
-                Log.d("user12", user.toString())
                 binding.id.text = "${user.id}"
                 binding.nickname.text = "${user.kakaoAccount?.profile?.nickname}"
-
-
-                Log.d("user", binding.id.text.toString())
-                Log.d("user_nick", binding.nickname.text.toString())
-
             }
-
         }
-
     }
 
     fun Login(user: User) {
@@ -143,12 +111,5 @@ class MainActivity_kakao : AppCompatActivity() {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
-
-
-
-
     }
-
-
 }
-
