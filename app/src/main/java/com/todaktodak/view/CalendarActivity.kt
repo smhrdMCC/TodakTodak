@@ -14,7 +14,6 @@ import com.todaktodak.adapter.CalendarAdapter
 import com.todaktodak.databinding.ActivityCalendarBinding
 import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emotiondate
-import com.todaktodak.model.feedbackVO
 import com.todaktodak.retrofit.RetrofitBuilder2
 import retrofit2.Call
 import retrofit2.Callback

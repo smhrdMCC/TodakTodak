@@ -1,8 +1,6 @@
 package com.todaktodak.adapter
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.todaktodak.Interface.OnItemListener
 import com.todaktodak.R
 import com.todaktodak.model.emotiondate
-import com.todaktodak.model.feedbackVO
 
 class CalendarAdapter(
     private val dayList: ArrayList<String>,

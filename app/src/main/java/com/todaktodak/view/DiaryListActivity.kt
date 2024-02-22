@@ -1,15 +1,14 @@
 package com.todaktodak.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.todaktodak.R
 import com.todaktodak.adapter.DiaryListAdapter
 import com.todaktodak.databinding.ActivityDiaryListBinding
 import com.todaktodak.model.datemailVO
