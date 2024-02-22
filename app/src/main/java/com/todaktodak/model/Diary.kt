@@ -9,5 +9,3 @@ data class Diary(
     @SerializedName("diary_content")     var diaryContent: String? = null
 
 )
-
-

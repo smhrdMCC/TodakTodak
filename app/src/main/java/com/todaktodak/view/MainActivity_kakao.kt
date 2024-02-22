@@ -2,6 +2,7 @@ package com.todaktodak.view
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -17,8 +18,7 @@ import com.todaktodak.databinding.ActivityKakakoMainBinding
 import com.todaktodak.kakao.KakaoOauthViewModel
 import com.todaktodak.kakao.KakaoOauthViewModelFactory
 import com.todaktodak.model.User
-import com.todaktodak.retrofit.RetrofitBuilder
-import com.todaktodak.retrofit.usersingleton
+import com.todaktodak.retrofit.RetrofitBuilder2
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -120,7 +120,7 @@ class MainActivity_kakao : AppCompatActivity() {
     }
 
     fun Login(user: User) {
-        val call = RetrofitBuilder.api.getLoginResponse(user) // API의 통로 가져오고
+        val call = RetrofitBuilder2.api.getLoginResponse(user) // API의 통로 가져오고
         call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
             override fun onResponse( // 통신에 성공한 경우
                 call: Call<String>,
