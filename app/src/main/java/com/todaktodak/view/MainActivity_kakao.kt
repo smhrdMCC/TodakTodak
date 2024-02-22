@@ -96,7 +96,7 @@ class MainActivity_kakao : AppCompatActivity() {
                 Log.e(TAG, "사용자 정보 요청 실패", error)
 
             } else if (user != null) {
-            usersingleton.userId= user.id!!
+            usersingleton.userId= user.id.toString()!!
             usersingleton.userNick = user.kakaoAccount?.profile?.nickname!!
                 Log.d("싱글톤에 저장한 유저 아이디", usersingleton.userId.toString())
                 Log.d(

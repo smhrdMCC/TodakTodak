@@ -2,12 +2,17 @@ package com.todaktodak.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mccproject.Model.Diary
 import com.todaktodak.databinding.ActivityWriteDiaryBinding
+import com.todaktodak.retrofit.RetrofitBuilder2
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class WriteDiaryActivity : AppCompatActivity() {
 
@@ -29,7 +34,7 @@ class WriteDiaryActivity : AppCompatActivity() {
             writtenDiary.diaryContent = diary_content
             writtenDiary.userEmail = user_email
 
-            //saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString())
+            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString())
 
             var intent = Intent(this, GetDiaryActivity::class.java)
             intent.putExtra("diaryContent", diary_content)
@@ -44,28 +49,28 @@ class WriteDiaryActivity : AppCompatActivity() {
         }
     }
 
-//    fun saveDiary(diary: String) {
-//        val call = RetrofitBuilder.api.doGetDiary(diary)
-//        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
-//            override fun onResponse( // 통신에 성공한 경우
-//                call: Call<String>,
-//                response: Response<String>
-//            ) {
-//                if (response.isSuccessful()) { // 응답 잘 받은 경우
-//                    Log.d("RESPONSE: ", "저장 성공!!" + response.body().toString())
-//
-//                } else {
-//                    // 통신 성공 but 응답 실패
-//                    Log.d("RESPONSE", "저장 실패!!")
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<String>, t: Throwable) {
-//                // 통신에 실패한 경우
-//                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
-//            }
-//        })
-//    }
+    fun saveDiary(diary: String) {
+        val call = RetrofitBuilder2.api.doGetDiary(diary)
+        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
+            override fun onResponse( // 통신에 성공한 경우
+                call: Call<String>,
+                response: Response<String>
+            ) {
+                if (response.isSuccessful()) { // 응답 잘 받은 경우
+                    Log.d("RESPONSE: ", "저장 성공!!" + response.body().toString())
+
+                } else {
+                    // 통신 성공 but 응답 실패
+                    Log.d("RESPONSE", "저장 실패!!")
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                // 통신에 실패한 경우
+                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
+            }
+        })
+    }
 
 
 

@@ -8,6 +8,7 @@ import android.view.View
 import com.example.mccproject.Model.FindDiary
 import com.todaktodak.databinding.ActivityDiaryBinding
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,12 +23,13 @@ class GetDiaryActivity : AppCompatActivity() {
 
         val getmsg = FindDiary()
 
-        getmsg.userEmail = user
+        getmsg.userEmail = "test4"
+        //getmsg.userEmail = usersingleton.userId
         getSendMessage(getmsg)
         binding.feedBtn.setOnClickListener {
             var intent = Intent(this,FeedbackActivity::class.java)
             var data = binding.showDiary.text.toString()
-            var data2 = binding.textView2.text
+            var data2 = binding.getDId.text
             intent.putExtra("data",data)
             intent.putExtra("data2",data2)
             startActivity(intent)
@@ -46,10 +48,10 @@ class GetDiaryActivity : AppCompatActivity() {
                     Log.d("RESPONSE: ", "성공!"+response.body().toString())
                     val text = response.body().toString()
 
-                    binding.getMsg.text = text.split(":")[0]
-                    binding.textView2.text = text.split(":")[1]
+                    binding.showDiary.text = text.split(":")[0]
+                    binding.getDId.text = text.split(":")[1]
 
-                    binding.textView2.visibility = View.GONE
+                    binding.getDId.visibility = View.GONE
                 }else{
                     // 통신 성공 but 응답 실패
 

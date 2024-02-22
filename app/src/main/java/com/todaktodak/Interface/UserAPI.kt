@@ -19,6 +19,9 @@ public interface API {
 
     @POST("getmsg")
     fun getMsgResponse(@Body text: FindDiary): Call<String>
+    @POST("diary")
+    // 함수를 선언만 하고 통신할 때 필요한 어떤 코드도 담지 않는다.
+    fun doGetDiary(@Body diary: String): Call<String>
 
 
 }

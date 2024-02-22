@@ -33,13 +33,13 @@
             android:name=".adapter.CalendarAdapter"
             android:exported="false" />
         <activity
-            android:name=".view.WriteDiaryActivity"
+            android:name=".view.GetDiaryActivity"
             android:exported="false" />
         <activity
             android:name=".view.FeedbackActivity"
             android:exported="false" />
         <activity
-            android:name=".view.GetDiaryActivity"
+            android:name=".view.WriteDiaryActivity"
             android:exported="false" />
         <activity
             android:name=".view.ChartActivity"
