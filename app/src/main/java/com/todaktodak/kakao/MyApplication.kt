@@ -19,5 +19,6 @@ class MyApplication : Application() {
         var keyHash = Utility.getKeyHash(this)
         Log.e(TAG, "해시 키 값 : ${keyHash}")
 
+
     }
 }
