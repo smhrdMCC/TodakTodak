@@ -16,3 +16,4 @@ data class FindDiary(
     @SerializedName("created_at")       val createdAt:String
 )
 
+
