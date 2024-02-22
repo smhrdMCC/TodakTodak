@@ -37,7 +37,7 @@ class DiaryActivity : AppCompatActivity() {
 //            binding.userEmail.text = userEmail
 
             // findDiary 함수 호출
-            findDiary("$diaryContent")  // 두 매개 변수를 합쳐서 전달
+           //findDiary("$diaryContent")  // 두 매개 변수를 합쳐서 전달
             Log.d("success","조회성공")
         }
 
@@ -65,29 +65,29 @@ class DiaryActivity : AppCompatActivity() {
 //        intent.getStringExtra("data")
     }
 
-    fun findDiary(findDiary: String) {
-//      var findDiary = FindDiary(user_email, diary_content, created_at)
-        val call = RetrofitBuilder.api.findDiary(findDiary)
-        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
-            override fun onResponse( // 통신에 성공한 경우
-                call: Call<String>,
-                response: Response<String>
-            ) {
-                if (response.isSuccessful()) { // 응답 잘 받은 경우
-                    Log.d("RESPONSE: ", "조회 성공!" + response.body().toString())
-                    binding.showDiary.text = response.body().toString()
-                    Log.d("success", response.body().toString())
-                } else {
-                    // 통신 성공 but 응답 실패
-                    Log.d("RESPONSE", "조회 실패!!")
-                }
-            }
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                // 통신에 실패한 경우
-                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
-            }
-        })
-    }
+//    fun findDiary(findDiary: String) {
+////      var findDiary = FindDiary(user_email, diary_content, created_at)
+//        val call = RetrofitBuilder.api.findDiary(findDiary)
+//        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
+//            override fun onResponse( // 통신에 성공한 경우
+//                call: Call<String>,
+//                response: Response<String>
+//            ) {
+//                if (response.isSuccessful()) { // 응답 잘 받은 경우
+//                    Log.d("RESPONSE: ", "조회 성공!" + response.body().toString())
+//                    binding.showDiary.text = response.body().toString()
+//                    Log.d("success", response.body().toString())
+//                } else {
+//                    // 통신 성공 but 응답 실패
+//                    Log.d("RESPONSE", "조회 실패!!")
+//                }
+//            }
+//            override fun onFailure(call: Call<String>, t: Throwable) {
+//                // 통신에 실패한 경우
+//                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
+//            }
+//        })
+//    }
 }
 
 

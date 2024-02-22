@@ -33,11 +33,11 @@ class FeedbackActivity : AppCompatActivity() {
         lifecycleScope.launch { Dispatchers.IO
             Feed(feedback.prompt.toString())
             delay(10000)
-            feedback.feedback = binding.textView.text.toString()
-            backFeed(feedback.feedback.toString() + ":" + feedback.prompt.toString())
+            feedback.aiRecommendation = binding.textView.text.toString()
+            backFeed(feedback.aiRecommendation.toString() + ":" + feedback.prompt.toString())
         }
 
-        Log.d("FEED",feedback.feedback.toString())
+        Log.d("FEED",feedback.aiRecommendation.toString())
         Log.d("FEED_Prompt",feedback.prompt.toString())
     }
 

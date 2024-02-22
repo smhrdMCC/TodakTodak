@@ -1,5 +1,6 @@
 package com.todaktodak.Interface
 
+import com.example.mccproject.Model.Diary
 import com.todaktodak.model.User
 import retrofit2.Call
 import retrofit2.http.Body
@@ -16,8 +17,8 @@ public interface API {
     @POST("feedback")
     fun getFeedResponse(@Body feedback:String): Call<String>
 
-//    @POST("getmsg")
-//    fun getMsgResponse(@Body text: Diary): Call<String>
+    @POST("getmsg")
+    fun getMsgResponse(@Body text: Diary): Call<String>
 
 
 }
