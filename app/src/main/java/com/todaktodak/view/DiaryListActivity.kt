@@ -59,7 +59,7 @@ class DiaryListActivity : AppCompatActivity() {
         binding.goSocial.setOnClickListener {
 
         }
-        binding.goSocial.setOnClickListener {
+        binding.goMypage.setOnClickListener {
             var intent = Intent(this, MyPageActivity::class.java)
             startActivity(intent)
         }
