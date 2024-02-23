@@ -39,8 +39,6 @@ android {
 }
 
 dependencies {
-
-    // 혹시 코드 일부가 import되지 않는다면 관련된 모듈을 찾아서 작성하거나 댓글을 남긴다면 확인하고 알려준다
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation ("androidx.activity:activity-ktx:1.7.2")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
