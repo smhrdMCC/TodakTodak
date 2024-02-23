@@ -24,6 +24,5 @@ class StartActivity : AppCompatActivity() {
             var goCalendar = Intent(this, CalendarActivity::class.java)
             startActivity(goCalendar)
         }
-
     }
 }
