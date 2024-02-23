@@ -20,6 +20,11 @@ data class datemailVO(
     var email: String
 )
 
+data class seqcont(
+    var diarySeq: Long,
+    var content: String
+)
+
 data class emotionContentVO(
     @SerializedName("created_at") var createdAt: String? = null,
     @SerializedName("emotion_classification") var emotionClassification: String? = null,

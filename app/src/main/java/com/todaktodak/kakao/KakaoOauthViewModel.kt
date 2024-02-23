@@ -18,9 +18,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-class KakaoOauthViewModel(application : Application) : ViewModel() {
-
-    // 비어있는 생성자 추가
+class KakaoOauthViewModel(application: Application) : ViewModel() {
     constructor() : this(Application())
 
     companion object {
@@ -31,53 +29,41 @@ class KakaoOauthViewModel(application : Application) : ViewModel() {
 
     // 로그인 여부 초기값 false, 바인딩
     val isLoggedIn = MutableStateFlow<Boolean>(false)
-
-
-
-    // 코루틴
-    fun kakaoLogin(){
+    fun kakaoLogin() {
         viewModelScope.launch {
             // handleKakaoLogin은 true false 로그인 성공 여부 리턴
             // emit으로 로그인 여부를 이벤트로 보냄
             isLoggedIn.emit(handleKakaoLogin())
-
         }
     }
 
-    // 코루틴
-    fun kakaoLogout(){
+    fun kakaoLogout() {
         viewModelScope.launch {
             // handleKakaoLogin은 true false 로그인 성공 여부 리턴
             // emit으로 로그인 여부를 이벤트로 보냄
-            if(handleKakaoLogout()){
+            if (handleKakaoLogout()) {
                 isLoggedIn.emit(false)
             }
-
-
         }
     }
 
-    private suspend fun handleKakaoLogout() : Boolean =
+    private suspend fun handleKakaoLogout(): Boolean =
         suspendCoroutine { continuation ->
             // 로그아웃
             UserApiClient.instance.logout { error ->
                 if (error != null) {
                     Log.e(TAG, "로그아웃 실패. SDK에서 토큰 삭제됨", error)
                     continuation.resume(false)
-                }
-                else {
+                } else {
                     Log.i(TAG, "로그아웃 성공. SDK에서 토큰 삭제됨")
                     continuation.resume(true)
                 }
             }
         }
 
-    private suspend fun handleKakaoLogin() : Boolean =
+    private suspend fun handleKakaoLogin(): Boolean =
         suspendCoroutine<Boolean> { continuation ->
             // 로그인 조합 예제
-
-            // 카카오계정으로 로그인 공통 callback 구성
-            // 카카오톡으로 로그인 할 수 없어 카카오계정으로 로그인할 경우 사용됨
             val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
                 if (error != null) {
                     Log.e(TAG, "카카오계정으로 로그인 실패", error)
@@ -112,7 +98,4 @@ class KakaoOauthViewModel(application : Application) : ViewModel() {
                 UserApiClient.instance.loginWithKakaoAccount(context, callback = callback)
             }
         }
-
-    }
-
-
+}

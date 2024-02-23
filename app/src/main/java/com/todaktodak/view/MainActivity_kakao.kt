@@ -19,6 +19,7 @@ import com.todaktodak.kakao.KakaoOauthViewModel
 import com.todaktodak.kakao.KakaoOauthViewModelFactory
 import com.todaktodak.model.User
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,6 +34,7 @@ class MainActivity_kakao : AppCompatActivity() {
         binding = ActivityKakakoMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         // ViewModelProvider를 통해 ViewModel 인스턴스 생성
         kakaoOauthViewModel = ViewModelProvider(
             this,
@@ -43,18 +45,19 @@ class MainActivity_kakao : AppCompatActivity() {
         val btnKakaoLogout = findViewById<Button>(R.id.btn_kakao_logout)
         val tvLoginStatus = findViewById<TextView>(R.id.tv_login_status)
 
+        Log.d("NAME", findViewById<TextView>(R.id.nickname).text.toString())
+
         btnKakaoLogin.setOnClickListener {
             kakaoOauthViewModel.kakaoLogin()
             getInfo()
 
             var user = User()
 
-            user.userEmail = binding.id.text.toString()
-            user.userNick = binding.nickname.text.toString()
+            user.userEmail = usersingleton.userEmail
+            user.userNick = usersingleton.userNick
+
             Login(user)
-
         }
-
         btnKakaoLogout.setOnClickListener {
             kakaoOauthViewModel.kakaoLogout()
         }
@@ -62,30 +65,22 @@ class MainActivity_kakao : AppCompatActivity() {
         kakaoOauthViewModel.isLoggedIn.asLiveData().observe(this) { isLoggedIn ->
             val loginStatusInfoTitle = if (isLoggedIn) "로그인 상태" else "로그아웃 상태"
             tvLoginStatus.text = loginStatusInfoTitle
-
         }
-
         binding.btnnext.setOnClickListener {
-            val intent = Intent(this, DiaryListActivity::class.java)
+            val intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
         }
     }
 
     fun getInfo() {
-        UserApiClient.instance.me { user, error ->
 
+        UserApiClient.instance.me { user, error ->
             if (error != null) {
                 Log.e(TAG, "사용자 정보 요청 실패", error)
 
             } else if (user != null) {
-
-                Log.d(
-                    "abcdef", "사용자 정보 요청 성공" +
-                            "\n회원번호: ${user.id}" +
-                            "\n닉네임: ${user.kakaoAccount?.profile?.nickname}"
-                )
-                binding.id.text = "${user.id}"
-                binding.nickname.text = "${user.kakaoAccount?.profile?.nickname}"
+                usersingleton.userEmail = user.id.toString()!!
+                usersingleton.userNick = user.kakaoAccount?.profile?.nickname!!
             }
         }
     }
@@ -99,13 +94,11 @@ class MainActivity_kakao : AppCompatActivity() {
             ) {
                 if (response.isSuccessful()) { // 응답 잘 받은 경우
                     Log.d("RESPONSE: ", response.body().toString())
-
                 } else {
                     // 통신 성공 but 응답 실패
                     Log.d("RESPONSE", "FAILURE")
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 // 통신에 실패한 경우
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)

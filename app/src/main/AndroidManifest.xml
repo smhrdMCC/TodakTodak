@@ -33,13 +33,16 @@
             android:name=".adapter.CalendarAdapter"
             android:exported="false" />
         <activity
-            android:name=".view.WriteDiaryActivity"
+            android:name=".view.GetDiaryActivity"
             android:exported="false" />
         <activity
             android:name=".view.FeedbackActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DiaryActivity"
+            android:name=".view.WriteDiaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CalendarActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity_kakao"
