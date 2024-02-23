@@ -56,6 +56,13 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
         }
     }
 
+    val mainLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            result: ActivityResult ->
+        if (result.resultCode == RESULT_OK) {
+            Toast.makeText(applicationContext, "성공", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     // 날짜와 감정이모티콘 화면에 보여주기
     private fun setMonthView(body: ArrayList<emotiondate>?) {
         // 년월 텍스트뷰 세팅
