@@ -1,6 +1,11 @@
 package com.todaktodak.Interface
 
 import com.todaktodak.model.User
+import com.todaktodak.model.datemailVO
+import com.todaktodak.model.emailnick
+import com.todaktodak.model.emotionContentVO
+import com.todaktodak.model.emotiondate
+import com.todaktodak.model.seqcont
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
