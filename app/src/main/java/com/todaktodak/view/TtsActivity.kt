@@ -39,8 +39,6 @@ class TtsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }//onCreate
 
-    // =============================================================================================
-
     private var activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
@@ -61,14 +59,10 @@ class TtsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-    // =============================================================================================
-
     private fun startActivities(installIntent: Intent) {
         // 데이터 다운로드 액티비티 시작
         startActivity(installIntent)
     }
-
-    // =============================================================================================
 
     // TextToSpeech 엔진 초기화시 호출되는 함수 시작 ==================================================
     override fun onInit(status: Int) {

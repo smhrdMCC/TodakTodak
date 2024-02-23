@@ -26,21 +26,18 @@ class FeedbackActivity : AppCompatActivity() {
 
         var intent: Intent = getIntent()
 
-        var result = intent.getStringExtra("data")
+        var diaryText = intent.getStringExtra("diaryText")
+        var diaryId = intent.getStringExtra("diaryId")
 
         val feedback = Feedback()
-        feedback.prompt = result
+        feedback.prompt = diaryText
         lifecycleScope.launch { Dispatchers.IO
             Feed(feedback.prompt.toString())
-            delay(10000)
+            delay(7000)
             feedback.aiRecommendation = binding.textView.text.toString()
-            backFeed(feedback.aiRecommendation.toString() + ":" + feedback.prompt.toString())
+            backFeed(feedback.aiRecommendation.toString() + ":" + diaryId.toString())
         }
-
-        Log.d("FEED",feedback.aiRecommendation.toString())
-        Log.d("FEED_Prompt",feedback.prompt.toString())
     }
-
     suspend fun Feed(prompt: String){
         val call = RetrofitBuilder.api.updateFeedResponse(prompt)
 
@@ -55,7 +52,6 @@ class FeedbackActivity : AppCompatActivity() {
 
                 }else{
                     // 통신 성공 but 응답 실패
-
                     Log.d("RESPONSE", "FAILURE")
                 }
             }

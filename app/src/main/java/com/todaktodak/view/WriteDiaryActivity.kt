@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mccproject.Model.Diary
 import com.todaktodak.databinding.ActivityWriteDiaryBinding
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,8 +18,7 @@ import retrofit2.Response
 class WriteDiaryActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityWriteDiaryBinding
-    var user_email: String = "test4"
-    var diary_content: String = ""
+    var user_email: String = usersingleton.userEmail
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,19 +26,20 @@ class WriteDiaryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // plainText에 일기 쓰기
-        // 일기작성 버튼 클릭했을 때 결과가지고 작성된 일기 화면으로 화면 전환이벤트
         binding.sendBtn.setOnClickListener {
-            diary_content = binding.writeDiary.text.toString()
+            var diary_content = binding.writeDiary.text.toString()
             
             var writtenDiary = Diary()
             writtenDiary.diaryContent = diary_content
             writtenDiary.userEmail = user_email
-
-            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString())
+            var date1 = intent.getStringExtra("date1")
+            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
 
             var intent = Intent(this, GetDiaryActivity::class.java)
             intent.putExtra("diaryContent", diary_content)
             intent.putExtra("userEmail", user_email) // 위에 변수 선언 부분 참고하기
+
+            intent.putExtra("date1", date1)
             mainLauncher.launch(intent)
         }
     }
@@ -64,37 +65,10 @@ class WriteDiaryActivity : AppCompatActivity() {
                     Log.d("RESPONSE", "저장 실패!!")
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 // 통신에 실패한 경우
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
