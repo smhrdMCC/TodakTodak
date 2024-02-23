@@ -42,10 +42,16 @@
             android:name=".view.WriteDiaryActivity"
             android:exported="false" />
         <activity
+            android:name=".view.MainActivity_kakao"
+            android:exported="false" />
+        <activity
+            android:name=".view.MyPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity_kakao"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
