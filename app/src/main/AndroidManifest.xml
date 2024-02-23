@@ -16,13 +16,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".view.MyPage"
+            android:name=".view.StartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CalendarActivity"
             android:exported="false" />
         <activity
             android:name=".view.DiaryListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ChartActivity"
             android:exported="false" />
         <activity
             android:name=".adapter.DiaryListAdapter"
@@ -31,22 +31,12 @@
             android:name=".adapter.CalendarAdapter"
             android:exported="false" />
         <activity
-            android:name=".view.WriteDiaryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.FeedbackActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.DiaryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.CalendarActivity"
+            android:name=".view.MyPageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
     </application>

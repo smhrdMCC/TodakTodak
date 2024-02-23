@@ -50,17 +50,10 @@ class DiaryListActivity : AppCompatActivity() {
 
         binding.goCalBtn.setOnClickListener {
             var intent = Intent(this, CalendarActivity::class.java)
-
-            mainLauncher.launch(intent)
+            startActivity(intent)
         }
     }
 
-    val mainLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result: ActivityResult ->
-        if (result.resultCode == RESULT_OK) {
-            Toast.makeText(applicationContext, "성공", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     // 감정 HTTP 요청과 응답
     private fun loadDiaryList(selectedDate: LocalDate) {

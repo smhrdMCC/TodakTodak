@@ -40,14 +40,6 @@ android {
 
 dependencies {
 
-    // 혹시 코드 일부가 import되지 않는다면 관련된 모듈을 찾아서 작성하거나 댓글을 남긴다면 확인하고 알려준다
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-    implementation ("androidx.activity:activity-ktx:1.7.2")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-
-    implementation ("com.kakao.sdk:v2-all:2.15.0") // 전체 모듈 설치, 2.11.0 버전부터 지원
-    implementation ("com.kakao.sdk:v2-user:2.15.0") // 카카오 로그인
-
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
