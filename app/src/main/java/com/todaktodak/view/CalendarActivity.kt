@@ -14,7 +14,6 @@ import com.todaktodak.adapter.CalendarAdapter
 import com.todaktodak.databinding.ActivityCalendarBinding
 import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emotiondate
-import com.todaktodak.model.feedbackVO
 import com.todaktodak.retrofit.RetrofitBuilder2
 import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
@@ -51,20 +50,22 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
             loadEmotion(selectedDate)
         }
 
+        binding.goCalBtn.setOnClickListener {
+            var intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
         binding.goListBtn.setOnClickListener {
             var intent = Intent(this, DiaryListActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goSocial.setOnClickListener {
 
-            mainLauncher.launch(intent)
+        }
+        binding.goMypage.setOnClickListener {
+            var intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
         }
     }
-
-    val mainLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result: ActivityResult ->
-        if (result.resultCode == RESULT_OK) {
-            Toast.makeText(applicationContext, "성공", Toast.LENGTH_SHORT).show()
-        }
-    }
-
 
     // 날짜와 감정이모티콘 화면에 보여주기
     private fun setMonthView(body: ArrayList<emotiondate>?) {
@@ -182,11 +183,11 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
         if (!check) {
             var intent = Intent(this, WriteDiaryActivity::class.java)
             intent.putExtra("date1", searching)
-            mainLauncher.launch(intent)
+            startActivity(intent)
         }else if(check){
             var intent = Intent(this, GetDiaryActivity::class.java)
             intent.putExtra("date1", searching)
-            mainLauncher.launch(intent)
+            startActivity(intent)
         }
 
     }

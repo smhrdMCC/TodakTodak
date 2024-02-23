@@ -40,13 +40,7 @@ class WriteDiaryActivity : AppCompatActivity() {
             intent.putExtra("userEmail", user_email) // 위에 변수 선언 부분 참고하기
 
             intent.putExtra("date1", date1)
-            mainLauncher.launch(intent)
-        }
-    }
-
-    val mainLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-        if (result.resultCode == RESULT_OK) {
-            Toast.makeText(applicationContext, "성공!", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
         }
     }
 

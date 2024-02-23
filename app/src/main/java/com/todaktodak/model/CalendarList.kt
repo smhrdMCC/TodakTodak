@@ -25,6 +25,11 @@ data class seqcont(
     var content: String
 )
 
+data class emailnick(
+    var email: String,
+    var nick: String
+)
+
 data class emotionContentVO(
     @SerializedName("created_at") var createdAt: String? = null,
     @SerializedName("emotion_classification") var emotionClassification: String? = null,
