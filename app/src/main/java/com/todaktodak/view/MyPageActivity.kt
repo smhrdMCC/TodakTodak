@@ -57,6 +57,22 @@ class MyPageActivity : AppCompatActivity() {
             withdrawConfirmationDialog("email")
         }
 
+        binding.goCalBtn.setOnClickListener {
+            var intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goListBtn.setOnClickListener {
+            var intent = Intent(this, DiaryListActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goSocial.setOnClickListener {
+
+        }
+        binding.goSocial.setOnClickListener {
+            var intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun withdrawConfirmationDialog(email: String) {
