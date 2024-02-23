@@ -24,8 +24,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity_kakao : AppCompatActivity() {
-    lateinit var binding: ActivityKakakoMainBinding
+class KakaoLoginActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityKakakoMainBinding
     private lateinit var kakaoOauthViewModel: KakaoOauthViewModel
 
     @SuppressLint("MissingInflatedId")
@@ -34,12 +35,11 @@ class MainActivity_kakao : AppCompatActivity() {
         binding = ActivityKakakoMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         // ViewModelProvider를 통해 ViewModel 인스턴스 생성
         kakaoOauthViewModel = ViewModelProvider(
             this,
             KakaoOauthViewModelFactory(application)
-        ).get(KakaoOauthViewModel::class.java)
+        )[KakaoOauthViewModel::class.java]
 
         val btnKakaoLogin = findViewById<ImageButton>(R.id.btnlogin)
         val btnKakaoLogout = findViewById<Button>(R.id.btn_kakao_logout)
@@ -49,14 +49,21 @@ class MainActivity_kakao : AppCompatActivity() {
 
         btnKakaoLogin.setOnClickListener {
             kakaoOauthViewModel.kakaoLogin()
-            getInfo()
+            requestKaKaoUserInfo(
+                onResult = {
+                    val user = User()
 
-            var user = User()
+                    user.userEmail = usersingleton.userEmail
+                    user.userNick = usersingleton.userNick
 
-            user.userEmail = usersingleton.userEmail
-            user.userNick = usersingleton.userNick
-
-            Login(user)
+                    login(
+                        user,
+                        onResult = {
+                            Log.d("LOGIN", "SUCCESS")
+                        }
+                    )
+                }
+            )
         }
         btnKakaoLogout.setOnClickListener {
             kakaoOauthViewModel.kakaoLogout()
@@ -72,33 +79,36 @@ class MainActivity_kakao : AppCompatActivity() {
         }
     }
 
-    fun getInfo() {
-
+    private fun requestKaKaoUserInfo(onResult: () -> Unit) {
         UserApiClient.instance.me { user, error ->
+            //요 람다블럭(콜백)은 n초 뒤에 실행된다.
             if (error != null) {
                 Log.e(TAG, "사용자 정보 요청 실패", error)
 
             } else if (user != null) {
-                usersingleton.userEmail = user.id.toString()!!
+                usersingleton.userEmail = user.id.toString()
                 usersingleton.userNick = user.kakaoAccount?.profile?.nickname!!
+                onResult.invoke()
             }
         }
     }
 
-    fun Login(user: User) {
+    private fun login(user: User, onResult: () -> Unit) {
         val call = RetrofitBuilder2.api.getLoginResponse(user) // API의 통로 가져오고
         call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
             override fun onResponse( // 통신에 성공한 경우
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if (response.isSuccessful()) { // 응답 잘 받은 경우
+                if (response.isSuccessful) { // 응답 잘 받은 경우
                     Log.d("RESPONSE: ", response.body().toString())
+                    onResult.invoke()
                 } else {
                     // 통신 성공 but 응답 실패
                     Log.d("RESPONSE", "FAILURE")
                 }
             }
+
             override fun onFailure(call: Call<String>, t: Throwable) {
                 // 통신에 실패한 경우
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
