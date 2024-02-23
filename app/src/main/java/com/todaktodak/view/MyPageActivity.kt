@@ -37,7 +37,7 @@ class MyPageActivity : AppCompatActivity() {
 
         binding.requestBtn.setOnClickListener {
             val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clipData = ClipData.newPlainText("label", "mail address")
+            val clipData = ClipData.newPlainText("label", "mccgit2024@gmail.com")
             clipboardManager.setPrimaryClip(clipData)
             Toast.makeText(this, "복사된 이메일 주소로 문의사항을 보내주세요.", Toast.LENGTH_SHORT).show()
         }
@@ -49,7 +49,7 @@ class MyPageActivity : AppCompatActivity() {
             editor.clear()
             editor.apply()
 
-            var intent = Intent(this, DiaryListActivity::class.java)
+            var intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
         }
 
@@ -61,12 +61,19 @@ class MyPageActivity : AppCompatActivity() {
 
     private fun withdrawConfirmationDialog(email: String) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("확인") // 다이얼로그 제목
-        builder.setMessage("탈퇴시 작성하신 모든 일기 기록이 삭제됩니다. 정말 탈퇴하시겠습니까?") // 다이얼로그 메시지
-
+        builder.setTitle("확인")
+        builder.setMessage("탈퇴시 작성하신 모든 일기 기록이 삭제됩니다. 정말 탈퇴하시겠습니까?")
 
         builder.setPositiveButton("탈퇴") { dialog, which ->
             withdraw(email)
+            val sharedPreferences = getSharedPreferences("loginInfo", MODE_PRIVATE)
+
+            val editor = sharedPreferences.edit()
+            editor.clear()
+            editor.apply()
+
+            var intent = Intent(this, StartActivity::class.java)
+            startActivity(intent)
         }
 
         builder.setNegativeButton("취소") { dialog, which ->
@@ -79,7 +86,7 @@ class MyPageActivity : AppCompatActivity() {
 
     private fun changeNickDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("변경할 닉네임을 입력해주세요") // 다이얼로그 제목
+        builder.setTitle("변경할 닉네임을 입력해주세요")
 
         val input = EditText(this)
         builder.setView(input)
@@ -94,7 +101,6 @@ class MyPageActivity : AppCompatActivity() {
 
         }
 
-        // 다이얼로그 생성 및 표시
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
