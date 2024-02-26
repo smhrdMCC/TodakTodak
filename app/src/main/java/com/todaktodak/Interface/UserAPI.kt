@@ -5,6 +5,7 @@ import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emailnick
 import com.todaktodak.model.emotionContentVO
 import com.todaktodak.model.emotiondate
+import com.todaktodak.model.replyDiary
 import com.todaktodak.model.seqcont
 import retrofit2.Call
 import retrofit2.http.Body
@@ -41,4 +42,10 @@ public interface API {
 
     @POST("withdraw")
     fun withdraw(@Body userEmail: String): Call<String>
+
+    @POST("getReplyDiaryList")
+    fun getReplyDiaryList(@Body userEmail: String): Call<ArrayList<replyDiary>>
+
+    @POST("getRandomDiaryList")
+    fun getRandomDiaryList(@Body userEmail: String): Call<ArrayList<replyDiary>>
 }

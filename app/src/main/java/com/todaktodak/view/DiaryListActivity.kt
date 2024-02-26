@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +12,7 @@ import com.todaktodak.databinding.ActivityDiaryListBinding
 import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emotionContentVO
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,19 +32,19 @@ class DiaryListActivity : AppCompatActivity() {
         selectedDate = LocalDate.now()
 
         // 화면 설정
-        loadDiaryList(selectedDate)
+        loadMonthlyDiaryList(selectedDate)
 
         // 이전달 버튼 이벤트
         binding.listPreBtn.setOnClickListener{
             // 현재 월 -1 변수에 담기
             selectedDate = selectedDate.minusMonths(1)
-            loadDiaryList(selectedDate)
+            loadMonthlyDiaryList(selectedDate)
         }
 
         // 다음달 버튼 이벤트
         binding.listNextBtn.setOnClickListener{
             selectedDate = selectedDate.plusMonths(1)
-            loadDiaryList(selectedDate)
+            loadMonthlyDiaryList(selectedDate)
         }
 
         // 하단 버튼
@@ -69,8 +68,8 @@ class DiaryListActivity : AppCompatActivity() {
 
 
     // 감정 HTTP 요청과 응답
-    private fun loadDiaryList(selectedDate: LocalDate) {
-        val call = RetrofitBuilder2.api.getDiaryList(datemailVO(searchingFromMonth(selectedDate), "user_email 0001"))
+    private fun loadMonthlyDiaryList(selectedDate: LocalDate) {
+        val call = RetrofitBuilder2.api.getDiaryList(datemailVO(searchingFromMonth(selectedDate), usersingleton.userEmail))
         call.enqueue(object : Callback<ArrayList<emotionContentVO>> {
 
             // 통신에 성공한 경우
@@ -174,9 +173,11 @@ class DiaryListActivity : AppCompatActivity() {
     fun onItemClick(dayText: String){
         // 선택한 날짜를 yyyy-MM-DD 형태로 변경
         var searching = searchingFromDate(selectedDate, dayText)
-
+        Log.d("날짜 확인", searching)
         // 클릭한 날짜의 토스트 메세지 띄우기
-        Toast.makeText(this, searching, Toast.LENGTH_SHORT).show()
+        var intent = Intent(this, GetDiaryActivity::class.java)
+        intent.putExtra("date1", searching)
+        startActivity(intent)
     }
 
 }
