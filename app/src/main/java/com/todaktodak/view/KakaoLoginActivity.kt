@@ -42,8 +42,7 @@ class KakaoLoginActivity : AppCompatActivity() {
         )[KakaoOauthViewModel::class.java]
 
         val btnKakaoLogin = findViewById<ImageButton>(R.id.btnlogin)
-        val btnKakaoLogout = findViewById<Button>(R.id.btn_kakao_logout)
-        val tvLoginStatus = findViewById<TextView>(R.id.tv_login_status)
+
 
 
         btnKakaoLogin.setOnClickListener {
@@ -60,8 +59,7 @@ class KakaoLoginActivity : AppCompatActivity() {
                         user,
                         onResult = {
                             Log.d("LOGIN", "SUCCESS")
-                            val intent = Intent(this, CalendarActivity::class.java)
-                            startActivity(intent)
+
                         }
                     )
 
@@ -69,18 +67,15 @@ class KakaoLoginActivity : AppCompatActivity() {
 
             )
         }
-        btnKakaoLogout.setOnClickListener {
-            kakaoOauthViewModel.kakaoLogout()
-        }
 
         kakaoOauthViewModel.isLoggedIn.asLiveData().observe(this) { isLoggedIn ->
             val loginStatusInfoTitle = if (isLoggedIn) "로그인 상태" else "로그아웃 상태"
-            tvLoginStatus.text = loginStatusInfoTitle
+            if (loginStatusInfoTitle == "로그인 상태" ){
+                val intent = Intent(this, CalendarActivity::class.java)
+                startActivity(intent)
+            }
         }
-        binding.btnnext.setOnClickListener {
-            val intent = Intent(this, CalendarActivity::class.java)
-            startActivity(intent)
-        }
+
     }
 
     private fun requestKaKaoUserInfo(onResult: () -> Unit) {
