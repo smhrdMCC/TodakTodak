@@ -48,4 +48,9 @@ public interface API {
 
     @POST("getRandomDiaryList")
     fun getRandomDiaryList(@Body userEmail: String): Call<ArrayList<replyDiary>>
+
+    @POST("sendBert")
+    fun sendBert(@Body diaryCon: String): Call<String>
+    @POST("getBert")
+    fun getBert(@Body diaryCon: String): Call<String>
 }
