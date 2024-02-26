@@ -37,7 +37,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/replyDiaryList"
+            android:id="@+id/randomDiaryList"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

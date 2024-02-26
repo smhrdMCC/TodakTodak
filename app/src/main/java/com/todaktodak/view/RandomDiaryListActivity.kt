@@ -4,12 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.todaktodak.R
-import com.todaktodak.databinding.ActivityReplyDiaryListBinding
+import com.todaktodak.databinding.ActivityRandomDiaryListBinding
 
-class ReplyDiaryListActivity : AppCompatActivity() {
-    lateinit var binding: ActivityReplyDiaryListBinding
+class RandomDiaryListActivity : AppCompatActivity() {
+    lateinit var binding: ActivityRandomDiaryListBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityReplyDiaryListBinding.inflate(layoutInflater)
+        binding = ActivityRandomDiaryListBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
@@ -22,8 +22,6 @@ class ReplyDiaryListActivity : AppCompatActivity() {
             var intent = Intent(this, RandomDiaryListActivity::class.java)
             startActivity(intent)
         }
-
-
 
 
 
