@@ -1,24 +1,24 @@
 package com.todaktodak.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mccproject.Model.Diary
 import com.todaktodak.databinding.ActivityWriteDiaryBinding
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class WriteDiaryActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityD
-    var user_email: String = "test4"
-    var diary_content: String = ""
+    lateinit var binding: ActivityWriteDiaryBinding
+    var user_email: String = usersingleton.userEmail
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,26 +26,40 @@ class WriteDiaryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // plainText에 일기 쓰기
-        // 일기작성 버튼 클릭했을 때 결과가지고 작성된 일기 화면으로 화면 전환이벤트
         binding.sendBtn.setOnClickListener {
-            diary_content = binding.writeDiary.text.toString()
+            var diary_content = binding.writeDiary.text.toString()
             
             var writtenDiary = Diary()
             writtenDiary.diaryContent = diary_content
             writtenDiary.userEmail = user_email
+            var date1 = intent.getStringExtra("date1")
+            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
 
-            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString())
-
-            var intent = Intent(this, WriteDiaryActivity::class.java)
+            var intent = Intent(this, GetDiaryActivity::class.java)
             intent.putExtra("diaryContent", diary_content)
             intent.putExtra("userEmail", user_email) // 위에 변수 선언 부분 참고하기
-            mainLauncher.launch(intent)
-        }
-    }
 
-    val mainLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-        if (result.resultCode == RESULT_OK) {
-            Toast.makeText(applicationContext, "성공!", Toast.LENGTH_SHORT).show()
+            intent.putExtra("date1", date1)
+            startActivity(intent)
+        }
+
+
+        // 하단 버튼
+        binding.goCalBtn.setOnClickListener {
+            var intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goListBtn.setOnClickListener {
+            var intent = Intent(this, DiaryListActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goSocial.setOnClickListener {
+            var intent = Intent(this, ReplyDiaryListActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goMypage.setOnClickListener {
+            var intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -64,37 +78,10 @@ class WriteDiaryActivity : AppCompatActivity() {
                     Log.d("RESPONSE", "저장 실패!!")
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 // 통신에 실패한 경우
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

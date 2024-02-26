@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".view.MyPage"
+            android:name=".view.ReplyDiaryListActivity"
             android:exported="false" />
         <activity
             android:name=".view.DiaryListActivity"
@@ -33,22 +33,30 @@
             android:name=".adapter.CalendarAdapter"
             android:exported="false" />
         <activity
-            android:name=".view.WriteDiaryActivity"
+            android:name=".view.GetDiaryActivity"
             android:exported="false" />
         <activity
             android:name=".view.FeedbackActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DiaryActivity"
+            android:name=".view.WriteDiaryActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity_kakao"
+            android:name=".view.KakaoLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MyPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
         <activity

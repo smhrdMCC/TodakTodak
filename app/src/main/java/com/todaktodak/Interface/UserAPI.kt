@@ -2,14 +2,16 @@ package com.todaktodak.Interface
 
 import com.todaktodak.model.User
 import com.todaktodak.model.datemailVO
+import com.todaktodak.model.emailnick
 import com.todaktodak.model.emotionContentVO
 import com.todaktodak.model.emotiondate
+import com.todaktodak.model.seqcont
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 public interface API {
-    // kakao login
+    // login
     @POST("join")
     fun getLoginResponse(@Body user: User): Call<String>
 
@@ -31,9 +33,12 @@ public interface API {
     @POST("dairyList")
     fun getDiaryList(@Body info: datemailVO): Call<ArrayList<emotionContentVO>>
 
-//    @POST("getmsg")
-//    fun getMsgResponse(@Body text: Diary): Call<String>
+    @POST("changeNick")
+    fun changeNick(@Body info: emailnick): Call<String>
 
+    @POST("getmsg")
+    fun getMsgResponse(@Body info: datemailVO): Call<List<seqcont>>
 
-
+    @POST("withdraw")
+    fun withdraw(@Body userEmail: String): Call<String>
 }

@@ -14,8 +14,8 @@ import com.todaktodak.adapter.CalendarAdapter
 import com.todaktodak.databinding.ActivityCalendarBinding
 import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emotiondate
-import com.todaktodak.model.feedbackVO
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,20 +50,24 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
             loadEmotion(selectedDate)
         }
 
+        // 하단 버튼
+        binding.goCalBtn.setOnClickListener {
+            var intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
         binding.goListBtn.setOnClickListener {
             var intent = Intent(this, DiaryListActivity::class.java)
-
-            mainLauncher.launch(intent)
+            startActivity(intent)
+        }
+        binding.goSocial.setOnClickListener {
+            var intent = Intent(this, ReplyDiaryListActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goMypage.setOnClickListener {
+            var intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
         }
     }
-
-    val mainLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result: ActivityResult ->
-        if (result.resultCode == RESULT_OK) {
-            Toast.makeText(applicationContext, "성공", Toast.LENGTH_SHORT).show()
-        }
-    }
-
 
     // 날짜와 감정이모티콘 화면에 보여주기
     private fun setMonthView(body: ArrayList<emotiondate>?) {
@@ -149,7 +153,7 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
 
     // 감정 HTTP 요청과 응답
     private fun loadEmotion(selectedDate: LocalDate) {
-        val call = RetrofitBuilder2.api.getEmotion(datemailVO(searchingFromMonth(selectedDate).toString(), "user_email 0001"))
+        val call = RetrofitBuilder2.api.getEmotion(datemailVO(searchingFromMonth(selectedDate).toString(), usersingleton.userEmail))
         call.enqueue(object : Callback<ArrayList<emotiondate>> {
 
             // 통신에 성공한 경우
@@ -173,11 +177,20 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
     }
 
     // 아이템 클릭 이벤트
-    override fun onItemClick(dayText: String){
+    override fun onItemClick(dayText: String, check : Boolean){
         // 선택한 날짜를 yyyy-MM-DD 형태로 변경
         var searching = searchingFromDate(selectedDate, dayText)
-
+        Log.d("날짜 확인", searching)
         // 클릭한 날짜의 토스트 메세지 띄우기
-        Toast.makeText(this, searching, Toast.LENGTH_SHORT).show()
+        if (!check) {
+            var intent = Intent(this, WriteDiaryActivity::class.java)
+            intent.putExtra("date1", searching)
+            startActivity(intent)
+        }else if(check){
+            var intent = Intent(this, GetDiaryActivity::class.java)
+            intent.putExtra("date1", searching)
+            startActivity(intent)
+        }
+
     }
 }

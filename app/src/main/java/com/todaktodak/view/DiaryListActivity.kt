@@ -1,15 +1,14 @@
 package com.todaktodak.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.todaktodak.R
 import com.todaktodak.adapter.DiaryListAdapter
 import com.todaktodak.databinding.ActivityDiaryListBinding
 import com.todaktodak.model.datemailVO
@@ -49,19 +48,25 @@ class DiaryListActivity : AppCompatActivity() {
             loadDiaryList(selectedDate)
         }
 
+        // 하단 버튼
         binding.goCalBtn.setOnClickListener {
             var intent = Intent(this, CalendarActivity::class.java)
-
-            mainLauncher.launch(intent)
+            startActivity(intent)
+        }
+        binding.goListBtn.setOnClickListener {
+            var intent = Intent(this, DiaryListActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goSocial.setOnClickListener {
+            var intent = Intent(this, ReplyDiaryListActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goMypage.setOnClickListener {
+            var intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
         }
     }
 
-    val mainLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result: ActivityResult ->
-        if (result.resultCode == RESULT_OK) {
-            Toast.makeText(applicationContext, "성공", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     // 감정 HTTP 요청과 응답
     private fun loadDiaryList(selectedDate: LocalDate) {

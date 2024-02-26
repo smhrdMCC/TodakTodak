@@ -1,11 +1,12 @@
-package com.todaktodak
+package com.todaktodak.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.todaktodak.R
 
-class MainActivity : AppCompatActivity() {
+class ReplyDiaryListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_reply_diary_list)
     }
 }
