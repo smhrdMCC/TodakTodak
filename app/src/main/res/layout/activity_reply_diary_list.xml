@@ -66,6 +66,16 @@
             android:text="목록" />
 
         <Button
+            android:id="@+id/goChart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:text="차트"
+            android:textColor="#DC8E8E" />
+
+        <Button
             android:id="@+id/goSocial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
