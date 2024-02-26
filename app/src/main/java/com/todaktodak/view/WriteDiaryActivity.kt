@@ -12,6 +12,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mccproject.Model.Diary
+import com.github.mikephil.charting.animation.Easing
 import com.google.android.material.animation.MatrixEvaluator
 import com.todaktodak.databinding.ActivityWriteDiaryBinding
 import com.todaktodak.retrofit.RetrofitBuilder
@@ -32,7 +33,10 @@ class WriteDiaryActivity : AppCompatActivity() {
         binding = ActivityWriteDiaryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.sendBtn.animation
+//        binding.sendBtn.onTouchEvent(
+//            animateY(1400, Easing.EaseInOutQuad)
+//                    animate()
+//        )
 
         // plainText에 일기 쓰기
         binding.sendBtn.setOnClickListener {
