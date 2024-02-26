@@ -57,6 +57,7 @@ class MyPageActivity : AppCompatActivity() {
             withdrawConfirmationDialog("email")
         }
 
+        // 하단 버튼
         binding.goCalBtn.setOnClickListener {
             var intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
@@ -66,7 +67,8 @@ class MyPageActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.goSocial.setOnClickListener {
-
+            var intent = Intent(this, ReplyDiaryListActivity::class.java)
+            startActivity(intent)
         }
         binding.goMypage.setOnClickListener {
             var intent = Intent(this, MyPageActivity::class.java)
