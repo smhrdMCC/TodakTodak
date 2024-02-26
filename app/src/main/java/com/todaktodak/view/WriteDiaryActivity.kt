@@ -43,7 +43,6 @@ class WriteDiaryActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
     }
 
     fun saveDiary(diary: String) {
