@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp">
 
+
             <TextView
                 android:id="@+id/getUserNick"
                 android:layout_width="wrap_content"
@@ -31,10 +32,11 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:hint="유저 닉네임"
-                android:fontFamily="@font/sehwace"
-                android:textSize="32sp"
+                android:text="TextView"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button

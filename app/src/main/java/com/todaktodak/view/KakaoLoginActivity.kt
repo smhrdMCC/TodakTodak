@@ -20,7 +20,6 @@ import com.todaktodak.kakao.KakaoOauthViewModelFactory
 import com.todaktodak.model.User
 import com.todaktodak.retrofit.RetrofitBuilder2
 import com.todaktodak.retrofit.usersingleton
-import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,6 +55,7 @@ class KakaoLoginActivity : AppCompatActivity() {
 
                     user.userEmail = usersingleton.userEmail
                     user.userNick = usersingleton.userNick
+                    Log.d("RESPONSE",user.userNick.toString())
 
                     login(
                         user,
@@ -70,7 +70,9 @@ class KakaoLoginActivity : AppCompatActivity() {
 
 
                     }
+
                 }
+
             )
         }
         btnKakaoLogout.setOnClickListener {
@@ -79,12 +81,12 @@ class KakaoLoginActivity : AppCompatActivity() {
 
         kakaoOauthViewModel.isLoggedIn.asLiveData().observe(this) { isLoggedIn ->
             val loginStatusInfoTitle = if (isLoggedIn) "로그인 상태" else "로그아웃 상태"
-            tvLoginStatus.text = loginStatusInfoTitle
+            if (loginStatusInfoTitle == "로그인 상태" ){
+                val intent = Intent(this, CalendarActivity::class.java)
+                startActivity(intent)
+            }
         }
-        binding.btnnext.setOnClickListener {
-            val intent = Intent(this, CalendarActivity::class.java)
-            startActivity(intent)
-        }
+
     }
 
     private fun requestKaKaoUserInfo(onResult: () -> Unit) {
@@ -97,6 +99,8 @@ class KakaoLoginActivity : AppCompatActivity() {
                 usersingleton.userEmail = user.id.toString()
                 usersingleton.userNick = user.kakaoAccount?.profile?.nickname!!
                 onResult.invoke()
+                Log.d(TAG,"유저갑 성공")
+
             }
         }
     }
