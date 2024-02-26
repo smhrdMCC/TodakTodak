@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="pastel_rainbow1">#FFDDDD</color>
+    <color name="pastel_rainbow2">#FFF6DD</color>
+    <color name="pastel_rainbow3">#FFFFDD</color>
+    <color name="pastel_rainbow4">#EEFFDD</color>
+    <color name="pastel_rainbow5">#DDFFFF</color>
+    <color name="pastel_rainbow6">#DDDDFF</color>
+    <color name="pastel_rainbow7">#FFDDEE</color>
+
 </resources>

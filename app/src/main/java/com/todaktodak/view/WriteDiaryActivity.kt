@@ -9,14 +9,14 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.mccproject.Model.Diary
 import com.todaktodak.databinding.ActivityWriteDiaryBinding
-import com.todaktodak.retrofit.RetrofitBuilder
+import com.todaktodak.retrofit.RetrofitBuilder2
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class WriteDiaryActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityWriteDiaryBinding
+    lateinit var binding: ActivityD
     var user_email: String = "test4"
     var diary_content: String = ""
 
@@ -36,7 +36,7 @@ class WriteDiaryActivity : AppCompatActivity() {
 
             saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString())
 
-            var intent = Intent(this, DiaryActivity::class.java)
+            var intent = Intent(this, WriteDiaryActivity::class.java)
             intent.putExtra("diaryContent", diary_content)
             intent.putExtra("userEmail", user_email) // 위에 변수 선언 부분 참고하기
             mainLauncher.launch(intent)
@@ -50,7 +50,7 @@ class WriteDiaryActivity : AppCompatActivity() {
     }
 
     fun saveDiary(diary: String) {
-        val call = RetrofitBuilder.api.doGetDiary(diary)
+        val call = RetrofitBuilder2.api.doGetDiary(diary)
         call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
             override fun onResponse( // 통신에 성공한 경우
                 call: Call<String>,
