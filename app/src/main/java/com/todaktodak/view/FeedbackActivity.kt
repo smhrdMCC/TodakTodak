@@ -4,15 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.lifecycleScope
-import com.todaktodak.R
 import com.todaktodak.databinding.ActivityFeedbackBinding
 import com.todaktodak.model.Feedback
 import com.todaktodak.retrofit.RetrofitBuilder
 import com.todaktodak.retrofit.RetrofitBuilder2
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,21 +19,24 @@ class FeedbackActivity : AppCompatActivity() {
         binding = ActivityFeedbackBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var intent: Intent = getIntent()
+        val intent: Intent = intent
 
-        var diaryText = intent.getStringExtra("diaryText")
-        var diaryId = intent.getStringExtra("diaryId")
-
+        val diaryText = intent.getStringExtra("diaryText")
+        val diaryId = intent.getStringExtra("diaryId")
         val feedback = Feedback()
         feedback.prompt = diaryText
-        lifecycleScope.launch { Dispatchers.IO
-            Feed(feedback.prompt.toString())
-            delay(7000)
-            feedback.aiRecommendation = binding.textView.text.toString()
-            backFeed(feedback.aiRecommendation.toString() + ":" + diaryId.toString())
-        }
+
+        requestChatGptFeedBack(
+            prompt = feedback.prompt.toString(),
+            onResult = {
+                feedback.aiRecommendation = binding.textView.text.toString()
+                saveChatGptFeedBack(feedback.aiRecommendation.toString() + ":" + diaryId.toString())
+            }
+        )
     }
-    suspend fun Feed(prompt: String){
+
+
+    private fun requestChatGptFeedBack(prompt: String, onResult: () -> Unit) {
         val call = RetrofitBuilder.api.updateFeedResponse(prompt)
 
         call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
@@ -46,11 +44,11 @@ class FeedbackActivity : AppCompatActivity() {
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if(response.isSuccessful()){ // 응답 잘 받은 경우
-                    Log.d("RESPONSE: ", "성공!"+response.body().toString())
-                    binding.textView.text=response.body().toString()
-
-                }else{
+                if (response.isSuccessful) { // 응답 잘 받은 경우
+                    Log.d("RESPONSE: ", "성공!" + response.body().toString())
+                    binding.textView.text = response.body().toString() //chatGpt prompt
+                    onResult.invoke()
+                } else {
                     // 통신 성공 but 응답 실패
                     Log.d("RESPONSE", "FAILURE")
                 }
@@ -62,7 +60,8 @@ class FeedbackActivity : AppCompatActivity() {
             }
         })
     }
-    suspend fun backFeed(feedback: String){
+
+    private fun saveChatGptFeedBack(feedback: String) {
         val call = RetrofitBuilder2.api.getFeedResponse(feedback)
 
         call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
@@ -70,10 +69,10 @@ class FeedbackActivity : AppCompatActivity() {
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if(response.isSuccessful()){ // 응답 잘 받은 경우
-                    Log.d("RESPONSE: ", "피드백 인서트 성공!"+response.body().toString())
+                if (response.isSuccessful()) { // 응답 잘 받은 경우
+                    Log.d("RESPONSE: ", "피드백 인서트 성공!" + response.body().toString())
 
-                }else{
+                } else {
                     // 통신 성공 but 응답 실패
                     Log.d("RESPONSE", "피드백 인서트 FAILURE")
                 }
