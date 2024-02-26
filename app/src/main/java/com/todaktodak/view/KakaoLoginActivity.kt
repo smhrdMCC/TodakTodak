@@ -42,10 +42,10 @@ class KakaoLoginActivity : AppCompatActivity() {
         )[KakaoOauthViewModel::class.java]
 
         val btnKakaoLogin = findViewById<ImageButton>(R.id.btnlogin)
-        val btnKakaoLogout = findViewById<Button>(R.id.btn_kakao_logout)
-        val tvLoginStatus = findViewById<TextView>(R.id.tv_login_status)
+//        val btnKakaoLogout = findViewById<Button>(R.id.btn_kakao_logout)
+//        val tvLoginStatus = findViewById<TextView>(R.id.tv_login_status)
 
-        Log.d("NAME", findViewById<TextView>(R.id.nickname).text.toString())
+//        Log.d("NAME", findViewById<TextView>(R.id.nickname).text.toString())
 
         btnKakaoLogin.setOnClickListener {
             kakaoOauthViewModel.kakaoLogin()
@@ -55,7 +55,7 @@ class KakaoLoginActivity : AppCompatActivity() {
 
                     user.userEmail = usersingleton.userEmail
                     user.userNick = usersingleton.userNick
-                    Log.d("RESPONSE",user.userNick.toString())
+                    Log.d("RESPONSE", user.userNick.toString())
 
                     login(
                         user,
@@ -64,24 +64,16 @@ class KakaoLoginActivity : AppCompatActivity() {
 
                         }
                     )
-                    if (user.userNick != null) {
-                        val intent = Intent(this, CalendarActivity::class.java)
-                        startActivity(intent)
-
-
-                    }
-
                 }
-
             )
         }
-        btnKakaoLogout.setOnClickListener {
-            kakaoOauthViewModel.kakaoLogout()
-        }
+//        btnKakaoLogout.setOnClickListener {
+//            kakaoOauthViewModel.kakaoLogout()
+//        }
 
         kakaoOauthViewModel.isLoggedIn.asLiveData().observe(this) { isLoggedIn ->
             val loginStatusInfoTitle = if (isLoggedIn) "로그인 상태" else "로그아웃 상태"
-            if (loginStatusInfoTitle == "로그인 상태" ){
+            if (loginStatusInfoTitle == "로그인 상태") {
                 val intent = Intent(this, CalendarActivity::class.java)
                 startActivity(intent)
             }
@@ -99,7 +91,7 @@ class KakaoLoginActivity : AppCompatActivity() {
                 usersingleton.userEmail = user.id.toString()
                 usersingleton.userNick = user.kakaoAccount?.profile?.nickname!!
                 onResult.invoke()
-                Log.d(TAG,"유저갑 성공")
+                Log.d(TAG, "유저갑 성공")
 
             }
         }
