@@ -29,7 +29,7 @@ class MyPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.getUserNick.setText(usersingleton.userNick)
+        binding.getUserNick.setText('"'+ usersingleton.userNick + '"'+" 님의 토닥토닥 일기")
 
 
 

@@ -20,6 +20,7 @@ import com.todaktodak.kakao.KakaoOauthViewModelFactory
 import com.todaktodak.model.User
 import com.todaktodak.retrofit.RetrofitBuilder2
 import com.todaktodak.retrofit.usersingleton
+import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,8 +61,15 @@ class KakaoLoginActivity : AppCompatActivity() {
                         user,
                         onResult = {
                             Log.d("LOGIN", "SUCCESS")
+
                         }
                     )
+                    if (user.userNick != null) {
+                        val intent = Intent(this, CalendarActivity::class.java)
+                        startActivity(intent)
+
+
+                    }
                 }
             )
         }
