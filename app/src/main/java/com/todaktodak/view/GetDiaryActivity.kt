@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -27,6 +28,7 @@ import java.util.Locale
 class GetDiaryActivity : AppCompatActivity(){
 
     lateinit var binding: ActivityDiaryBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDiaryBinding.inflate(layoutInflater)
@@ -35,17 +37,23 @@ class GetDiaryActivity : AppCompatActivity(){
         val getmsg = FindDiary()
         getmsg.userEmail = usersingleton.userEmail
 
+        binding.backWriteDiary.setOnClickListener{
+            val backWriteDiaryButton = Intent(this, WriteDiaryActivity::class.java)
+            startActivity(backWriteDiaryButton)
+            finish()
+        }
+
         var info = datemailVO(date.toString(), usersingleton.userEmail)
 
         getSendMessage(info)
         binding.feedBtn.setOnClickListener {
-            var intent = Intent(this, FeedbackActivity::class.java)
+            var goFeedbackButton = Intent(this, FeedbackActivity::class.java)
             var diaryText = binding.showDiary.text.toString()
             var diaryId = binding.getDId.text.toString()
 
-            intent.putExtra("diaryText", diaryText)
-            intent.putExtra("diaryId", diaryId)
-            startActivity(intent)
+            goFeedbackButton.putExtra("diaryText", diaryText)
+            goFeedbackButton.putExtra("diaryId", diaryId)
+            startActivity(goFeedbackButton)
             finish()
         }
     }

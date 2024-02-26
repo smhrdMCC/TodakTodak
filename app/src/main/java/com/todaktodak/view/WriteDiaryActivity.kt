@@ -1,13 +1,18 @@
 package com.todaktodak.view
 
 import android.content.Intent
+import android.graphics.Matrix
+import android.graphics.PointF
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mccproject.Model.Diary
+import com.google.android.material.animation.MatrixEvaluator
 import com.todaktodak.databinding.ActivityWriteDiaryBinding
 import com.todaktodak.retrofit.RetrofitBuilder
 import com.todaktodak.retrofit.RetrofitBuilder2
@@ -26,6 +31,8 @@ class WriteDiaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWriteDiaryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.sendBtn.animation
 
         // plainText에 일기 쓰기
         binding.sendBtn.setOnClickListener {
@@ -93,3 +100,5 @@ class WriteDiaryActivity : AppCompatActivity() {
     }
 
 }
+
+
