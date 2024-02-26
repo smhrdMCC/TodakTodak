@@ -41,6 +41,8 @@ class GetDiaryActivity : AppCompatActivity() {
             finish()
         }
 
+
+
     }
 
     fun getSendMessage(info: datemailVO){
