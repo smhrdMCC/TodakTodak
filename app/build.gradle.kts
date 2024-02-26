@@ -39,6 +39,12 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation ("androidx.activity:activity-ktx:1.7.2")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+
+    implementation ("com.kakao.sdk:v2-all:2.15.0") // 전체 모듈 설치, 2.11.0 버전부터 지원
+    implementation ("com.kakao.sdk:v2-user:2.15.0") // 카카오 로그인
 
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -51,4 +57,10 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    // 레트로핏
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    // Gson 컨버터
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    // 레트로핏 로깅 인터셉터
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 }

@@ -6,7 +6,8 @@ import com.todaktodak.Interface.API
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-// 플라스트 서버
+
+// 플라스크 서버
 object RetrofitBuilder {
     var api: API
     init{

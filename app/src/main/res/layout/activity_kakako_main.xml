@@ -8,7 +8,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".view.MainActivity_kakao">
+    tools:context=".view.KakaoLoginActivity">
 
     <TextView
         android:id="@+id/tv_login_status"
@@ -21,12 +21,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonInfo"
+        android:id="@+id/btnnext"
         android:layout_width="205dp"
         android:layout_height="wrap_content"
 
         android:layout_marginStart="6dp"
-        android:text="Button"
+        android:text="달력으로 가기"
         app:layout_constraintBottom_toBottomOf="@+id/btn_kakao_logout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_kakao_logout" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WriteDiary">
+    tools:context=".view.WriteDiaryActivity">
 
     <!--    <EditText-->
     <!--&lt;!&ndash;        android:id="@+id/mydiary"&ndash;&gt;-->
@@ -61,4 +61,51 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="316dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/goCalBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="달력" />
+
+        <Button
+            android:id="@+id/goListBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="목록" />
+
+        <Button
+            android:id="@+id/goChart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:text="차트"
+            android:textColor="#DC8E8E" />
+
+        <Button
+            android:id="@+id/goSocial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="소셜일기" />
+
+        <Button
+            android:id="@+id/goMypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="마이페이지" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

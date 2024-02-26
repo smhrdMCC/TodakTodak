@@ -1,6 +1,6 @@
 package com.todaktodak.retrofit
 
 object usersingleton{
-    var userId: Long = 1
+    var userEmail: String = ""
     var userNick: String = ""
 }

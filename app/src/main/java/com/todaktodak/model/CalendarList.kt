@@ -10,9 +10,24 @@ data class feedbackVO(
     @SerializedName("created_at") var createdAt: String? = null
 )
 
+data class emotiondate(
+    var emotion: String? = null,
+    var createdAt: String? = null
+)
+
 data class datemailVO(
     var date: String,
     var email: String
+)
+
+data class seqcont(
+    var diarySeq: Long,
+    var content: String
+)
+
+data class emailnick(
+    var email: String,
+    var nick: String
 )
 
 data class emotionContentVO(

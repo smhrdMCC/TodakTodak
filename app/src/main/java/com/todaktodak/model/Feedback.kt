@@ -1,3 +1,9 @@
 package com.todaktodak.model
 
-data class Feedback()
+class Feedback {
+    var prompt: String? = null
+
+    var aiRecommendation: String? = null
+
+    var diarySeq: Long? = null
+}
