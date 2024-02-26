@@ -41,5 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="마이페이지" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
