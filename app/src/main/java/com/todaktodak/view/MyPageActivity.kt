@@ -14,16 +14,24 @@ import androidx.appcompat.app.AppCompatActivity
 import com.todaktodak.databinding.ActivityMyPageBinding
 import com.todaktodak.model.emailnick
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MyPageActivity : AppCompatActivity() {
     lateinit var binding: ActivityMyPageBinding
+
+    val getUserNick : String =""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMyPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.getUserNick.setText(usersingleton.userNick)
+
+
 
         binding.changeNickBtn.setOnClickListener {
             changeNickDialog()

@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/pastel_rainbow7"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_next" />
+                android:src="@drawable/ic_next" />
 
         </LinearLayout>
 
