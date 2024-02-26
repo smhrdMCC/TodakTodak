@@ -17,7 +17,7 @@ class StartActivity : AppCompatActivity() {
         var check = sharedPreferences.getString("userId", "none")
 
         if(check == "none"){
-            var goKakao = Intent(this, MainActivity_kakao::class.java)
+            var goKakao = Intent(this, KakaoLoginActivity::class.java)
             startActivity(goKakao)
         }else{
             usersingleton.userEmail = check!!
