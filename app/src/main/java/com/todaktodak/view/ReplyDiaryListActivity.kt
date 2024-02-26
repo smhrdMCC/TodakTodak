@@ -44,6 +44,10 @@ class ReplyDiaryListActivity : AppCompatActivity() {
             var intent = Intent(this, DiaryListActivity::class.java)
             startActivity(intent)
         }
+        binding.goChart.setOnClickListener {
+            var intent = Intent(this, ChartActivity::class.java)
+            startActivity(intent)
+        }
         binding.goSocial.setOnClickListener {
             var intent = Intent(this, ReplyDiaryListActivity::class.java)
             startActivity(intent)
