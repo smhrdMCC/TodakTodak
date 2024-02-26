@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DiaryList">
+    tools:context=".view.DiaryListActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -28,9 +28,10 @@
             <ImageButton
                 android:id="@+id/listPreBtn"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_pre" />
+                android:backgroundTint="@color/pastel_rainbow7"
+                android:src="@drawable/ic_pre" />
 
             <TextView
                 android:id="@+id/listMonthYearText"
@@ -38,14 +39,18 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:text="4월 2021"
+                android:fontFamily="@font/squareround"
+                android:gravity="center"
                 android:textAlignment="center"
-                android:textSize="25dp"
+                android:textColor="#F88158"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/listNextBtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/pastel_rainbow7"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_next" />
 
