@@ -41,28 +41,6 @@ class GetDiaryActivity : AppCompatActivity() {
             finish()
         }
 
-
-        // 하단 버튼
-        binding.goCalBtn.setOnClickListener {
-            var intent = Intent(this, CalendarActivity::class.java)
-            startActivity(intent)
-        }
-        binding.goListBtn.setOnClickListener {
-            var intent = Intent(this, DiaryListActivity::class.java)
-            startActivity(intent)
-        }
-        binding.goChart.setOnClickListener {
-            var intent = Intent(this, ChartActivity::class.java)
-            startActivity(intent)
-        }
-        binding.goSocial.setOnClickListener {
-            var intent = Intent(this, ReplyDiaryListActivity::class.java)
-            startActivity(intent)
-        }
-        binding.goMypage.setOnClickListener {
-            var intent = Intent(this, MyPageActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     fun getSendMessage(info: datemailVO){
