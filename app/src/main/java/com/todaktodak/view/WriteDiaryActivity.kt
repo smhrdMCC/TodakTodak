@@ -44,23 +44,6 @@ class WriteDiaryActivity : AppCompatActivity() {
         }
 
 
-        // 하단 버튼
-        binding.goCalBtn.setOnClickListener {
-            var intent = Intent(this, CalendarActivity::class.java)
-            startActivity(intent)
-        }
-        binding.goListBtn.setOnClickListener {
-            var intent = Intent(this, DiaryListActivity::class.java)
-            startActivity(intent)
-        }
-        binding.goSocial.setOnClickListener {
-            var intent = Intent(this, ReplyDiaryListActivity::class.java)
-            startActivity(intent)
-        }
-        binding.goMypage.setOnClickListener {
-            var intent = Intent(this, MyPageActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     fun saveDiary(diary: String) {
