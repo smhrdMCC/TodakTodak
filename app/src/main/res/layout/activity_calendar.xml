@@ -43,7 +43,7 @@
                 android:gravity="center"
                 android:text="4월 2021"
                 android:textAlignment="center"
-                android:textColor="#F88158"
+                android:textColor="@color/pastel_color1"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
