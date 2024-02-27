@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.todaktodak.adapter.DiaryRoomAdapter
 import com.todaktodak.databinding.ActivityDiaryRoomBinding
 import com.todaktodak.model.replyDiary
+import com.todaktodak.model.toFromContent
 import com.todaktodak.model.useruser
 import com.todaktodak.retrofit.RetrofitBuilder2
 import com.todaktodak.retrofit.usersingleton
@@ -29,6 +30,10 @@ class DiaryRoomActivity : AppCompatActivity() {
 
         getDiaryRoomList(mail!!)
 
+        binding.sendDiaryBtn.setOnClickListener {
+            val content = binding.replyDiaryInputBox.text.toString()
+            sendDiary(mail, content)
+        }
     }
 
     private fun getDiaryRoomList(mail: String) {
@@ -48,6 +53,28 @@ class DiaryRoomActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ArrayList<replyDiary>>, t: Throwable) {
+                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
+            }
+        })
+    }
+
+    private fun sendDiary(mail: String, content: String) {
+        val call = RetrofitBuilder2.api.sendDiary(toFromContent(mail, usersingleton.userEmail, content))
+        call.enqueue(object : Callback<String> {
+
+            override fun onResponse(
+                call: Call<String>,
+                response: Response<String>
+            ) {
+                if(response.isSuccessful()){
+                    Log.d("RESPONSE: ", response.body().toString())
+                    getDiaryRoomList(mail)
+                } else {
+                    Log.d("RESPONSE ERROR: ", "2")
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })

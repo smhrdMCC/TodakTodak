@@ -1,14 +1,14 @@
 package com.todaktodak.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.todaktodak.adapter.RandomDiaryListAdapter
 import com.todaktodak.databinding.ActivityRandomDiaryListBinding
-import com.todaktodak.model.replyDiary
+import com.todaktodak.model.randomDiary
 import com.todaktodak.retrofit.RetrofitBuilder2
 import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
@@ -59,11 +59,11 @@ class RandomDiaryListActivity : AppCompatActivity() {
 
     private fun getRandomDiaryList() {
         val call = RetrofitBuilder2.api.getRandomDiaryList(usersingleton.userEmail)
-        call.enqueue(object : Callback<ArrayList<replyDiary>> {
+        call.enqueue(object : Callback<ArrayList<randomDiary>> {
 
             override fun onResponse(
-                call: Call<ArrayList<replyDiary>>,
-                response: Response<ArrayList<replyDiary>>
+                call: Call<ArrayList<randomDiary>>,
+                response: Response<ArrayList<randomDiary>>
             ) {
                 if(response.isSuccessful()){
                     Log.d("RESPONSE: ", response.body().toString())
@@ -73,22 +73,24 @@ class RandomDiaryListActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ArrayList<replyDiary>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<randomDiary>>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
 
-    private fun setRandomDiaryListView(body: ArrayList<replyDiary>?) {
+    private fun setRandomDiaryListView(body: ArrayList<randomDiary>?) {
         val adapter = RandomDiaryListAdapter(body, this)
         var manager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 1)
         binding.randomDiaryList.layoutManager = manager
         binding.randomDiaryList.adapter = adapter
     }
 
-    fun onItemClick(email: String?) {
-        var intent = Intent(this, WriteDiaryActivity::class.java)
+    fun onItemClick(email: String?, nick: String?, content: String?) {
+        var intent = Intent(this, RandomDiaryRoomActivity::class.java)
         intent.putExtra("email", email)
+        intent.putExtra("nick", nick)
+        intent.putExtra("content", content)
         startActivity(intent)
     }
 }

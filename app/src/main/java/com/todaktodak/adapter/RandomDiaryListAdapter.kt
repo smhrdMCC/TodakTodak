@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.todaktodak.R
-import com.todaktodak.model.replyDiary
+import com.todaktodak.model.randomDiary
 import com.todaktodak.view.RandomDiaryListActivity
 
 class RandomDiaryListAdapter(
-    private val RandomDiaryList: ArrayList<replyDiary>?,
+    private val RandomDiaryList: ArrayList<randomDiary>?,
     private val onItemListener: RandomDiaryListActivity
 ) :
     RecyclerView.Adapter<RandomDiaryListAdapter.ItemViewHolder>() {
@@ -28,7 +28,7 @@ class RandomDiaryListAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
 
-        var email = RandomDiaryList?.get(holder.adapterPosition)?.email
+        var email = RandomDiaryList?.get(holder.adapterPosition)?.fromUser
         var nick = RandomDiaryList?.get(holder.adapterPosition)?.nick
         var content = RandomDiaryList?.get(holder.adapterPosition)?.content
 
@@ -40,7 +40,7 @@ class RandomDiaryListAdapter(
 
         // 클릭 이벤트
         holder.itemView.setOnClickListener{
-            onItemListener.onItemClick(email)
+            onItemListener.onItemClick(email, nick, content)
         }
     }
 

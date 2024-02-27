@@ -14,15 +14,20 @@
 
         <TextView
             android:id="@+id/diaryRoomDate"
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="yyyy-mm-dd" />
 
         <TextView
             android:id="@+id/diaryRoomContent"
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="일기 내용ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ" />
+
+        <TextView
+            android:id="@+id/blank"
+            android:layout_width="250dp"
+            android:layout_height="30dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

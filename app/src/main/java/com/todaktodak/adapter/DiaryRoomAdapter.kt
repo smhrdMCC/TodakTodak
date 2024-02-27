@@ -39,9 +39,9 @@ class DiaryRoomAdapter(
         val layoutParams = holder.itemView.layoutParams as ViewGroup.MarginLayoutParams
 
         if(Email == usersingleton.userEmail){
-            layoutParams.marginStart = 0
+
         }else{
-            layoutParams.marginEnd = 0
+
         }
 
     }
