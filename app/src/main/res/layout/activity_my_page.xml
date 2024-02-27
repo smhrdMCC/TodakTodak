@@ -24,45 +24,72 @@
             android:layout_width="match_parent"
             android:layout_height="64dp">
 
+
             <TextView
-                android:id="@+id/userNicknameText"
+                android:id="@+id/getUserNick"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="토닥토닥"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:hint="유저 닉네임"
+                android:text="TextView"
                 android:textSize="20sp"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="16dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/changeNickBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sehwace"
+            android:backgroundTint="@color/pastel_rainbow7"
+            android:textSize="28sp"
             android:text="닉네임 변경" />
 
         <Button
             android:id="@+id/PCBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sehwace"
+            android:backgroundTint="@color/pastel_rainbow7"
+            android:textSize="28sp"
             android:text="PC버전" />
 
         <Button
             android:id="@+id/requestBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sehwace"
+            android:backgroundTint="@color/pastel_rainbow7"
+            android:textSize="28sp"
             android:text="문의하기" />
 
         <Button
             android:id="@+id/logoutBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sehwace"
+            android:backgroundTint="@color/pastel_rainbow7"
+            android:textSize="28sp"
             android:text="로그아웃" />
 
         <Button
             android:id="@+id/withdrawBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="회원탈퇴" />
+            android:fontFamily="@font/sehwace"
+            android:backgroundTint="@color/pastel_rainbow7"
+            android:textSize="28sp"
+            android:text="회원 탈퇴" />
+
+        <ImageView
+            android:layout_width="300sp"
+            android:layout_height="300sp"
+            android:src="@drawable/gomlogo"
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 

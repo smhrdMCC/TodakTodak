@@ -40,6 +40,7 @@ class TtsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }//onCreate
 
     private var activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
+
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {

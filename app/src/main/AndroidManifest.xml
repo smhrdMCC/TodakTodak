@@ -17,6 +17,7 @@
         android:theme="@style/Theme.TodakTodak"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
             android:name=".adapter.DiaryRoomAdapter"
             android:exported="false" />
