@@ -27,20 +27,20 @@
 
             <ImageButton
                 android:id="@+id/listPreBtn"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/pastel_rainbow7"
                 android:src="@drawable/ic_pre" />
 
             <TextView
                 android:id="@+id/listMonthYearText"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="4월 2021"
                 android:fontFamily="@font/squareround"
                 android:gravity="center"
+                android:text="4월 2021"
                 android:textAlignment="center"
                 android:textColor="#F88158"
                 android:textSize="28sp"
@@ -48,8 +48,8 @@
 
             <ImageButton
                 android:id="@+id/listNextBtn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:backgroundTint="@color/pastel_rainbow7"
                 android:layout_weight="1"
                 android:src="@drawable/ic_next" />

@@ -23,7 +23,7 @@
         android:layout_weight="1"
         android:backgroundTint="@color/pastel_rainbow7"
         android:fontFamily="@font/sehwace"
-        android:text="답장 목록"
+        android:text="@string/reply_list"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
@@ -38,7 +38,7 @@
         android:layout_weight="1"
         android:backgroundTint="@color/pastel_rainbow7"
         android:fontFamily="@font/sehwace"
-        android:text="랜덤 목록"
+        android:text="@string/random_list"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="@+id/replyDiaryListBtn"
@@ -69,7 +69,8 @@
             android:src="@drawable/calendar"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/goListBtn"
@@ -82,7 +83,8 @@
             android:src="@drawable/calendarlist"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:id="@+id/goChart"
@@ -95,7 +97,8 @@
             android:src="@drawable/chart"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:id="@+id/goSocial"
@@ -108,7 +111,8 @@
             android:src="@drawable/social"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:id="@+id/goMypage"
@@ -121,7 +125,8 @@
             android:src="@drawable/mypage"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
     </LinearLayout>
 
