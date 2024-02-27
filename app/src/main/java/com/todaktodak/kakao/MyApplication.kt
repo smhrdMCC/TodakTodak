@@ -10,7 +10,6 @@ import com.kakao.sdk.user.Constants.TAG
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        // Kakao SDK 초기화
         KakaoSdk.init(this, "49901b6cc756bd95d67c1f267bad3995")
 
         var keyHash = Utility.getKeyHash(this)

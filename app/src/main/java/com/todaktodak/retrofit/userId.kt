@@ -17,3 +17,7 @@ object DiaryTextSingleTon{
 object DiarySeqSingleton{
     var diarySeq : String = ""
 }
+
+object FeedBackSingleton{
+    var FeedbackText : String = ""
+}

@@ -1,10 +1,17 @@
 package com.todaktodak.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
 import com.todaktodak.R
 import com.todaktodak.databinding.ActivityChartBinding
+import com.todaktodak.retrofit.emotionsingleton
 
 class ChartActivity : AppCompatActivity() {
     lateinit var binding: ActivityChartBinding
@@ -12,13 +19,6 @@ class ChartActivity : AppCompatActivity() {
         binding = ActivityChartBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-
-
-
-
-
-
 
         initNutrientPieChart()
         // 하단 버튼
@@ -44,14 +44,6 @@ class ChartActivity : AppCompatActivity() {
         }
     }
 
-    //    불안 : -1.331116
-//    당황 : -1.6126155
-//    분노 : -1.417097
-//    슬픔 :  0.07688972
-//    중립 :  0.03510532
-//    행복 :  7.407114
-//    혐오 : -1.4093792
-//    기쁨(작은행복) :
     private fun initNutrientPieChart() {
 
         binding.piechartFeedNutrient.setUsePercentValues(true)
@@ -77,7 +69,6 @@ class ChartActivity : AppCompatActivity() {
                 numbers[7] = numbers[7] + 10
             }
         }
-
         val emotionText = listOf("불안","당황","분노","슬픔","중립","행복","혐오","기쁨")
         val entries = ArrayList<PieEntry>()
         for(i in 0 .. numbers.size -1) {
@@ -85,7 +76,6 @@ class ChartActivity : AppCompatActivity() {
                 entries.add(PieEntry(numbers[i].toFloat(), emotionText[i]))
             }
         }
-
         val pieColors = listOf(
 
             ContextCompat.getColor(this, R.color.pastel_rainbow1),
@@ -99,7 +89,6 @@ class ChartActivity : AppCompatActivity() {
         )
         val dataSet = PieDataSet(entries, "")
 
-        // slice의 색상을 설정해준다.
         dataSet.colors = pieColors
 
         dataSet.setDrawValues(false)
