@@ -7,3 +7,4 @@ class Feedback {
 
     var diarySeq: Long? = null
 }
+

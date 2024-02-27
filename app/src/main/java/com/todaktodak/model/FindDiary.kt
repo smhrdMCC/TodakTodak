@@ -1,7 +1,5 @@
 package com.example.mccproject.Model
 
-import com.google.gson.annotations.SerializedName
-
 class FindDiary {
     var diarySeq : Long? = null
 
