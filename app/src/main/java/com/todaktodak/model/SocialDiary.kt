@@ -6,3 +6,15 @@ data class replyDiary(
     var content: String,
     var date: String
 )
+
+data class mailmail(
+    var toEmail: String,
+    var fromEmail: String
+)
+
+data class diaryInRoom(
+    var toEmail: String,
+    var fromEmail: String,
+    var content: String,
+    var date: String
+)
