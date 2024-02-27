@@ -86,20 +86,24 @@ class ChartActivity : AppCompatActivity() {
             ContextCompat.getColor(this, R.color.pastel_rainbow6),
             ContextCompat.getColor(this, R.color.pastel_rainbow7),
             ContextCompat.getColor(this, R.color.pastel_rainbow1),
+
         )
         val dataSet = PieDataSet(entries, "")
 
         dataSet.colors = pieColors
+        dataSet.sliceSpace
 
         dataSet.setDrawValues(false)
 
         binding.piechartFeedNutrient.apply {
             data = PieData(dataSet)
 
+
             description.isEnabled = false
-            legend.isEnabled = false
+            legend.isEnabled = true
             isRotationEnabled = true
             holeRadius = 60f
+            centerText = "감정 표현"
             setTouchEnabled(false)
             setEntryLabelColor(Color.BLACK)
             animateY(1200, Easing.EaseInOutCubic)

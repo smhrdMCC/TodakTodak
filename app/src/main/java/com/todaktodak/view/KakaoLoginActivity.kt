@@ -49,7 +49,6 @@ class KakaoLoginActivity : AppCompatActivity() {
 
                     user.userEmail = usersingleton.userEmail
                     user.userNick = usersingleton.userNick
-                    Log.d("RESPONSE", user.userNick.toString())
 
                     login(
                         user,
@@ -79,8 +78,6 @@ class KakaoLoginActivity : AppCompatActivity() {
                 usersingleton.userEmail = user.id.toString()
                 usersingleton.userNick = user.kakaoAccount?.profile?.nickname!!
                 onResult.invoke()
-                Log.d(TAG, "유저갑 성공")
-
             }
         }
     }
