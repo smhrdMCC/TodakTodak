@@ -73,6 +73,7 @@ class KakaoOauthViewModel(application: Application) : ViewModel() {
 
                     continuation.resume(true)
 
+
                 }
             }
 

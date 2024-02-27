@@ -43,7 +43,7 @@ class KakaoLoginActivity : AppCompatActivity() {
 
         val btnKakaoLogin = findViewById<ImageButton>(R.id.btnlogin)
         val btnKakaoLogout = findViewById<Button>(R.id.btn_kakao_logout)
-        val tvLoginStatus = findViewById<TextView>(R.id.tv_login_status)
+        val tvLoginStatus = findViewById<TextView>(R.id.loginStatus)
 
         Log.d("NAME", findViewById<TextView>(R.id.nickname).text.toString())
 
@@ -60,11 +60,13 @@ class KakaoLoginActivity : AppCompatActivity() {
                         user,
                         onResult = {
                             Log.d("LOGIN", "SUCCESS")
+
                         }
                     )
                 }
             )
         }
+
         btnKakaoLogout.setOnClickListener {
             kakaoOauthViewModel.kakaoLogout()
         }
@@ -72,6 +74,11 @@ class KakaoLoginActivity : AppCompatActivity() {
         kakaoOauthViewModel.isLoggedIn.asLiveData().observe(this) { isLoggedIn ->
             val loginStatusInfoTitle = if (isLoggedIn) "로그인 상태" else "로그아웃 상태"
             tvLoginStatus.text = loginStatusInfoTitle
+            if(loginStatusInfoTitle == "로그인 상태"){
+                val intent = Intent(this, CalendarActivity::class.java)
+                startActivity(intent)
+            }
+
         }
         binding.btnnext.setOnClickListener {
             val intent = Intent(this, CalendarActivity::class.java)
@@ -101,7 +108,7 @@ class KakaoLoginActivity : AppCompatActivity() {
                 response: Response<String>
             ) {
                 if (response.isSuccessful) { // 응답 잘 받은 경우
-                    Log.d("RESPONSE: ", response.body().toString())
+                    Log.d("LoginRESPONSE: ", response.body().toString())
                     onResult.invoke()
                 } else {
                     // 통신 성공 but 응답 실패

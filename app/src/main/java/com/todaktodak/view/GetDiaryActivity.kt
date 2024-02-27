@@ -37,6 +37,7 @@ class GetDiaryActivity : AppCompatActivity() {
 
             intent.putExtra("diaryText",diaryText)
             intent.putExtra("diaryId",diaryId)
+            intent.putExtra("diaryDate",date)
             startActivity(intent)
             finish()
         }

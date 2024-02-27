@@ -12,7 +12,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 public interface API {
-<<<<<<<<< Temporary merge branch 1
     // login
     @POST("join")
     fun getLoginResponse(@Body user: User): Call<String>
@@ -49,4 +48,7 @@ public interface API {
 
     @POST("getRandomDiaryList")
     fun getRandomDiaryList(@Body userEmail: String): Call<ArrayList<replyDiary>>
+
+    @POST("getFeedBackMessage")
+    fun getFeedBackMessage(@Body feedback : String) : Call<String>
 }

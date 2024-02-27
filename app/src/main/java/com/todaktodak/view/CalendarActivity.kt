@@ -15,6 +15,7 @@ import com.todaktodak.databinding.ActivityCalendarBinding
 import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emotiondate
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.emotionsingleton
 import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
@@ -168,7 +169,10 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
                 if(response.isSuccessful()){ // 응답을 잘 받은 경우
                     Log.d("RESPONSE: ", response.body().toString())
                     setMonthView(response.body())
-                } else { // 통신은 성공했지만 응답에 문제가 있는 경우
+
+                    emotionsingleton.list = response.body()!!
+                    Log.d("size check",emotionsingleton.list.size.toString())
+                } else{ // 통신은 성공했지만 응답에 문제가 있는 경우
                     Log.d("RESPONSE ERROR: ", "2")
                 }
             }
