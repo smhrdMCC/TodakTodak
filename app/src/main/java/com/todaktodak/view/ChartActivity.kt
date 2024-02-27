@@ -78,14 +78,14 @@ class ChartActivity : AppCompatActivity() {
         }
         val pieColors = listOf(
 
-            ContextCompat.getColor(this, R.color.pastel_rainbow1),
-            ContextCompat.getColor(this, R.color.pastel_rainbow2),
-            ContextCompat.getColor(this, R.color.pastel_rainbow3),
-            ContextCompat.getColor(this, R.color.pastel_rainbow4),
-            ContextCompat.getColor(this, R.color.pastel_rainbow5),
-            ContextCompat.getColor(this, R.color.pastel_rainbow6),
-            ContextCompat.getColor(this, R.color.pastel_rainbow7),
-            ContextCompat.getColor(this, R.color.pastel_rainbow1),
+            ContextCompat.getColor(this, R.color.pastel_color1),
+            ContextCompat.getColor(this, R.color.pastel_color2),
+            ContextCompat.getColor(this, R.color.pastel_color3),
+            ContextCompat.getColor(this, R.color.pastel_color4),
+            ContextCompat.getColor(this, R.color.pastel_color5),
+            ContextCompat.getColor(this, R.color.pastel_color6),
+            ContextCompat.getColor(this, R.color.pastel_color7),
+            ContextCompat.getColor(this, R.color.pastel_color8),
 
         )
         val dataSet = PieDataSet(entries, "")
