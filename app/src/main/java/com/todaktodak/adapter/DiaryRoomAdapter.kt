@@ -12,10 +12,8 @@ import com.todaktodak.retrofit.usersingleton
 import com.todaktodak.view.ReplyDiaryListActivity
 
 class DiaryRoomAdapter(
-    private val diaryInRoomList: ArrayList<diaryInRoom>?,
-    private val onItemListener: ReplyDiaryListActivity
-) :
-    RecyclerView.Adapter<DiaryRoomAdapter.ItemViewHolder>() {
+    private val diaryInRoomList: ArrayList<diaryInRoom>?
+) : RecyclerView.Adapter<DiaryRoomAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val diaryRoomDate: TextView = itemView.findViewById(R.id.diaryRoomDate)
@@ -39,17 +37,13 @@ class DiaryRoomAdapter(
 
         holder.diaryRoomDate.text = date
         holder.diaryRoomContent.text = content
+        val layoutParams = holder.itemView.layoutParams as ViewGroup.MarginLayoutParams
 
         if(toEmail == usersingleton.userEmail){
-
+            layoutParams.marginStart = 0
         }else{
-
+            layoutParams.marginEnd = 0
         }
 
-
-        // 클릭 이벤트
-        holder.itemView.setOnClickListener{
-            onItemListener.onItemClick(email)
-        }
     }
 }
