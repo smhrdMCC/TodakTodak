@@ -3,6 +3,7 @@ package com.todaktodak.kakao
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.app.Application
+import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
@@ -11,8 +12,10 @@ import androidx.lifecycle.viewModelScope
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
+import com.kakao.sdk.friend.PickerManager.startActivity
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
+import com.todaktodak.view.CalendarActivity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import kotlin.coroutines.resume
@@ -70,7 +73,6 @@ class KakaoOauthViewModel(application: Application) : ViewModel() {
                     continuation.resume(false)
                 } else if (token != null) {
                     Log.i(TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
-
                     continuation.resume(true)
 
 

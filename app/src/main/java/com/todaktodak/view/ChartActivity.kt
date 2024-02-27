@@ -1,18 +1,10 @@
 package com.todaktodak.view
 
 import android.content.Intent
-import android.graphics.Color
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import com.github.mikephil.charting.animation.Easing
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
+import android.os.Bundle
 import com.todaktodak.R
 import com.todaktodak.databinding.ActivityChartBinding
-import com.todaktodak.retrofit.emotionsingleton
-
 
 class ChartActivity : AppCompatActivity() {
     lateinit var binding: ActivityChartBinding
@@ -20,6 +12,12 @@ class ChartActivity : AppCompatActivity() {
         binding = ActivityChartBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+
+
+
+
+
 
 
         initNutrientPieChart()

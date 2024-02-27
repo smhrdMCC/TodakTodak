@@ -18,12 +18,7 @@
         android:theme="@style/Theme.TodakTodak"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".view.RandomDiaryListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ReplyDiaryListActivity"
-            android:exported="false" />
+
         <activity
             android:name=".view.DiaryListActivity"
             android:exported="false" />
@@ -46,7 +41,7 @@
             android:name=".view.WriteDiaryActivity"
             android:exported="false" />
         <activity
-            android:name=".view.KakaoLoginActivity"
+            android:name=".view.StartActivity"
             android:exported="false" />
         <activity
             android:name=".view.MyPageActivity"
@@ -55,12 +50,13 @@
             android:name=".view.CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".view.StartActivity"
+            android:name=".view.KakaoLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <activity

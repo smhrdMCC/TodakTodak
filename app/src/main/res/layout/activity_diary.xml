@@ -6,29 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.GetDiaryActivity">
 
-    <!--    <EditText-->
-    <!--        android:id="@+id/diary"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="300dp"-->
-    <!--        android:layout_marginTop="52dp"-->
-    <!--        android:hint="                             일기를 입력해주세요"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
-    <Button
-        android:id="@+id/tts_Btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="읽기"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="0dp"
@@ -36,14 +13,17 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="439dp" />
 
-    <ImageButton
-        android:id="@+id/imgBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
+
+
+    <ImageView
+        android:id="@+id/backWriteDiary"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog" />
+        android:src="@drawable/ic_pre"/>
+
+
 
     <TextView
         android:id="@+id/showDiary"
@@ -51,22 +31,30 @@
         android:layout_height="300dp"
         android:layout_marginTop="210dp"
         android:layout_marginBottom="210dp"
-        android:textSize="20sp"
+        android:fontFamily="@font/sehwace"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/feedBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="120sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="79dp"
+        android:backgroundTint="@color/pastel_rainbow7"
+        android:fontFamily="@font/sehwace"
         android:text="AI 피드백"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tts_Btn"
+        app:layout_constraintHorizontal_bias="0.378"
+
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
@@ -77,52 +65,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/goCalBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="달력" />
-
-        <Button
-            android:id="@+id/goListBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="목록" />
-
-        <Button
-            android:id="@+id/goChart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#00ff0000"
-            android:backgroundTint="#FDF6FE"
-            android:text="차트"
-            android:textColor="#DC8E8E" />
-
-        <Button
-            android:id="@+id/goSocial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="소셜일기" />
-
-        <Button
-            android:id="@+id/goMypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="마이페이지" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

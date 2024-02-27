@@ -21,7 +21,11 @@
         android:id="@+id/writeDiary"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textSize="15dp"
+        android:fontFamily="@font/sehwace"
+        android:textSize="35sp"
+        android:hint="일기를 작성해주세요"
+        android:textAlignment="center"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -33,21 +37,29 @@
         android:id="@+id/sendBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/pastel_rainbow7"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sehwace"
         android:text="일기 작성"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/shareBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writeDiary" />
+        app:layout_constraintTop_toBottomOf="@+id/writeDiary"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/shareBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/pastel_rainbow7"
         android:text="공유 일기"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sehwace"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/sendBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -60,63 +72,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="316dp" />
+        app:layout_constraintGuide_begin="405dp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/goCalBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="달력" />
-
-        <Button
-            android:id="@+id/goListBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="목록" />
-
-        <Button
-            android:id="@+id/goChart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#00ff0000"
-            android:backgroundTint="#FDF6FE"
-            android:text="차트"
-            android:textColor="#DC8E8E" />
-
-        <Button
-            android:id="@+id/goSocial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="소셜일기" />
-
-        <Button
-            android:id="@+id/goMypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="마이페이지" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="33dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
-        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

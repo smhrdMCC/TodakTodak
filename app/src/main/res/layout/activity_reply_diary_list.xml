@@ -4,46 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/pastel_rainbow7"
     tools:context=".view.ReplyDiaryListActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="372dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/replyDiaryListBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="답장 목록" />
-
-            <Button
-                android:id="@+id/randomDiaryListBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="랜덤 목록" />
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/replyDiaryList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout6"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
@@ -51,42 +31,122 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <ImageView
             android:id="@+id/goCalBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="달력" />
-
-        <Button
-            android:id="@+id/goListBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="목록" />
-
-        <Button
-            android:id="@+id/goChart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
-            android:text="차트"
-            android:textColor="#DC8E8E" />
+            android:src="@drawable/calendar"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible" />
 
-        <Button
+        <ImageView
+            android:id="@+id/goListBtn"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:src="@drawable/calendarlist"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/goChart"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:src="@drawable/chart"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible" />
+
+        <ImageView
             android:id="@+id/goSocial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="소셜일기" />
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:src="@drawable/social"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible" />
 
-        <Button
+        <ImageView
             android:id="@+id/goMypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="마이페이지" />
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:src="@drawable/mypage"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/replyDiaryListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="12dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/pastel_rainbow7"
+        android:text="답장 목록"
+        android:textColor="#514646"
+        app:layout_constraintBaseline_toBaselineOf="@+id/randomDiaryListBtn"
+        app:layout_constraintEnd_toStartOf="@+id/randomDiaryListBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/randomDiaryListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="175dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/pastel_rainbow7"
+        android:text="랜덤 목록"
+        android:textColor="#514646"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/replyDiaryListBtn"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/randomDiaryListBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/replyDiaryList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

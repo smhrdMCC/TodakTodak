@@ -24,44 +24,70 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-
-        <Button
+        <ImageView
             android:id="@+id/goCalBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="달력" />
-
-        <Button
-            android:id="@+id/goListBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="목록" />
-
-        <Button
-            android:id="@+id/goChart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
-            android:text="차트"
-            android:textColor="#DC8E8E" />
+            android:src="@drawable/calendar"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible"/>
 
-        <Button
+        <ImageView
+            android:id="@+id/goListBtn"
+            android:layout_gravity="center"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:src="@drawable/calendarlist"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/goChart"
+            android:layout_gravity="center"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:src="@drawable/chart"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible"/>
+
+        <ImageView
             android:id="@+id/goSocial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
             android:layout_weight="1"
-            android:text="소셜일기" />
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:src="@drawable/social"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible"/>
 
-        <Button
+        <ImageView
             android:id="@+id/goMypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
             android:layout_weight="1"
-            android:text="마이페이지" />
+            android:background="#00ff0000"
+            android:backgroundTint="#FDF6FE"
+            android:src="@drawable/mypage"
+            android:visibility="visible"
+            app:cornerRadius="20dp"
+            tools:visibility="visible"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
