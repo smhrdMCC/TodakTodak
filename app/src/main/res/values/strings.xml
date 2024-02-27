@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">TodakTodak</string>
+    <string name="reply_list">답장 목록</string>
+    <string name="random_list">랜덤 목록</string>
 
 </resources>

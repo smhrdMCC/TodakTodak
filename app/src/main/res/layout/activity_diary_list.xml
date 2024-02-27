@@ -27,32 +27,39 @@
 
             <ImageButton
                 android:id="@+id/listPreBtn"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="48sp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
                 android:layout_weight="1"
                 android:backgroundTint="@color/pastel_rainbow7"
-                android:src="@drawable/ic_pre" />
+                android:src="@drawable/ic_pre"
+                tools:ignore="SpeakableTextPresentCheck"/>
 
             <TextView
                 android:id="@+id/listMonthYearText"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="4월 2021"
                 android:fontFamily="@font/squareround"
                 android:gravity="center"
+                android:text="4월 2021"
                 android:textAlignment="center"
                 android:textColor="#F88158"
                 android:textSize="28sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
 
             <ImageButton
                 android:id="@+id/listNextBtn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="48sp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
                 android:backgroundTint="@color/pastel_rainbow7"
                 android:layout_weight="1"
-                android:src="@drawable/ic_next" />
+                android:src="@drawable/ic_next"
+                tools:ignore="SpeakableTextPresentCheck"/>
 
         </LinearLayout>
 
@@ -83,7 +90,8 @@
             android:src="@drawable/calendar"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:id="@+id/goListBtn"
@@ -96,7 +104,8 @@
             android:src="@drawable/calendarlist"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:id="@+id/goChart"
@@ -109,7 +118,8 @@
             android:src="@drawable/chart"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:id="@+id/goSocial"
@@ -122,7 +132,8 @@
             android:src="@drawable/social"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:id="@+id/goMypage"
@@ -135,7 +146,8 @@
             android:src="@drawable/mypage"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
