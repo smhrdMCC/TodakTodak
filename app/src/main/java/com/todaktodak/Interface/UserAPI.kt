@@ -2,9 +2,11 @@ package com.todaktodak.Interface
 
 import com.todaktodak.model.User
 import com.todaktodak.model.datemailVO
+import com.todaktodak.model.diaryInRoom
 import com.todaktodak.model.emailnick
 import com.todaktodak.model.emotionContentVO
 import com.todaktodak.model.emotiondate
+import com.todaktodak.model.mailmail
 import com.todaktodak.model.replyDiary
 import com.todaktodak.model.seqcont
 import retrofit2.Call
@@ -51,9 +53,13 @@ public interface API {
 
     @POST("sendBert")
     fun sendBert(@Body diaryCon: String): Call<String>
+
     @POST("getBert")
     fun getBert(@Body diaryCon: String): Call<String>
 
     @POST("getFeedBackMessage")
     fun getFeedBackMessage(@Body feedback : String) : Call<String>
+
+    @POST("getDiaryRoomList")
+    fun getDiaryRoomList(@Body info: mailmail):Call<ArrayList<diaryInRoom>>
 }
