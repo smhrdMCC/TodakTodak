@@ -104,7 +104,7 @@ class ChartActivity : AppCompatActivity() {
             isRotationEnabled = true
             holeRadius = 60f
             centerText = "감정 표현"
-            setTouchEnabled(false)
+            //setTouchEnabled(false)
             setEntryLabelColor(Color.BLACK)
             animateY(1200, Easing.EaseInOutCubic)
 
