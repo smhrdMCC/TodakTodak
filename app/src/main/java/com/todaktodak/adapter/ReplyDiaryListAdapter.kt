@@ -1,5 +1,6 @@
 package com.todaktodak.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,7 +41,7 @@ class ReplyDiaryListAdapter(
 
         // 클릭 이벤트
         holder.itemView.setOnClickListener{
-            onItemListener.onItemClick(email)
+            onItemListener.onItemClick(email, nick)
         }
     }
 

@@ -7,14 +7,7 @@ data class replyDiary(
     var date: String
 )
 
-data class mailmail(
-    var toEmail: String,
-    var fromEmail: String
-)
-
-data class diaryInRoom(
-    var toEmail: String,
-    var fromEmail: String,
-    var content: String,
-    var date: String
+data class useruser(
+    var userA: String,
+    var userB: String
 )
