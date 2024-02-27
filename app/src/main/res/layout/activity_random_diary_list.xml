@@ -10,8 +10,8 @@
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/pastel_rainbow7"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,31 +21,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/replyDiaryListBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="답장 목록" />
-
-            <Button
-                android:id="@+id/randomDiaryListBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="랜덤 목록" />
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/randomDiaryList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:background="@color/pastel_rainbow7"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,4 +101,47 @@
             tools:visibility="visible" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/randomDiaryListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="랜덤 목록"
+        android:backgroundTint="@color/pastel_rainbow7"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sehwace"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/replyDiaryListBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/replyDiaryListBtn"
+        app:layout_constraintTop_toTopOf="@+id/replyDiaryListBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/replyDiaryListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:layout_weight="1"
+        android:text="답장 목록"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sehwace"
+        android:textSize="25sp"
+        android:backgroundTint="@color/pastel_rainbow7"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toStartOf="@+id/randomDiaryListBtn"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/randomDiaryList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

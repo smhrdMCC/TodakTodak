@@ -23,7 +23,7 @@
         android:layout_height="0dp"
         android:fontFamily="@font/sehwace"
         android:textSize="35sp"
-        android:hint="일기를 작성해주세요"
+        android:hint="다이어리를 작성해주세요"
         android:textAlignment="center"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
