@@ -21,3 +21,7 @@ object DiarySeqSingleton{
 object FeedBackSingleton{
     var FeedbackText : String = ""
 }
+
+object makeMonthSingleton{
+    var makeMonth : String =""
+}

@@ -11,7 +11,7 @@
         android:layout_width="256dp"
         android:layout_height="276dp"
         android:layout_marginHorizontal="112dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -100,66 +100,97 @@
         android:id="@+id/emoSort1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        tools:layout_editor_absoluteX="30dp" />
-
-    <TextView
-        android:id="@+id/emoSort2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/emoSort1"
-        tools:layout_editor_absoluteX="30dp" />
+        app:layout_constraintBottom_toTopOf="@+id/emoSort2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/piechart_feed_nutrient"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/emoSort3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/emoSort2"
-        tools:layout_editor_absoluteX="30dp" />
-
-    <TextView
-        android:id="@+id/emoSort4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/emoSort3"
-        tools:layout_editor_absoluteX="30dp" />
-
-    <TextView
-        android:id="@+id/emoSort5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/emoSort4"
-        tools:layout_editor_absoluteX="30dp" />
+        app:layout_constraintBottom_toTopOf="@+id/emoSort4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort2" />
 
     <TextView
         android:id="@+id/emoSort6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/emoSort5"
-        tools:layout_editor_absoluteX="30dp" />
+        app:layout_constraintBottom_toTopOf="@+id/emoSort7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort5" />
 
     <TextView
-        android:id="@+id/emoSort7"
+        android:id="@+id/emoSort5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/emoSort6"
-        tools:layout_editor_absoluteX="30dp" />
+        app:layout_constraintBottom_toTopOf="@+id/emoSort6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort4" />
 
     <TextView
         android:id="@+id/emoSort8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/emoSort7"
-        tools:layout_editor_absoluteX="30dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort7" />
+
+    <TextView
+        android:id="@+id/emoSort2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/emoSort3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort1" />
+
+    <TextView
+        android:id="@+id/emoSort4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/emoSort5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort3" />
+
+    <TextView
+        android:id="@+id/emoSort7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/emoSort8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

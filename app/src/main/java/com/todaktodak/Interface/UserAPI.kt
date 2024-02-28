@@ -55,21 +55,7 @@ public interface API {
 
     @POST("sendBert")
     fun sendBert(@Body diaryCon: String): Call<String>
-
     @POST("getBert")
     fun getBert(@Body diaryCon: String): Call<String>
-
-    @POST("getFeedBackMessage")
-    fun getFeedBackMessage(@Body feedback : String) : Call<String>
-
-    @POST("getDiaryRoomList")
-    fun getDiaryRoomList(@Body info: useruser): Call<ArrayList<replyDiary>>
-
-    @POST("sendDiary")
-    fun sendDiary(@Body info: toFromContent): Call<String>
-
-    @POST("linkUserDiary")
-    fun linkUserDiary(@Body info: linkDiary): Call<String>
-
-
 }
+

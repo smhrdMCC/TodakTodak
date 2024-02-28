@@ -16,16 +16,24 @@
             android:id="@+id/diaryRoomDate"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sehwace"
+            android:textSize="25sp"
+            android:background="@color/pastel_color5"
             android:text="yyyy-mm-dd" />
 
         <TextView
             android:id="@+id/diaryRoomContent"
             android:layout_width="250dp"
+            android:fontFamily="@font/sehwace"
+            android:background="@color/pastel_rainbow7"
+            android:textSize="28sp"
             android:layout_height="wrap_content"
-            android:text="일기 내용ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ" />
+            android:text="일기 내용" />
 
         <TextView
             android:id="@+id/blank"
+            android:fontFamily="@font/sehwace"
+            android:textSize="25sp"
             android:layout_width="250dp"
             android:layout_height="30dp" />
     </LinearLayout>
