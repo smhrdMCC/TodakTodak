@@ -29,8 +29,6 @@ class ChartActivity : AppCompatActivity() {
 
         initNutrientPieChart()
 
-
-
         // 하단 버튼
         binding.goCalBtn.setOnClickListener {
             var intent = Intent(this, CalendarActivity::class.java)
@@ -130,7 +128,6 @@ class ChartActivity : AppCompatActivity() {
 
             // 내림차순으로 정렬
             val sortedList = copiedList.sortedByDescending { it.value }
-
 
             textViews = arrayOf(emoSort1,emoSort2,emoSort3,emoSort4,emoSort5,emoSort6,emoSort7,emoSort8)
             for(i in 0 .. textViews.size-1){
