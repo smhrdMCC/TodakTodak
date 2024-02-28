@@ -3,6 +3,8 @@ package com.todaktodak.view
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.animation.Easing
@@ -19,6 +21,7 @@ import com.todaktodak.retrofit.emotionsingleton
 class ChartActivity : AppCompatActivity() {
     lateinit var binding: ActivityChartBinding
     val numbers: Array<Int> = Array<Int>(8) { 0 }
+    private lateinit var textViews: Array<TextView>
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityChartBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -128,18 +131,20 @@ class ChartActivity : AppCompatActivity() {
             // 내림차순으로 정렬
             val sortedList = copiedList.sortedByDescending { it.value }
 
+
+            textViews = arrayOf(emoSort1,emoSort2,emoSort3,emoSort4,emoSort5,emoSort6,emoSort7,emoSort8)
+            for(i in 0 .. textViews.size-1){
+                textViews[i].visibility = View.INVISIBLE
+            }
             // 정렬된 데이터 중에서 인덱스 0부터 2까지 추출
-            val selectedDataList = sortedList.subList(0, 8)
+            val selectedDataList = sortedList.subList(0, sortedList.size)
 
-            emoSort1.setText("1st: ${selectedDataList[0].label} -> ${selectedDataList[0].value}")
-            emoSort2.setText("2nd: ${selectedDataList[1].label} -> ${selectedDataList[1].value}")
-            emoSort3.setText("3rd: ${selectedDataList[2].label} -> ${selectedDataList[2].value}")
-            emoSort4.setText("3rd: ${selectedDataList[3].label} -> ${selectedDataList[3].value}")
-            emoSort5.setText("3rd: ${selectedDataList[4].label} -> ${selectedDataList[4].value}")
-            emoSort6.setText("3rd: ${selectedDataList[5].label} -> ${selectedDataList[5].value}")
-            emoSort7.setText("3rd: ${selectedDataList[6].label} -> ${selectedDataList[6].value}")
-            emoSort8.setText("3rd: ${selectedDataList[7].label} -> ${selectedDataList[7].value}")
+            for(i in 0 .. selectedDataList.size-1) {
 
+                textViews[i].setText("1st: ${selectedDataList[i].label} -> ${selectedDataList[i].value}")
+                textViews[i].visibility = View.VISIBLE
+
+            }
         }
 
     }
