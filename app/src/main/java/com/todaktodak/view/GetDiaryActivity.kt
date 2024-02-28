@@ -19,7 +19,7 @@ import com.todaktodak.databinding.ActivityDiaryBinding
 import com.todaktodak.model.datemailVO
 import com.todaktodak.model.seqcont
 import com.todaktodak.retrofit.RetrofitBuilder2
-import com.todaktodak.retrofit.RetrofitBuilderBert
+//import com.todaktodak.retrofit.RetrofitBuilderBert
 import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
