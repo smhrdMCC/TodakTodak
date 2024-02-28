@@ -66,7 +66,7 @@ public interface API {
     fun linkUserDiary(@Body info: linkDiary): Call<String>
 
 //    @POST("sendBert")
-//    fun sendBert(@Body diaryCon: String): Call<ArrayList<di>>
+//    fun sendBert(@Body diaryCon: String): Call<String>
 //
 //    @POST("getBert")
 //    fun getBert(@Body diaryCon: String): Call<String>
