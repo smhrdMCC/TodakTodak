@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#e6e6fa</color>
+    <color name="ssh">#F0D0C8</color>
     <color name="pastel_rainbow1">#FFDDDD</color>
     <color name="pastel_rainbow2">#FFF6DD</color>
     <color name="pastel_rainbow3">#FFFFDD</color>
@@ -9,6 +11,13 @@
     <color name="pastel_rainbow5">#DDFFFF</color>
     <color name="pastel_rainbow6">#DDDDFF</color>
     <color name="pastel_rainbow7">#FFDDEE</color>
-    <color name="ssh">#F0D0C8</color>
+    <color name="pastel_color1">#CDDAFD</color>
+    <color name="pastel_color2">#D1E6D3</color>
+    <color name="pastel_color3">#F3D9DE</color>
+    <color name="pastel_color4">#F1DAFF</color>
+    <color name="pastel_color5">#FFF1E6</color>
+    <color name="pastel_color6">#EAE4E9</color>
+    <color name="pastel_color7">#BEE1E6</color>
+    <color name="pastel_color8">#FDE2E4</color>
 
 </resources>

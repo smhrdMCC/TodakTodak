@@ -1,19 +1,25 @@
 package com.todaktodak.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Log
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.todaktodak.databinding.ActivityFeedbackBinding
-import com.todaktodak.model.Feedback
-import com.todaktodak.retrofit.RetrofitBuilder
+import com.todaktodak.retrofit.FeedBackSingleton
 import com.todaktodak.retrofit.RetrofitBuilder2
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Locale
 
-class FeedbackActivity : AppCompatActivity() {
+class FeedbackActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     lateinit var binding: ActivityFeedbackBinding
+    lateinit var tts: TextToSpeech
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFeedbackBinding.inflate(layoutInflater)
@@ -22,20 +28,17 @@ class FeedbackActivity : AppCompatActivity() {
         val intent: Intent = intent
 
         val diaryText = intent.getStringExtra("diaryText")
-        val diaryId = intent.getStringExtra("diaryId")
-        val feedback = Feedback()
-        feedback.prompt = diaryText
+        val diarySeq = intent.getStringExtra("diaryId")
+        val createdAt = intent.getStringExtra("diaryDate")
 
-        requestChatGptFeedBack(
-            prompt = feedback.prompt.toString(),
-            onResult = {
-                feedback.aiRecommendation = binding.textView.text.toString()
-                saveChatGptFeedBack(feedback.aiRecommendation.toString() + ":" + diaryId.toString())
-            }
-        )
+        getFeedbackMessage(diarySeq.toString())
 
+        binding.ttsBtn.setOnClickListener {
+            val intent: Intent = Intent()
+            intent.action = TextToSpeech.Engine.ACTION_CHECK_TTS_DATA
+            activityResult.launch(intent)
+        }
 
-        // 하단 버튼
         binding.goCalBtn.setOnClickListener {
             var intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
@@ -57,54 +60,80 @@ class FeedbackActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-
-    private fun requestChatGptFeedBack(prompt: String, onResult: () -> Unit) {
-        val call = RetrofitBuilder.api.updateFeedResponse(prompt)
-
-        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
-            override fun onResponse( // 통신에 성공한 경우
+    fun getFeedbackMessage(diarySeq: String){
+        val call = RetrofitBuilder2.api.getFeedBackMessage(diarySeq)
+        call.enqueue(object : Callback<String> {
+            override fun onResponse(
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if (response.isSuccessful) { // 응답 잘 받은 경우
-                    Log.d("RESPONSE: ", "성공!" + response.body().toString())
-                    binding.textView.text = response.body().toString() //chatGpt prompt
-                    onResult.invoke()
-                } else {
-                    // 통신 성공 but 응답 실패
+                if(response.isSuccessful()){
+                    Log.d("GetRESPONSE: ", "성공!"+response.body().toString())
+                    FeedBackSingleton.FeedbackText = response.body().toString()
+                    binding.textView.text = response.body()
+
+                }else{
                     Log.d("RESPONSE", "FAILURE")
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
-                // 통신에 실패한 경우
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
 
-    private fun saveChatGptFeedBack(feedback: String) {
-        val call = RetrofitBuilder2.api.getFeedResponse(feedback)
+    private var activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
 
-        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
-            override fun onResponse( // 통신에 성공한 경우
-                call: Call<String>,
-                response: Response<String>
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+            tts = TextToSpeech(this, this)
+
+            tts.setPitch(0.0f)
+            tts.setSpeechRate(0.9f)
+
+        } else {
+            val installIntent: Intent = Intent()
+            installIntent.action = TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA
+            startActivities(installIntent)
+        }
+    }
+    private fun startActivities(installIntent: Intent) {
+        startActivity(installIntent)
+    }
+    override fun onInit(status: Int) {
+
+        if (status == TextToSpeech.SUCCESS) {
+            val languageStatus: Int = tts.setLanguage(Locale.KOREAN)
+
+            if (languageStatus == TextToSpeech.LANG_MISSING_DATA ||
+                languageStatus == TextToSpeech.LANG_NOT_SUPPORTED
             ) {
-                if (response.isSuccessful()) { // 응답 잘 받은 경우
-                    Log.d("RESPONSE: ", "피드백 인서트 성공!" + response.body().toString())
+                Toast.makeText(this, "언어 지원 불가", Toast.LENGTH_LONG).show()
+            } else {
 
+                val data: String = binding.textView.text.toString()
+
+                var speechStatus: Int = 0
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    speechStatus = tts.speak(
+                        data, TextToSpeech.QUEUE_FLUSH, null, null
+                    )
                 } else {
-                    // 통신 성공 but 응답 실패
-                    Log.d("RESPONSE", "피드백 인서트 FAILURE")
+                    speechStatus = tts.speak(
+                        data, TextToSpeech.QUEUE_FLUSH, null, null
+                    )
+                }
+                if (speechStatus == TextToSpeech.ERROR) {
+                    Toast.makeText(this, "음성 지원 불가", Toast.LENGTH_LONG).show()
                 }
             }
-
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                // 통신에 실패한 경우
-                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
-            }
-        })
+        } else {
+            Toast.makeText(this, "음성 전환 오류", Toast.LENGTH_LONG).show()
+        }
+    }
+    private fun setPitch(pitch: Float) {
+        tts.setPitch(pitch)
     }
 }

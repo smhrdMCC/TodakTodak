@@ -87,9 +87,11 @@ class ReplyDiaryListActivity : AppCompatActivity() {
         binding.replyDiaryList.adapter = adapter
     }
 
-    fun onItemClick(email: String?) {
-        var intent = Intent(this, WriteDiaryActivity::class.java)
+    fun onItemClick(email: String?, nick: String?) {
+        var intent = Intent(this, DiaryRoomActivity::class.java)
         intent.putExtra("email", email)
+        intent.putExtra("nick", nick)
+        Log.d("email", email.toString())
         startActivity(intent)
     }
 

@@ -31,15 +31,36 @@ class DiaryListAdapter(
         var day = DiaryList?.get(holder.adapterPosition)?.createdAt
         var emotion = DiaryList?.get(holder.adapterPosition)?.emotionClassification
         var content = DiaryList?.get(holder.adapterPosition)?.diaryContent
+        var check: Boolean = false
 
         // 날짜 입력
         holder.dayMonthText.text = day?.substring(5)
 
         // 감정 입력
         if (emotion == "기쁨") {
-            holder.dayEmotionText.text = "기뻤던 날"
-        }else if(emotion == "슬픔"){
-
+            check = true
+            holder.dayEmotionText.text = "기뻐요"
+        }else if(emotion =="행복"){
+            check = true
+            holder.dayEmotionText.text = "행복해요"
+        }else if(emotion =="중립"){
+            check = true
+            holder.dayEmotionText.text = "나쁘지 않은 날이에요"
+        }else if(emotion =="불안"){
+            check = true
+            holder.dayEmotionText.text = "불안해요"
+        }else if(emotion =="당황"){
+            check = true
+            holder.dayEmotionText.text = "당황스러워요"
+        }else if(emotion =="분노"){
+            check = true
+            holder.dayEmotionText.text = "화가 나요"
+        }else if(emotion =="슬픔"){
+            check = true
+            holder.dayEmotionText.text = "슬퍼요"
+        }else if(emotion =="혐오"){
+            check = true
+            holder.dayEmotionText.text = "싫어요"
         }
 
         // 일기내용 입력
@@ -48,9 +69,8 @@ class DiaryListAdapter(
         // 날짜 클릭 이벤트
         holder.itemView.setOnClickListener{
             // 인터페이스를 통해 날짜를 넘겨준다
-            if (day != null) {
-                onItemListener.onItemClick(day)
-            }
+            onItemListener.onItemClick(day!!, check)
+
         }
     }
 

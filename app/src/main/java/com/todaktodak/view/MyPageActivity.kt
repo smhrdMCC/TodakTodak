@@ -21,12 +21,17 @@ import retrofit2.Response
 
 class MyPageActivity : AppCompatActivity() {
     lateinit var binding: ActivityMyPageBinding
+
+    val getUserNick : String =""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMyPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.getUserNick.setText(usersingleton.userNick)
+        binding.getUserNick.setText('"'+ usersingleton.userNick + '"'+" 님의 토닥토닥 일기")
+
+
 
         binding.changeNickBtn.setOnClickListener {
             changeNickDialog()

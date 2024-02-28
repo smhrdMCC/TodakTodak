@@ -43,9 +43,37 @@ class CalendarAdapter(
         for (i in 0..listleng!!-1) {
             if (emotionList?.get(i)?.createdAt?.substring(8) == day) {
                 if (emotionList?.get(i)?.emotion.toString() =="기쁨") {
-                    check =  true
+                    check = true
                     holder.dayEmotion.visibility = View.VISIBLE
-                    holder.dayEmotion.setImageResource(R.drawable.glad)
+                    holder.dayEmotion.setImageResource(R.drawable.joy)
+                }else if(emotionList?.get(i)?.emotion.toString() =="행복"){
+                    check = true
+                    holder.dayEmotion.visibility = View.VISIBLE
+                    holder.dayEmotion.setImageResource(R.drawable.happy)
+                }else if(emotionList?.get(i)?.emotion.toString() =="중립"){
+                    check = true
+                    holder.dayEmotion.visibility = View.VISIBLE
+                    holder.dayEmotion.setImageResource(R.drawable.neutrality)
+                }else if(emotionList?.get(i)?.emotion.toString() =="불안"){
+                    check = true
+                    holder.dayEmotion.visibility = View.VISIBLE
+                    holder.dayEmotion.setImageResource(R.drawable.anxiety)
+                }else if(emotionList?.get(i)?.emotion.toString() =="당황"){
+                    check = true
+                    holder.dayEmotion.visibility = View.VISIBLE
+                    holder.dayEmotion.setImageResource(R.drawable.panic)
+                }else if(emotionList?.get(i)?.emotion.toString() =="분노"){
+                    check = true
+                    holder.dayEmotion.visibility = View.VISIBLE
+                    holder.dayEmotion.setImageResource(R.drawable.angry)
+                }else if(emotionList?.get(i)?.emotion.toString() =="슬픔"){
+                    check = true
+                    holder.dayEmotion.visibility = View.VISIBLE
+                    holder.dayEmotion.setImageResource(R.drawable.sad)
+                }else if(emotionList?.get(i)?.emotion.toString() =="혐오"){
+                    check = true
+                    holder.dayEmotion.visibility = View.VISIBLE
+                    holder.dayEmotion.setImageResource(R.drawable.disgust)
                 }
             }
         }

@@ -5,8 +5,12 @@ import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emailnick
 import com.todaktodak.model.emotionContentVO
 import com.todaktodak.model.emotiondate
+import com.todaktodak.model.linkDiary
+import com.todaktodak.model.randomDiary
 import com.todaktodak.model.replyDiary
 import com.todaktodak.model.seqcont
+import com.todaktodak.model.toFromContent
+import com.todaktodak.model.useruser
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -47,9 +51,11 @@ public interface API {
     fun getReplyDiaryList(@Body userEmail: String): Call<ArrayList<replyDiary>>
 
     @POST("getRandomDiaryList")
-    fun getRandomDiaryList(@Body userEmail: String): Call<ArrayList<replyDiary>>
+    fun getRandomDiaryList(@Body userEmail: String): Call<ArrayList<randomDiary>>
 
     @POST("sendBert")
-    fun sendBert(@Body diary: String): Call<String>
+    fun sendBert(@Body diaryCon: String): Call<String>
+    @POST("getBert")
+    fun getBert(@Body diaryCon: String): Call<String>
 }
 
