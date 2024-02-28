@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/pastel_rainbow7"
         android:fontFamily="@font/sehwace"
-        android:text="Button"
+        android:text="보내기"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"

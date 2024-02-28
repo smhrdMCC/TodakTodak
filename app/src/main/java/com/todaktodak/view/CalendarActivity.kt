@@ -13,6 +13,7 @@ import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emotiondate
 import com.todaktodak.retrofit.RetrofitBuilder2
 import com.todaktodak.retrofit.emotionsingleton
+import com.todaktodak.retrofit.makeMonthSingleton
 import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,15 +33,17 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
         selectedDate = LocalDate.now()
 
         loadEmotion(selectedDate)
-
+        makeMonthSingleton.makeMonth = selectedDate.toString()
         binding.calendarPreBtn.setOnClickListener{
             selectedDate = selectedDate.minusMonths(1)
             loadEmotion(selectedDate)
+            makeMonthSingleton.makeMonth = selectedDate.toString()
         }
 
         binding.calendarNextBtn.setOnClickListener{
             selectedDate = selectedDate.plusMonths(1)
             loadEmotion(selectedDate)
+            makeMonthSingleton.makeMonth = selectedDate.toString()
         }
 
         binding.goCalBtn.setOnClickListener {
@@ -147,6 +150,7 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
     }
     override fun onItemClick(dayText: String, check : Boolean){
         var searching = searchingFromDate(selectedDate, dayText)
+        makeMonthSingleton.makeMonth = LocalDate.now().toString()
         Log.d("날짜 확인", searching)
         // 클릭한 날짜의 토스트 메세지 띄우기
         if (!check) {

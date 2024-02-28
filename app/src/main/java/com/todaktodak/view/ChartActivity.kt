@@ -3,6 +3,7 @@ package com.todaktodak.view
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,19 +18,20 @@ import com.google.gson.reflect.TypeToken
 import com.todaktodak.R
 import com.todaktodak.databinding.ActivityChartBinding
 import com.todaktodak.retrofit.emotionsingleton
+import com.todaktodak.retrofit.makeMonthSingleton
+import java.time.LocalDate
 
 class ChartActivity : AppCompatActivity() {
     lateinit var binding: ActivityChartBinding
     val numbers: Array<Int> = Array<Int>(8) { 0 }
     private lateinit var textViews: Array<TextView>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityChartBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         initNutrientPieChart()
-
-
 
         // 하단 버튼
         binding.goCalBtn.setOnClickListener {
@@ -56,9 +58,7 @@ class ChartActivity : AppCompatActivity() {
 
     private fun initNutrientPieChart() {
 
-
         var emotionList = emotionsingleton.list.size
-
 
         for (i in 0..emotionList - 1) {
             if (emotionsingleton.list.get(i).emotion.toString() == "불안") {
@@ -103,6 +103,10 @@ class ChartActivity : AppCompatActivity() {
         dataSet.colors = pieColors
         dataSet.sliceSpace = 5f
 
+        val month1 : String = makeMonthSingleton.makeMonth.toString()
+        Log.d("month1",month1)
+
+        val month = month1.substring(5 until 7)
         dataSet.setDrawValues(false)
         binding.run {
             binding.piechartFeedNutrient.apply {
@@ -112,7 +116,10 @@ class ChartActivity : AppCompatActivity() {
                 legend.isEnabled = false
                 isRotationEnabled = true
                 holeRadius = 60f
-                centerText = "2월의 감정"
+
+
+
+                centerText = month + "월의 감정"
                 //setTouchEnabled(false)
                 setEntryLabelColor(Color.BLACK)
                 animateY(1200, Easing.EaseInOutCubic)
@@ -140,10 +147,8 @@ class ChartActivity : AppCompatActivity() {
             val selectedDataList = sortedList.subList(0, sortedList.size)
 
             for(i in 0 .. selectedDataList.size-1) {
-
-                textViews[i].setText("1st: ${selectedDataList[i].label} -> ${selectedDataList[i].value}")
+                textViews[i].setText("${selectedDataList[i].label} -> ${selectedDataList[i].value}")
                 textViews[i].visibility = View.VISIBLE
-
             }
         }
 
