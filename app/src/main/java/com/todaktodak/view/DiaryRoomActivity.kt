@@ -1,17 +1,15 @@
 package com.todaktodak.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.todaktodak.R
 import com.todaktodak.adapter.DiaryRoomAdapter
-import com.todaktodak.adapter.ReplyDiaryListAdapter
 import com.todaktodak.databinding.ActivityDiaryRoomBinding
-import com.todaktodak.model.diaryInRoom
-import com.todaktodak.model.mailmail
 import com.todaktodak.model.replyDiary
+import com.todaktodak.model.toFromContent
+import com.todaktodak.model.useruser
 import com.todaktodak.retrofit.RetrofitBuilder2
 import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
@@ -25,18 +23,26 @@ class DiaryRoomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val mail = intent.getStringExtra("mail")
+        val mail = intent.getStringExtra("email")
+        val nick = intent.getStringExtra("nick")
+
+        binding.partnerNickView.text = nick
+
         getDiaryRoomList(mail!!)
 
+        binding.sendDiaryBtn.setOnClickListener {
+            val content = binding.replyDiaryInputBox.text.toString()
+            sendDiary(mail, content)
+        }
     }
 
     private fun getDiaryRoomList(mail: String) {
-        val call = RetrofitBuilder2.api.getDiaryRoomList(mailmail(usersingleton.userEmail, mail))
-        call.enqueue(object : Callback<ArrayList<diaryInRoom>> {
+        val call = RetrofitBuilder2.api.getDiaryRoomList(useruser(usersingleton.userEmail, mail))
+        call.enqueue(object : Callback<ArrayList<replyDiary>> {
 
             override fun onResponse(
-                call: Call<ArrayList<diaryInRoom>>,
-                response: Response<ArrayList<diaryInRoom>>
+                call: Call<ArrayList<replyDiary>>,
+                response: Response<ArrayList<replyDiary>>
             ) {
                 if(response.isSuccessful()){
                     Log.d("RESPONSE: ", response.body().toString())
@@ -46,13 +52,35 @@ class DiaryRoomActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ArrayList<diaryInRoom>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<replyDiary>>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
 
-    private fun setDiaryRoomListView(body: ArrayList<diaryInRoom>?) {
+    private fun sendDiary(mail: String, content: String) {
+        val call = RetrofitBuilder2.api.sendDiary(toFromContent(mail, usersingleton.userEmail, content))
+        call.enqueue(object : Callback<String> {
+
+            override fun onResponse(
+                call: Call<String>,
+                response: Response<String>
+            ) {
+                if(response.isSuccessful()){
+                    Log.d("RESPONSE: ", response.body().toString())
+                    getDiaryRoomList(mail)
+                } else {
+                    Log.d("RESPONSE ERROR: ", "2")
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
+            }
+        })
+    }
+
+    private fun setDiaryRoomListView(body: ArrayList<replyDiary>?) {
         val adapter = DiaryRoomAdapter(body)
         var manager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 1)
         binding.diaryRoomListView.layoutManager = manager

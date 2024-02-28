@@ -137,11 +137,16 @@ class DiaryListActivity : AppCompatActivity() {
         }
         return dayList
     }
-    fun onItemClick(dayText: String){
-        var searching = searchingFromDate(selectedDate, dayText)
-        Log.d("날짜 확인", searching)
-        var intent = Intent(this, GetDiaryActivity::class.java)
-        intent.putExtra("date1", searching)
-        startActivity(intent)
+
+    fun onItemClick(dayText: String,  check : Boolean){
+        if (!check) {
+            var intent = Intent(this, WriteDiaryActivity::class.java)
+            intent.putExtra("date1", dayText)
+            startActivity(intent)
+        }else if(check){
+            var intent = Intent(this, GetDiaryActivity::class.java)
+            intent.putExtra("date1", dayText)
+            startActivity(intent)
+        }
     }
 }

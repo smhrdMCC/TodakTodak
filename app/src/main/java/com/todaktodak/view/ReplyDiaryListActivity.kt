@@ -79,15 +79,20 @@ class ReplyDiaryListActivity : AppCompatActivity() {
             }
         })
     }
+
     private fun setReplyDiaryListView(body: ArrayList<replyDiary>?) {
         val adapter = ReplyDiaryListAdapter(body, this)
         var manager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 1)
         binding.replyDiaryList.layoutManager = manager
         binding.replyDiaryList.adapter = adapter
     }
-    fun onItemClick(email: String?) {
-        var intent = Intent(this, WriteDiaryActivity::class.java)
+
+    fun onItemClick(email: String?, nick: String?) {
+        var intent = Intent(this, DiaryRoomActivity::class.java)
         intent.putExtra("email", email)
+        intent.putExtra("nick", nick)
+        Log.d("email", email.toString())
         startActivity(intent)
     }
+
 }

@@ -23,8 +23,6 @@
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        android:src="@drawable/ic_pre"/>-->
 
-
-
     <TextView
         android:id="@+id/showDiary"
         android:layout_width="0dp"
@@ -49,7 +47,7 @@
         android:backgroundTint="@color/pastel_rainbow7"
         android:fontFamily="@font/sehwace"
         android:text="AI 피드백"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.378"
