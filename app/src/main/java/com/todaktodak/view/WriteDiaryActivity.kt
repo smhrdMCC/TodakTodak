@@ -27,7 +27,7 @@ class WriteDiaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWriteDiaryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.textView4.visibility = View.GONE
         binding.sendBtn.setOnClickListener {
             var diary_content = binding.writeDiary.text.toString()
             DiaryTextSingleTon.diaryText = binding.writeDiary.text.toString()
