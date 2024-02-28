@@ -20,78 +20,146 @@
         tools:ignore="UnknownId" />
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:background="@color/pastel_rainbow7"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/goCalBtn"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/calendar"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/goListBtn"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/calendarlist"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/goChart"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/chart"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/goSocial"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/social"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/goMypage"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/mypage"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/emoSort1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/emoSort2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort1"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/emoSort3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort2"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/emoSort4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort3"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/emoSort5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort4"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/emoSort6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort5"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/emoSort7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort6"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/emoSort8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/emoSort7"
+        tools:layout_editor_absoluteX="30dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.todaktodak">
 
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
