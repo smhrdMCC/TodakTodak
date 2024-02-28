@@ -26,7 +26,7 @@ object RetrofitBuilder {
 }
 
 // 스프링부트 서버
-object RetrofitBuilder2 {
+object  RetrofitBuilder2 {
     var api: API
     init{
         val gson : Gson = GsonBuilder()
@@ -40,21 +40,21 @@ object RetrofitBuilder2 {
     }
 }
 
-//interface BertAPI {
-//    @POST("predict")
-//    fun sendDataToFlask(@Body data: String): Call<String>
-//}
-//
-//object RetrofitBuilderBert {
-//    private const val BASE_URL = "http://10.0.2.2:8120/"
-//    private val retrofit by lazy {
-//        Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//    }
-//
-//    val api: BertAPI by lazy {
-//        retrofit.create(BertAPI::class.java)
-//    }
-//}
+interface BertAPI {
+    @POST("sendBert")
+    fun sendDataToFlask(@Body data: String): Call<String>
+}
+
+object RetrofitBuilderBert {
+    private const val BASE_URL = "http://10.0.2.2:8120/"
+    private val retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    val api: BertAPI by lazy {
+        retrofit.create(BertAPI::class.java)
+    }
+}

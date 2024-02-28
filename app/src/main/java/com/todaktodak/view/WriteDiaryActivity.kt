@@ -37,8 +37,8 @@ class WriteDiaryActivity : AppCompatActivity() {
             writtenDiary.userEmail = user_email
             var date1 = intent.getStringExtra("date1")
             saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
-            sendBert(writtenDiary.diaryContent.toString())
-            saveDiary(writtenDiary.diaryContent.toString() + ":" + writtenDiary.userEmail.toString() + ":" + date1.toString())
+            sendBert("diaryContent"+":"+writtenDiary.diaryContent.toString())
+
 
             var intent = Intent(this, GetDiaryActivity::class.java)
             intent.putExtra("diaryContent", diary_content)
@@ -130,24 +130,22 @@ class WriteDiaryActivity : AppCompatActivity() {
         })
     }
 
-    fun sendBert(diary: String) {
-        val call = RetrofitBuilderBert.api.sendBert(diary)
+    fun sendBert(data: String) {
+        val call = RetrofitBuilderBert.api.sendDataToFlask(data)
         call.enqueue(object : Callback<String> {
-            override fun onResponse(
-                call: Call<String>,
-                response: Response<String>
-            ) {
-                if (response.isSuccessful()) {
-                    Log.d("RESPONSE: ", "저장 성공!!" + response.body().toString())
-                    Log.d("확인",response.body().toString())
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if (response.isSuccessful) {
+                    Log.d("SendBert RESPONSE:", "Data sent successfully: " + response.body().toString())
+                    // Handle response if needed
                 } else {
-                    // 통신 성공 but 응답 실패
-                    Log.d("RESPONSE", "저장 실패!!")
+                    Log.d("SendBert RESPONSE:", "Failed to send data.")
+                    // Handle failure if needed
                 }
             }
+
             override fun onFailure(call: Call<String>, t: Throwable) {
-                // 통신에 실패한 경우
-                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
+                Log.d("SendBert CONNECTION FAILURE:", t.localizedMessage)
+                // Handle failure if needed
             }
         })
     }
