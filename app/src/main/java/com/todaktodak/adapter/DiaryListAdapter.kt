@@ -39,28 +39,28 @@ class DiaryListAdapter(
         // 감정 입력
         if (emotion == "기쁨") {
             check = true
-            holder.dayEmotionText.text = "기뻐요"
+            holder.dayEmotionText.text = "의 감정 상태 : 기뻐요"
         }else if(emotion =="행복"){
             check = true
-            holder.dayEmotionText.text = "행복해요"
+            holder.dayEmotionText.text = "의 감정 상태 : 행복해요"
         }else if(emotion =="중립"){
             check = true
-            holder.dayEmotionText.text = "나쁘지 않은 날이에요"
+            holder.dayEmotionText.text = "의 감정 상태 : 나쁘지 않은 날이에요"
         }else if(emotion =="불안"){
             check = true
-            holder.dayEmotionText.text = "불안해요"
+            holder.dayEmotionText.text = "의 감정 상태 : 불안해요"
         }else if(emotion =="당황"){
             check = true
-            holder.dayEmotionText.text = "당황스러워요"
+            holder.dayEmotionText.text = "의 감정 상태 : 당황스러워요"
         }else if(emotion =="분노"){
             check = true
-            holder.dayEmotionText.text = "화가 나요"
+            holder.dayEmotionText.text = "의 감정 상태 : 화가 나요"
         }else if(emotion =="슬픔"){
             check = true
-            holder.dayEmotionText.text = "슬퍼요"
+            holder.dayEmotionText.text = "의 감정 상태 : 슬퍼요"
         }else if(emotion =="혐오"){
             check = true
-            holder.dayEmotionText.text = "싫어요"
+            holder.dayEmotionText.text = "의 감정 상태 : 싫어요"
         }
 
         // 일기내용 입력
