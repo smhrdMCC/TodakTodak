@@ -27,8 +27,41 @@ class WriteDiaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWriteDiaryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.textView4.visibility = View.GONE
+
         binding.sendBtn.setOnClickListener {
+            var diary_content = binding.writeDiary.text.toString()
+            DiaryTextSingleTon.diaryText = binding.writeDiary.text.toString()
+
+            var writtenDiary = Diary()
+            writtenDiary.diaryContent = diary_content
+            writtenDiary.userEmail = user_email
+            var date1 = intent.getStringExtra("date1")
+            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
+            sendBert("diaryContent"+":"+writtenDiary.diaryContent.toString())
+
+
+            var intent = Intent(this, GetDiaryActivity::class.java)
+            intent.putExtra("diaryContent", diary_content)
+            intent.putExtra("userEmail", user_email)
+
+            intent.putExtra("date1", date1)
+            Log.d("다이어리", DiaryTextSingleTon.diaryText)
+            val feedback = Feedback()
+            feedback.prompt = DiaryTextSingleTon.diaryText
+
+            requestChatGptFeedBack(
+                prompt = feedback.prompt.toString(),
+                onResult = {
+                    feedback.aiRecommendation = binding.textView4.text.toString()
+                    saveChatGptFeedBack(feedback.aiRecommendation.toString() + ":" + DiarySeqSingleton.diarySeq)
+                }
+            )
+            startActivity(intent)
+        }
+
+        binding.shareBtn.setOnClickListener {
             var diary_content = binding.writeDiary.text.toString()
             DiaryTextSingleTon.diaryText = binding.writeDiary.text.toString()
 
