@@ -25,3 +25,7 @@ object FeedBackSingleton{
 object makeMonthSingleton{
     var makeMonth : String =""
 }
+
+object aiEmotion{
+    var aiEmo : String = ""
+}
