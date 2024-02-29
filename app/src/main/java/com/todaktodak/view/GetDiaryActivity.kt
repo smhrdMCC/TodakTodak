@@ -38,16 +38,6 @@ class GetDiaryActivity : AppCompatActivity(){
         val getmsg = FindDiary()
         getmsg.userEmail = usersingleton.userEmail
 
-        binding.alterBtn.setOnClickListener {
-            var diary_content = date.toString()
-            var backWriteDiaryActivity = Intent(this, GetDiaryActivity::class.java)
-            backWriteDiaryActivity.putExtra("diaryContent", diary_content)
-            startActivity(backWriteDiaryActivity)
-        }
-
-
-
-
         var info = datemailVO(date.toString(), usersingleton.userEmail)
 //        var emotion = (toString())
 
@@ -65,6 +55,27 @@ class GetDiaryActivity : AppCompatActivity(){
 
             finish()
         }
+
+        // 다이어리 수정 버튼 추가
+        binding.alterBtn.setOnClickListener {
+            var diary_content = binding.showDiary.toString()
+            //다이어리 시퀀스
+            var diarySequence = binding.getDId.text.toString()
+            var AlterDiaryActivity = Intent(this, AlterDiaryActivity::class.java)
+            AlterDiaryActivity.putExtra("diaryContent", diary_content)
+            AlterDiaryActivity.putExtra("user_email",usersingleton.userEmail)
+            AlterDiaryActivity.putExtra("diarySequence", diarySequence)
+            Log.d("diaryContent", diary_content)
+//            Log.d("user_email", AlterDiaryActivity.toString())
+//            Log.d("diarySequence", AlterDiaryActivity.toString())
+            startActivity(AlterDiaryActivity)
+            finish()
+        }
+
+
+
+
+
     }
 
     fun getSendMessage(info: datemailVO) {
