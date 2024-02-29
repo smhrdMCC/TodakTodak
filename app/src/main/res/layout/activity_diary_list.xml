@@ -9,143 +9,143 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/listPreBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="55sp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/pastel_rainbow7"
+            android:backgroundTint="@color/pastel_rainbow7"
+            android:src="@drawable/ic_pre"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-            <ImageButton
-                android:id="@+id/listPreBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="55sp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@color/pastel_rainbow7"
-                android:backgroundTint="@color/pastel_rainbow7"
-                android:src="@drawable/ic_pre"
-                tools:ignore="SpeakableTextPresentCheck" />
+        <TextView
+            android:id="@+id/listMonthYearText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/pastel_rainbow7"
+            android:fontFamily="@font/squareround"
+            android:gravity="center"
+            android:text="4월 2021"
+            android:textAlignment="center"
+            android:textColor="#5A5C69"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/listMonthYearText"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:fontFamily="@font/squareround"
-                android:gravity="center"
-                android:text="4월 2021"
-                android:background="@color/pastel_rainbow7"
-                android:textAlignment="center"
-                android:textColor="#5A5C69"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <ImageButton
-                android:id="@+id/listNextBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="55sp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@color/pastel_rainbow7"
-                android:backgroundTint="@color/pastel_rainbow7"
-                android:src="@drawable/ic_next"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="554dp" />
+        <ImageButton
+            android:id="@+id/listNextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="55sp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/pastel_rainbow7"
+            android:backgroundTint="@color/pastel_rainbow7"
+            android:src="@drawable/ic_next"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     <LinearLayout
+        android:id="@+id/linearLayout9"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:background="@color/pastel_rainbow7"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/goCalBtn"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/iconcalendar"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/goListBtn"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/diary"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/goChart"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/chart"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/goSocial"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/social"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/goMypage"
-            android:layout_gravity="center"
             android:layout_width="30sp"
             android:layout_height="30sp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
             android:src="@drawable/admin"
             android:visibility="visible"
             app:cornerRadius="20dp"
-            tools:visibility="visible"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
