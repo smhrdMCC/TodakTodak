@@ -90,11 +90,15 @@ class CalendarAdapter(
 
         holder.dayText.setTextColor(black)
         // 텍스트 색상 지정(토,일)
+        holder.dayText.setTextColor(black)
         if((position +1)%7==0){
             holder.dayText.setTextColor(blue)
         }else if(position==0||position%7==0){
             holder.dayText.setTextColor(red)
         }
+
+
+
 
         // 날짜 클릭 이벤트
         holder.itemView.setOnClickListener{
