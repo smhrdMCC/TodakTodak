@@ -44,7 +44,7 @@
                 android:background="@color/pastel_rainbow7"
                 android:textAlignment="center"
                 android:textColor="#5A5C69"
-                android:textSize="34sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
