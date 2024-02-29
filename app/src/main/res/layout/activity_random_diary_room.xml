@@ -8,29 +8,33 @@
 
     <TextView
         android:id="@+id/randomRoomPartnerNickView"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/pastel_color5"
+        android:fontFamily="@font/roboto"
         android:gravity="left|center_vertical"
         android:text="상대방 닉네임"
-        android:background="@color/pastel_color8"
-        android:fontFamily="@font/roboto"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/randomDiaryRoomContent"
-        android:layout_width="0dp"
+        android:layout_width="346sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:text="다이어리 내용"
-        android:background="@color/pastel_color5"
+        android:background="@color/pastel_color8"
         android:fontFamily="@font/roboto"
+        android:text="다이어리 내용"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/randomRoomPartnerNickView" />
 
