@@ -41,7 +41,7 @@ class CalendarAdapter(
         holder.dayEmotion.visibility = View.INVISIBLE
 
         for (i in 0..listleng!!-1) {
-            if (emotionList?.get(i)?.createdAt?.substring(8) == day) {
+            if (emotionList?.get(i)?.createdAt?.substring(8) == day || emotionList?.get(i)?.createdAt?.substring(8) == "0"+day) {
                 if (emotionList?.get(i)?.emotion.toString() =="기쁨") {
                     check = true
                     holder.dayEmotion.visibility = View.VISIBLE
