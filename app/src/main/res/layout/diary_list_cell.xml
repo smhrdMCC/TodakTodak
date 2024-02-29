@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="70sp"
     tools:context=".adapter.DiaryListAdapter">
 
     <TextView
@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:fontFamily="@font/roboto"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +28,7 @@
         android:text="행복했던 날"
         android:textColor="@color/black"
         android:fontFamily="@font/roboto"
-        android:textSize="19sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/listDayMonthText"
         app:layout_constraintStart_toEndOf="@+id/listDayMonthText"
         app:layout_constraintTop_toTopOf="@+id/listDayMonthText" />
@@ -42,7 +42,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:fontFamily="@font/roboto"
-        android:textSize="20sp"
+        android:textSize="19sp"
         app:layout_constraintStart_toStartOf="@+id/listEmotionText"
         app:layout_constraintTop_toBottomOf="@+id/listEmotionText" />
 
