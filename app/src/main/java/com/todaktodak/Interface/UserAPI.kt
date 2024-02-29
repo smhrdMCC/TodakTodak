@@ -69,6 +69,8 @@ public interface API {
     @POST("openDiary")
     fun sendOpenDiary(@Body info: String): Call<String>
 
+    @POST("alterDiary")
+    fun alterDiary(@Body info: String): Call<String>
 //    @POST("sendBert")
 //    fun sendBert(@Body diaryCon: String): Call<String>
 //

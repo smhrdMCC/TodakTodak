@@ -65,7 +65,6 @@ class GetDiaryActivity : AppCompatActivity(){
             AlterDiaryActivity.putExtra("diaryContent", diary_content)
             AlterDiaryActivity.putExtra("user_email",usersingleton.userEmail)
             AlterDiaryActivity.putExtra("diarySequence", diarySequence)
-            Log.d("diaryContent", diary_content)
 //            Log.d("user_email", AlterDiaryActivity.toString())
 //            Log.d("diarySequence", AlterDiaryActivity.toString())
             startActivity(AlterDiaryActivity)
