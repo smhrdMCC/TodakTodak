@@ -25,6 +25,12 @@
             android:name=".adapter.DiaryRoomAdapter"
             android:exported="false" />
         <activity
+            android:name=".adapter.DiaryListAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".adapter.CalendarAdapter"
+            android:exported="false" />
+        <activity
             android:name=".view.DiaryRoomActivity"
             android:exported="false" />
         <activity
@@ -39,12 +45,7 @@
         <activity
             android:name=".view.ChartActivity"
             android:exported="false" />
-        <activity
-            android:name=".adapter.DiaryListAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".adapter.CalendarAdapter"
-            android:exported="false" />
+
         <activity
             android:name=".view.GetDiaryActivity"
             android:exported="false" />
@@ -62,6 +63,9 @@
             android:exported="false" />
         <activity
             android:name=".view.CalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AlterDiaryActivity"
             android:exported="false" />
         <activity
             android:name=".view.StartActivity"
