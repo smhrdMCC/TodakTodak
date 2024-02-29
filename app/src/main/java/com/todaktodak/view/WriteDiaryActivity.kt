@@ -39,8 +39,9 @@ class WriteDiaryActivity : AppCompatActivity() {
             writtenDiary.userEmail = user_email
             var date1 = intent.getStringExtra("date1")
             saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
-//            sendBert("diaryContent"+": "+binding.writeDiary.text.toString())
-            sendBert(binding.writeDiary.text.toString())
+
+            // Read diary
+            sendBert(diary_content)
 
 
             var intent = Intent(this, GetDiaryActivity::class.java)
@@ -143,20 +144,20 @@ class WriteDiaryActivity : AppCompatActivity() {
             }
         })
     }
-
+    // Communicate with Flask server using String format
     fun sendBert(data: String) {
         val call = RetrofitBuilderBert.api.sendDataToFlask(data)
         call.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if (response.isSuccessful) {
-                    Log.d("SendBert RESPONSE:", "Data sent successfully: " + response.body().toString())
-                    // Handle response if needed
+                    Log.d("SendBert RESPONSE:", "Data sent & recieved successfully: " + response.body().toString())
+                    // Insert code if handling response needed
+
                 } else {
                     Log.d("SendBert RESPONSE:", "Failed to send data.")
-                    // Handle failure if needed
+                    // Insert code if handling error needed
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("SendBert CONNECTION FAILURE:", t.localizedMessage)
                 // Handle failure if needed
