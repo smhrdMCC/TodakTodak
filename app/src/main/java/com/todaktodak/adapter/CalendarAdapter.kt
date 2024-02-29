@@ -80,11 +80,13 @@ class CalendarAdapter(
             }
         }
 
+        val calendar_black = "#5A5C69"
         val calendar_blue = "#1569C7"
         val calendar_red = "#F75D59"
 
         val blue = Color.parseColor(calendar_blue)
         val red = Color.parseColor(calendar_red)
+        val black = Color.parseColor(calendar_black)
 
 
         // 텍스트 색상 지정(토,일)
@@ -92,6 +94,8 @@ class CalendarAdapter(
             holder.dayText.setTextColor(blue)
         }else if(position==0||position%7==0){
             holder.dayText.setTextColor(red)
+        }else{
+            holder.dayText.setTextColor(black)
         }
 
         // 날짜 클릭 이벤트
