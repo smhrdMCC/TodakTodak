@@ -64,32 +64,12 @@ class WriteDiaryActivity : AppCompatActivity() {
 
         binding.shareBtn.setOnClickListener {
             var diary_content = binding.writeDiary.text.toString()
-            DiaryTextSingleTon.diaryText = binding.writeDiary.text.toString()
+            var writtenDiary = Diary(user_email, diary_content)
+            var writtenDiaryData = writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString()
 
-            var writtenDiary = Diary()
-            writtenDiary.diaryContent = diary_content
-            writtenDiary.userEmail = user_email
-            var date1 = intent.getStringExtra("date1")
-            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
-            sendBert("diaryContent"+":"+writtenDiary.diaryContent.toString())
+            openDiary(writtenDiaryData)
 
-
-            var intent = Intent(this, GetDiaryActivity::class.java)
-            intent.putExtra("diaryContent", diary_content)
-            intent.putExtra("userEmail", user_email)
-
-            intent.putExtra("date1", date1)
-            Log.d("다이어리", DiaryTextSingleTon.diaryText)
-            val feedback = Feedback()
-            feedback.prompt = DiaryTextSingleTon.diaryText
-
-            requestChatGptFeedBack(
-                prompt = feedback.prompt.toString(),
-                onResult = {
-                    feedback.aiRecommendation = binding.textView4.text.toString()
-                    saveChatGptFeedBack(feedback.aiRecommendation.toString() + ":" + DiarySeqSingleton.diarySeq)
-                }
-            )
+            var intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
         }
 
@@ -180,6 +160,27 @@ class WriteDiaryActivity : AppCompatActivity() {
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("SendBert CONNECTION FAILURE:", t.localizedMessage)
                 // Handle failure if needed
+            }
+        })
+    }
+
+    fun openDiary(writtenDiaryData: String){
+        val call = RetrofitBuilder2.api.sendOpenDiary(writtenDiaryData)
+        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
+            override fun onResponse( // 통신에 성공한 경우
+                call: Call<String>,
+                response: Response<String>
+            ) {
+                if (response.isSuccessful()) { // 응답 잘 받은 경우
+                    Log.d("SaveRESPONSE: ", "저장 성공!!" + response.body().toString())
+                } else {
+                    // 통신 성공 but 응답 실패
+                    Log.d("RESPONSE", "저장 실패!!")
+                }
+            }
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                // 통신에 실패한 경우
+                Log.d("Save CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }

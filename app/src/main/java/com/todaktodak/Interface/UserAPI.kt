@@ -1,5 +1,6 @@
 package com.todaktodak.Interface
 
+import com.example.mccproject.Model.Diary
 import com.todaktodak.model.User
 import com.todaktodak.model.datemailVO
 import com.todaktodak.model.emailnick
@@ -64,6 +65,9 @@ public interface API {
 
     @POST("linkUserDiary")
     fun linkUserDiary(@Body info: linkDiary): Call<String>
+
+    @POST("openDiary")
+    fun sendOpenDiary(@Body info: String): Call<String>
 
 //    @POST("sendBert")
 //    fun sendBert(@Body diaryCon: String): Call<String>
