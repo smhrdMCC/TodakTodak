@@ -37,7 +37,7 @@
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
-            android:src="@drawable/calendar"
+            android:src="@drawable/iconcalendar"
             android:visibility="visible"
             app:cornerRadius="20dp"
             tools:visibility="visible" />
@@ -50,7 +50,7 @@
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
-            android:src="@drawable/calendarlist"
+            android:src="@drawable/diary"
             android:visibility="visible"
             app:cornerRadius="20dp"
             tools:visibility="visible" />
@@ -89,7 +89,7 @@
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
-            android:src="@drawable/mypage"
+            android:src="@drawable/admin"
             android:visibility="visible"
             app:cornerRadius="20dp"
             tools:visibility="visible" />

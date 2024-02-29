@@ -1,5 +1,6 @@
 package com.todaktodak.adapter
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,7 @@ class CalendarAdapter(
     }
 
     // 데이터 설정
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
 
         // 날짜와 감정 변수에 담기
@@ -78,11 +80,18 @@ class CalendarAdapter(
             }
         }
 
+        val calendar_blue = "#1569C7"
+        val calendar_red = "#F75D59"
+
+        val blue = Color.parseColor(calendar_blue)
+        val red = Color.parseColor(calendar_red)
+
+
         // 텍스트 색상 지정(토,일)
         if((position +1)%7==0){
-            holder.dayText.setTextColor(Color.BLUE)
+            holder.dayText.setTextColor(blue)
         }else if(position==0||position%7==0){
-            holder.dayText.setTextColor(Color.RED)
+            holder.dayText.setTextColor(red)
         }
 
         // 날짜 클릭 이벤트
