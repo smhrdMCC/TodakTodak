@@ -10,36 +10,40 @@
         android:id="@+id/diaryRoomLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/diaryRoomDate"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/main"
-            android:textStyle="bold"
-            android:textSize="18sp"
             android:background="@color/pastel_color5"
-            android:text="yyyy-mm-dd" />
+            android:fontFamily="@font/roboto"
+            android:text="yyyy-mm-dd"
+            android:textColor="@color/main"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/diaryRoomContent"
             android:layout_width="250dp"
-            android:fontFamily="@font/roboto"
-            android:background="@color/pastel_rainbow7"
-            android:textSize="22sp"
             android:layout_height="wrap_content"
+            android:background="@color/pastel_rainbow7"
+            android:fontFamily="@font/roboto"
+            android:text="일기 내용"
             android:textColor="@color/main"
-            android:textStyle="bold"
-            android:text="일기 내용" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/blank"
-            android:fontFamily="@font/sehwace"
-            android:textSize="25sp"
             android:layout_width="250dp"
-            android:layout_height="30dp" />
+            android:layout_height="15dp"
+            android:fontFamily="@font/sehwace"
+            android:textSize="25sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
