@@ -37,7 +37,8 @@ class WriteDiaryActivity : AppCompatActivity() {
             writtenDiary.userEmail = user_email
             var date1 = intent.getStringExtra("date1")
             saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
-            sendBert("diaryContent"+":"+writtenDiary.diaryContent.toString())
+//            sendBert("diaryContent"+": "+binding.writeDiary.text.toString())
+            sendBert(binding.writeDiary.text.toString())
 
 
             var intent = Intent(this, GetDiaryActivity::class.java)
