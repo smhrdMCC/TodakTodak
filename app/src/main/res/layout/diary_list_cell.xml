@@ -24,14 +24,14 @@
         android:id="@+id/listEmotionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:fontFamily="@font/roboto"
         android:text="행복했던 날"
         android:textColor="@color/main"
-        android:fontFamily="@font/roboto"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/listDayMonthText"
         app:layout_constraintStart_toEndOf="@+id/listDayMonthText"
-        app:layout_constraintTop_toTopOf="@+id/listDayMonthText" />
+        app:layout_constraintTop_toTopOf="@+id/listDayMonthText"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/listDiaryContent"
