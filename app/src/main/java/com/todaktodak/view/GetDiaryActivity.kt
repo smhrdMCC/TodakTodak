@@ -38,11 +38,15 @@ class GetDiaryActivity : AppCompatActivity(){
         val getmsg = FindDiary()
         getmsg.userEmail = usersingleton.userEmail
 
-//        binding.backWriteDiary.setOnClickListener{
-//            val backWriteDiaryButton = Intent(this, WriteDiaryActivity::class.java)
-//            startActivity(backWriteDiaryButton)
-//            finish()
-//        }
+        binding.alterBtn.setOnClickListener {
+            var diary_content = date.toString()
+            var backWriteDiaryActivity = Intent(this, GetDiaryActivity::class.java)
+            backWriteDiaryActivity.putExtra("diaryContent", diary_content)
+            startActivity(backWriteDiaryActivity)
+        }
+
+
+
 
         var info = datemailVO(date.toString(), usersingleton.userEmail)
 //        var emotion = (toString())
