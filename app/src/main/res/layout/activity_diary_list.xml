@@ -10,10 +10,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,13 +25,13 @@
             <ImageButton
                 android:id="@+id/listPreBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="48sp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
+                android:layout_height="55sp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="@color/pastel_rainbow7"
                 android:backgroundTint="@color/pastel_rainbow7"
                 android:src="@drawable/ic_pre"
-                tools:ignore="SpeakableTextPresentCheck"/>
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/listMonthYearText"
@@ -44,29 +41,30 @@
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:text="4월 2021"
+                android:background="@color/pastel_rainbow7"
                 android:textAlignment="center"
                 android:textColor="#F88158"
-                android:textSize="28sp"
+                android:textSize="34sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
             <ImageButton
                 android:id="@+id/listNextBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="48sp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:backgroundTint="@color/pastel_rainbow7"
+                android:layout_height="55sp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="@color/pastel_rainbow7"
+                android:backgroundTint="@color/pastel_rainbow7"
                 android:src="@drawable/ic_next"
-                tools:ignore="SpeakableTextPresentCheck"/>
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

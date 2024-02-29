@@ -11,6 +11,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -29,21 +30,22 @@
                 android:layout_height="55sp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="@color/pastel_rainbow7"
                 android:backgroundTint="@color/pastel_rainbow7"
                 android:src="@drawable/ic_pre" />
 
             <TextView
                 android:id="@+id/calendarMonthYearText"
                 android:layout_width="0dp"
-                android:layout_height="53sp"
+                android:layout_height="55sp"
                 android:layout_gravity="center"
                 android:layout_weight="3"
-                android:background="@color/pastel_color1"
-                android:fontFamily="@font/roboto"
+                android:background="@color/pastel_rainbow7"
+                android:fontFamily="@font/squareround"
                 android:gravity="center"
                 android:text="4월 2021"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="#ffa62a"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -53,6 +55,7 @@
                 android:layout_height="55sp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="@color/pastel_rainbow7"
                 android:backgroundTint="@color/pastel_rainbow7"
                 android:src="@drawable/ic_next" />
 
@@ -67,10 +70,10 @@
                 android:id="@+id/textView10"
                 android:layout_width="0dp"
                 android:layout_height="30sp"
-                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@color/gray"
                 android:fontFamily="@font/roboto"
+                android:gravity="center"
                 android:text="일"
                 android:textAlignment="center"
                 android:textColor="#F75D59"
@@ -81,10 +84,10 @@
                 android:id="@+id/textView11"
                 android:layout_width="0dp"
                 android:layout_height="30sp"
-                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@color/gray"
                 android:fontFamily="@font/roboto"
+                android:gravity="center"
                 android:text="월"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -95,10 +98,10 @@
                 android:id="@+id/textView12"
                 android:layout_width="0dp"
                 android:layout_height="30sp"
-                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@color/gray"
                 android:fontFamily="@font/roboto"
+                android:gravity="center"
                 android:text="화"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -109,10 +112,10 @@
                 android:id="@+id/textView13"
                 android:layout_width="0dp"
                 android:layout_height="30sp"
-                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@color/gray"
                 android:fontFamily="@font/roboto"
+                android:gravity="center"
                 android:text="수"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -123,10 +126,10 @@
                 android:id="@+id/textView14"
                 android:layout_width="0dp"
                 android:layout_height="30sp"
-                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@color/gray"
                 android:fontFamily="@font/roboto"
+                android:gravity="center"
                 android:text="목"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -137,10 +140,10 @@
                 android:id="@+id/textView15"
                 android:layout_width="0dp"
                 android:layout_height="30sp"
-                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@color/gray"
                 android:fontFamily="@font/roboto"
+                android:gravity="center"
                 android:text="금"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -151,10 +154,10 @@
                 android:id="@+id/textView16"
                 android:layout_width="0dp"
                 android:layout_height="30sp"
-                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@color/gray"
                 android:fontFamily="@font/roboto"
+                android:gravity="center"
                 android:text="토"
                 android:textAlignment="center"
                 android:textColor="#1569C7"
@@ -162,15 +165,10 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/calenderView"
-            android:layout_width="match_parent"
-            android:layout_height="530dp"
-            android:backgroundTint="#2A2C2E" />
-
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout8"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:background="@color/pastel_rainbow7"
@@ -245,5 +243,16 @@
             tools:visibility="visible" />
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calenderView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:backgroundTint="#2A2C2E"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

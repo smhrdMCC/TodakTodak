@@ -38,7 +38,8 @@ class AlterDiaryActivity : AppCompatActivity() {
             writtenDiary.diaryContent = diary_content
             writtenDiary.userEmail = user_email
             var date1 = intent.getStringExtra("date1")
-            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
+            var diarySequence = intent.getStringExtra("diarySequence")
+            alterDiary(diarySequence.toString() +":"+writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
 
             // Read diary
             sendBert(diary_content)
@@ -75,8 +76,8 @@ class AlterDiaryActivity : AppCompatActivity() {
         }
 
     }
-    fun saveDiary(diary: String) {
-        val call = RetrofitBuilder2.api.doGetDiary(diary)
+    fun alterDiary(diary: String) {
+        val call = RetrofitBuilder2.api.alterDiary(diary)
         call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
             override fun onResponse( // 통신에 성공한 경우
                 call: Call<String>,
