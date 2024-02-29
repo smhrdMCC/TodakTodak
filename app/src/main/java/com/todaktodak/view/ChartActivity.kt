@@ -104,7 +104,7 @@ class ChartActivity : AppCompatActivity() {
         dataSet.colors = pieColors
         dataSet.sliceSpace = 5f
         dataSet.valueTextColor = R.color.main
-
+        dataSet.valueTextSize = 10f
         val month1 : String = makeMonthSingleton.makeMonth.toString()
         Log.d("month1",month1)
 
