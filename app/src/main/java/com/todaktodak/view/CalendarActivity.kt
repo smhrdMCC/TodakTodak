@@ -74,8 +74,6 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
 
         val emotionList = body
 
-        Log.d("size체크",emotionList?.size.toString())
-
         val adapter = CalendarAdapter(dayList, emotionList, this)
 
         var manager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 7)

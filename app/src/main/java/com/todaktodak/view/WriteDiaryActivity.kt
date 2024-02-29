@@ -29,7 +29,9 @@ class WriteDiaryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.textView4.visibility = View.GONE
+        var date1 = intent.getStringExtra("date1")
 
+        binding.writeDiary.setHint(date1 +"\n" +"다이어리를 작성해주세요")
         binding.sendBtn.setOnClickListener {
             var diary_content = binding.writeDiary.text.toString()
             DiaryTextSingleTon.diaryText = binding.writeDiary.text.toString()
@@ -37,7 +39,7 @@ class WriteDiaryActivity : AppCompatActivity() {
             var writtenDiary = Diary()
             writtenDiary.diaryContent = diary_content
             writtenDiary.userEmail = user_email
-            var date1 = intent.getStringExtra("date1")
+
             saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
 
             // Read diary
