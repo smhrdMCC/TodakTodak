@@ -103,6 +103,7 @@ class ChartActivity : AppCompatActivity() {
         dataSet.setValueFormatter(PercentFormatter())
         dataSet.colors = pieColors
         dataSet.sliceSpace = 5f
+        dataSet.valueTextColor = R.color.main
 
         val month1 : String = makeMonthSingleton.makeMonth.toString()
         Log.d("month1",month1)
