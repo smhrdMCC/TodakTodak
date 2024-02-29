@@ -13,6 +13,7 @@ import com.todaktodak.retrofit.DiaryTextSingleTon
 import com.todaktodak.retrofit.RetrofitBuilder
 import com.todaktodak.retrofit.RetrofitBuilder2
 import com.todaktodak.retrofit.RetrofitBuilderBert
+import com.todaktodak.retrofit.aiEmotion
 import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,8 +44,8 @@ class WriteDiaryActivity : AppCompatActivity() {
             saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
 
             // Read diary
-            sendBert(diary_content)
 
+            sendBert(diary_content)
 
             var intent = Intent(this, GetDiaryActivity::class.java)
             intent.putExtra("diaryContent", diary_content)
@@ -58,8 +59,9 @@ class WriteDiaryActivity : AppCompatActivity() {
             requestChatGptFeedBack(
                 prompt = feedback.prompt.toString(),
                 onResult = {
+
                     feedback.aiRecommendation = binding.textView4.text.toString()
-                    saveChatGptFeedBack(feedback.aiRecommendation.toString() + ":" + DiarySeqSingleton.diarySeq)
+                    saveChatGptFeedBack(feedback.aiRecommendation.toString() + ":" + DiarySeqSingleton.diarySeq + ":"+ aiEmotion.aiEmo + ":" + date1)
                 }
             )
             startActivity(intent)
@@ -153,8 +155,7 @@ class WriteDiaryActivity : AppCompatActivity() {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if (response.isSuccessful) {
                     Log.d("SendBert RESPONSE:", "Data sent & recieved successfully: " + response.body().toString())
-                    // Insert code if handling response needed
-
+                    aiEmotion.aiEmo = response.body().toString()
                 } else {
                     Log.d("SendBert RESPONSE:", "Failed to send data.")
                     // Insert code if handling error needed

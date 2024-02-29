@@ -19,5 +19,10 @@
     <color name="pastel_color6">#EAE4E9</color>
     <color name="pastel_color7">#BEE1E6</color>
     <color name="pastel_color8">#FDE2E4</color>
+    <color name="calendar_blue">#1569C7</color>
+    <color name="calendar_red">#F75D59</color>
+    <color name="main">#5A5C69</color>
+
+
 
 </resources>

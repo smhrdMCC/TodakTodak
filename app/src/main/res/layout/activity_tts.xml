@@ -28,7 +28,8 @@
         android:fontFamily="@font/roboto"
         android:backgroundTint="@color/pastel_rainbow7"
         android:text="음성 전환"
-        android:textColor="#514646"
+        android:textStyle="bold"
+        android:textColor="@color/main"
         android:textSize="20sp" />
 
 </RelativeLayout>

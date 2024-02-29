@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
-            android:src="@drawable/calendar"
+            android:src="@drawable/iconcalendar"
             android:visibility="visible"
             app:cornerRadius="20dp"
             tools:visibility="visible" />
@@ -56,7 +56,7 @@
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
-            android:src="@drawable/calendarlist"
+            android:src="@drawable/diary"
             android:visibility="visible"
             app:cornerRadius="20dp"
             tools:visibility="visible" />
@@ -95,7 +95,7 @@
             android:layout_weight="1"
             android:background="#00ff0000"
             android:backgroundTint="#FDF6FE"
-            android:src="@drawable/mypage"
+            android:src="@drawable/admin"
             android:visibility="visible"
             app:cornerRadius="20dp"
             tools:visibility="visible" />
@@ -111,6 +111,7 @@
         android:backgroundTint="@color/pastel_rainbow7"
         android:textColor="@color/black"
         android:fontFamily="@font/roboto"
+        android:textStyle="bold"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/replyDiaryListBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,6 +127,7 @@
         android:layout_marginBottom="80dp"
         android:layout_weight="1"
         android:text="답장 목록"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:fontFamily="@font/roboto"
         android:textSize="20sp"

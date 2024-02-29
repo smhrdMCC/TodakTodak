@@ -14,7 +14,8 @@
         android:layout_marginTop="8dp"
         android:text="상대 닉네임"
         android:background="@color/pastel_color5"
-        android:textColor="@color/black"
+        android:textColor="@color/main"
+        android:textStyle="bold"
         android:fontFamily="@font/roboto"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,9 +28,10 @@
         android:layout_marginTop="5dp"
         android:text="일기 내용"
         android:background="@color/pastel_rainbow7"
-        android:textColor="@color/black"
+        android:textColor="@color/main"
+        android:textStyle="bold"
         android:fontFamily="@font/roboto"
-        android:textSize="20sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="@+id/listUserNick"
         app:layout_constraintTop_toBottomOf="@+id/listUserNick" />
 

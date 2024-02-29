@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.size
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -121,6 +122,7 @@ class ChartActivity : AppCompatActivity() {
 
                 centerText = month + "월의 감정"
                 //setTouchEnabled(false)
+                setCenterTextSize(15f)
                 setEntryLabelColor(Color.BLACK)
                 animateY(1200, Easing.EaseInOutCubic)
 
