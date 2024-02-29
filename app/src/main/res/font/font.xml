@@ -11,7 +11,7 @@
         android:fontWeight="400"/>
 
     <font
-        android:font="@font/NanumBarunGothic"
+        android:font="@font/gothic"
         android:fontStyle="normal"
         android:fontWeight="400"/>
 
