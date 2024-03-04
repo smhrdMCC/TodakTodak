@@ -113,7 +113,6 @@ class MyPageActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
     private fun changeNickDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("변경할 닉네임을 입력해주세요")
@@ -134,7 +133,6 @@ class MyPageActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
     private fun changeNick(info: emailnick) {
         val call = RetrofitBuilder2.api.changeNick(info)
         call.enqueue(object : Callback<String> {
@@ -143,19 +141,17 @@ class MyPageActivity : AppCompatActivity() {
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful){
                     Log.d("RESPONSE: ", response.body().toString())
                 } else {
                     Log.d("RESPONSE ERROR: ", "2")
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
-
     private fun withdraw(email: String) {
         val call = RetrofitBuilder2.api.withdraw(email)
         call.enqueue(object : Callback<String> {
@@ -164,13 +160,12 @@ class MyPageActivity : AppCompatActivity() {
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful){
                     Log.d("RESPONSE: ", response.body().toString())
                 } else {
                     Log.d("RESPONSE ERROR: ", "2")
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }

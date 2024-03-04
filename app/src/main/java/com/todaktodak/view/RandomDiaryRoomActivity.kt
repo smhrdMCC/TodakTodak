@@ -41,25 +41,19 @@ class RandomDiaryRoomActivity : AppCompatActivity() {
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if(response.isSuccessful()){
-                    Log.d("RESPONSE: ", response.body().toString())
+                if(response.isSuccessful){
                     goReplyList()
                 } else {
                     Log.d("RESPONSE ERROR: ", "2")
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
-
     fun goReplyList(){
         var intent = Intent(this, ReplyDiaryListActivity::class.java)
         startActivity(intent)
     }
-
 }
-
-

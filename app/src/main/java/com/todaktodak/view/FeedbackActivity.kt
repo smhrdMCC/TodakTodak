@@ -27,9 +27,7 @@ class FeedbackActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
 
         val intent: Intent = intent
 
-        val diaryText = intent.getStringExtra("diaryText")
         val diarySeq = intent.getStringExtra("diaryId")
-        val createdAt = intent.getStringExtra("diaryDate")
 
         getFeedbackMessage(diarySeq.toString())
 
@@ -60,14 +58,14 @@ class FeedbackActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             startActivity(intent)
         }
     }
-    fun getFeedbackMessage(diarySeq: String){
+    private fun getFeedbackMessage(diarySeq: String){
         val call = RetrofitBuilder2.api.getFeedBackMessage(diarySeq)
         call.enqueue(object : Callback<String> {
             override fun onResponse(
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful){
                     Log.d("GetRESPONSE: ", "성공!"+response.body().toString())
                     FeedBackSingleton.FeedbackText = response.body().toString()
                     binding.textView.text = response.body()
@@ -88,7 +86,6 @@ class FeedbackActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     ) {
         if (it.resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
             tts = TextToSpeech(this, this)
-
             tts.setPitch(0.0f)
             tts.setSpeechRate(0.9f)
 

@@ -133,12 +133,9 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
                 call: Call<ArrayList<emotiondate>>,
                 response: Response<ArrayList<emotiondate>>
             ) {
-                if(response.isSuccessful()){
-                    Log.d("RESPONSE: ", response.body().toString())
+                if(response.isSuccessful){
                     setMonthView(response.body())
-
                     emotionsingleton.list = response.body()!!
-                    Log.d("size check",emotionsingleton.list.size.toString())
                 } else{
                     Log.d("RESPONSE ERROR: ", "2")
                 }
@@ -151,8 +148,6 @@ class CalendarActivity : AppCompatActivity(), OnItemListener {
     override fun onItemClick(dayText: String, check : Boolean){
         var searching = searchingFromDate(selectedDate, dayText)
         makeMonthSingleton.makeMonth = LocalDate.now().toString()
-        Log.d("날짜 확인", searching)
-        // 클릭한 날짜의 토스트 메세지 띄우기
         if (!check) {
             var intent = Intent(this, WriteDiaryActivity::class.java)
             intent.putExtra("date1", searching)

@@ -70,14 +70,12 @@ class DiaryListActivity : AppCompatActivity() {
                 call: Call<ArrayList<emotionContentVO>>,
                 response: Response<ArrayList<emotionContentVO>>
             ) {
-                if(response.isSuccessful()){
-                    Log.d("RESPONSE: ", response.body().toString())
+                if(response.isSuccessful){
                     setListView(response.body())
                 } else {
                     Log.d("RESPONSE ERROR: ", "2")
                 }
             }
-
             override fun onFailure(call: Call<ArrayList<emotionContentVO>>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
@@ -101,41 +99,10 @@ class DiaryListActivity : AppCompatActivity() {
         return date.format(formatter)
     }
 
-    private fun yearMonthFromDate(date: LocalDate):String{
-
-        var formatter = DateTimeFormatter.ofPattern("yyyy년 MM월")
-
-        return date.format(formatter)
-    }
-    private fun searchingFromDate(date: LocalDate, dayText: String):String{
-        var formatter = DateTimeFormatter.ofPattern("yyyy-MM")
-        var result = date.format(formatter) + "-" + dayText
-
-        return result
-    }
     private fun searchingFromMonth(date: LocalDate):String{
         var formatter = DateTimeFormatter.ofPattern("yyyy-MM")
 
         return date.format(formatter)
-    }
-    private fun dayInMonthArray(date: LocalDate):ArrayList<String>{
-        var dayList = ArrayList<String>()
-
-        var yearMonth = YearMonth.from(date)
-
-        var lastDay = yearMonth.lengthOfMonth()
-
-        var firstDay = selectedDate.withDayOfMonth(1)
-
-        var dayOfWeek = firstDay.dayOfWeek.value
-        for(i in 1..41){
-            if(i <= dayOfWeek || i > (lastDay + dayOfWeek)){
-                dayList.add("")
-            }else{
-                dayList.add((i-dayOfWeek).toString())
-            }
-        }
-        return dayList
     }
 
     fun onItemClick(dayText: String,  check : Boolean){
