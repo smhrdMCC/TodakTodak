@@ -43,26 +43,17 @@
 
 </br>
 
-## 화면설계
+## 화면 구성
 <details>
-<summary><b>화면 설계</b></summary>
-<div markdown="1">
-</div>
-</details>
-
-</br>
-
-## 주요 기능
-<details>
-<summary><b>기능1</b></summary>
+<summary><b>화면 1</b></summary>
 <div markdown="1">
 </div>
 </details><details>
-<summary><b>기능2</b></summary>
+<summary><b>화면 2</b></summary>
 <div markdown="1">
 </div>
 </details><details>
-<summary><b>기능3</b></summary>
+<summary><b>화면 3</b></summary>
 <div markdown="1">
 </div>
 </details>
