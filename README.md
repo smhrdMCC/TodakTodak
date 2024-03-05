@@ -17,7 +17,6 @@
 ## 사용 기술
 #### `Back-end`
 - Python
-- Maven
 
 #### `Back-end & Front-end`
 - Android Studio
