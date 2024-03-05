@@ -53,15 +53,15 @@
 
 ## 주요 기능
 <details>
-<summary><b>화면 설계</b></summary>
+<summary><b>기능1</b></summary>
 <div markdown="1">
 </div>
 </details><details>
-<summary><b>화면 설계</b></summary>
+<summary><b>기능2</b></summary>
 <div markdown="1">
 </div>
 </details><details>
-<summary><b>화면 설계</b></summary>
+<summary><b>기능3</b></summary>
 <div markdown="1">
 </div>
 </details>
