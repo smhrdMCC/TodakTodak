@@ -23,8 +23,10 @@ class RandomDiaryRoomActivity : AppCompatActivity() {
         val nick = intent.getStringExtra("nick")
         val content = intent.getStringExtra("content")
 
-        binding.randomRoomPartnerNickView.text = nick
-        binding.randomDiaryRoomContent.text = content
+        if (mail != usersingleton.userEmail) {
+            binding.randomRoomPartnerNickView.text = nick
+            binding.randomDiaryRoomContent.text = content
+        }
 
         binding.sendDiaryBtn.setOnClickListener {
             val inputContent = binding.replyDiaryInputBox.text.toString()
