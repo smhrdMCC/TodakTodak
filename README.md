@@ -32,6 +32,7 @@
 ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
 #### `Library & API`
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
+<img src="https://img.shields.io/badge/Spring Data JPA-bcae79?style=for-the-badge&logo=&logoColor=white"/>
 #### `Etc`
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
@@ -69,6 +70,33 @@
 ## 트러블 슈팅
 ### 최준성
 ### 김영준
+<details>
+<summary><b>Failed to connect to service endpoint</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	com.amazonaws.SdkClientException: Failed to connect to service endpoint:
+	Caused by: java.net.SocketTimeoutException: connect timed out
+
+　💡 해결 방법
+- spring-cloud-starter-aws 의존성 주입시 로컬환경은 AWS환경이 아니기때문에 발생한다.
+- 아래 구문을 SpringBootApplication에 적용하였음.
+
+```java
+@SpringBootApplication(
+      exclude = {
+              org.springframework.cloud.aws.autoconfigure.context.ContextInstanceDataAutoConfiguration.class,
+              org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration.class,
+              org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration.class
+      }
+ )
+```
+
+</div>
+</details>
 ### 윤강석
 ### 정명훈
 ### 이상현
