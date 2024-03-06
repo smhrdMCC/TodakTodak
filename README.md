@@ -76,28 +76,73 @@
 ### 최준성
 ### 김영준
 <details>
-<summary><b>Failed to connect to service endpoint</b></summary>
+<summary><b>안드로이드에서 SpringBoot 서버로 데이터 전송 오류</b></summary>
 <div markdown="1">
 
 ---
 
 　🧨 오류 내용
 
-	com.amazonaws.SdkClientException: Failed to connect to service endpoint:
-	Caused by: java.net.SocketTimeoutException: connect timed out
+	안드로이드에서 SpringBoot 서버로 데이터가 전송을 했으나 서버에서 로그가 안찍히는 오류
 
 　💡 해결 방법
-- spring-cloud-starter-aws 의존성 주입시 로컬환경은 AWS환경이 아니기때문에 발생한다.
-- 아래 구문을 SpringBootApplication에 적용하였음.
+- 안드로이드 Retrofit 기능에 BaseURL에 아이피 주소를 localhost:port 작성하지 않고 10.0.0.2를 입력 후 해결
+- 10.0.0.2는 안드로이드 에뮬레이터에서 127.0.0.1 즉 루프백 주소
 
-```java
-@SpringBootApplication(
-      exclude = {
-              org.springframework.cloud.aws.autoconfigure.context.ContextInstanceDataAutoConfiguration.class,
-              org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration.class,
-              org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration.class
-      }
- )
+```Android
+val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8100/")
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+```
+
+</div>
+</details>
+
+<details>
+<summary><b>ChatGPT API 연동 시 API-KEY 값을 읽지 못하는 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	공식 문서에서는 API-KEY를 환경변수를 이용하여 가져왔으나 실제로 적용을 해보니 불러오지 못함
+
+　💡 해결 방법
+- open 함수를 사용하여 파일을 읽어 들인 후 변수에 저장하여 해결
+
+```Python
+with open('./gpt_api_key.txt', 'r') as f:
+    api_key = f.read().strip()  # 시작/끝에 있는 모든 공백 제거
+```
+
+</div>
+</details>
+<details>
+<summary><b>SpringBoot 서버에서 DB의 테이블, 컬럼에 접근 못하는 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+
+　💡 해결 방법
+- 해당 Entity java 파일들에 @Table(name = "tb_user"), @Column(name = "user_email") 어노테이션을 추가하여 해결
+
+```Java
+@Table(name = "tb_user")
+public class User {
+
+	@Id
+	@Column(name = "user_email")
+	private String userEmail;
+	
+	@Column(name = "user_nick")
+	private String userNick;
+}
 ```
 
 </div>
