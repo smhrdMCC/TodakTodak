@@ -56,20 +56,32 @@
 <details>
 <summary><b>달력</b></summary>
 <div markdown="1">
-![KakaoTalk_20240229_172253329](https://github.com/smhrdMCC/TodakTodak/assets/160091299/a7df7b4d-a5c0-4bc8-954a-8a6b9eb6b901)
+![KakaoTalk_20240229_172253329](https://github.com/smhrdMCC/TodakTodak/assets/160091299/521a1d9b-200f-45b1-b072-c906e4dea9ce)
 
 </div>
 </details>
 
 <details>
-<summary><b>화면 2</b></summary>
+<summary><b>일기 목록</b></summary>
 <div markdown="1">
+![KakaoTalk_20240229_174440077](https://github.com/smhrdMCC/TodakTodak/assets/160091299/71af4878-d957-471b-94da-15e605a0900a)
+
 </div>
 </details>
 
 <details>
-<summary><b>화면 3</b></summary>
+<summary><b>차트</b></summary>
 <div markdown="1">
+![KakaoTalk_20240229_172253423](https://github.com/smhrdMCC/TodakTodak/assets/160091299/afd6cd8d-8634-40fa-954a-78b5aac748f2)
+
+</div>
+</details>
+
+<details>
+<summary><b>교환일기</b></summary>
+<div markdown="1">
+![KakaoTalk_20240229_172253639](https://github.com/smhrdMCC/TodakTodak/assets/160091299/0c64f31b-e87d-49a0-90f1-02563fe6e748)
+
 </div>
 </details>
 
