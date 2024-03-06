@@ -303,6 +303,31 @@ requestChatGptFeedBack(
 ### 윤강석
 ### 정명훈
 ### 이상현
+<details>
+<summary><b>안드로이드에서 SpringBoot 서버로 데이터 전송 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	안드로이드에서 SpringBoot 서버로 데이터가 전송을 했으나 서버에서 로그가 안찍히는 오류
+
+　💡 해결 방법
+- 안드로이드 Retrofit 기능에 BaseURL에 아이피 주소를 localhost:port 작성하지 않고 10.0.0.2를 입력 후 해결
+- 10.0.0.2는 안드로이드 에뮬레이터에서 127.0.0.1 즉 루프백 주소
+
+```Android
+val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8100/")
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+```
+
+</div>
+</details>
+
+<details>
 
 </br>
 
