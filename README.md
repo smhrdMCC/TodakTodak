@@ -356,48 +356,40 @@ id를 대문자로 해서 못불러와지는 오류였다
 
 </div>
 </details>
+	
 <details>
-<summary><b>4번부터</b></summary>
+<summary><b>로그인 완료후 이메일과 닉네임 가지고 달력 페이지로 넘어갈때 이메일과 닉네임 같이 안가지고 가는 오류</b></summary>
 <div markdown="1">
 
 ---
 
 　🧨 오류 내용
 
-	안드로이드에서 SpringBoot 서버로 데이터가 전송을 했으나 서버에서 로그가 안찍히는 오류
+	로그인이 완료후 달력 페이지로는 넘어가는데 처음로그인 했을때는 안가지고 가고 두번째 로그인 했을때 닉네임과 이메일을 가지고 간다 
 
 　💡 해결 방법
-- 안드로이드 Retrofit 기능에 BaseURL에 아이피 주소를 localhost:port 작성하지 않고 10.0.0.2를 입력 후 해결
-- 10.0.0.2는 안드로이드 에뮬레이터에서 127.0.0.1 즉 루프백 주소
+ambda식(람다식) 표현으로 해결
 
 ```Android
-val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8100/")
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .build()
-```
+ btnKakaoLogin.setOnClickListener {
+            kakaoOauthViewModel.kakaoLogin()
+            requestKaKaoUserInfo(
+                onResult = {
+                    val user = User()
 
-</div>
-</details>
-<details>
-<summary><b></b></summary>
-<div markdown="1">
+                    user.userEmail = usersingleton.userEmail
+                    user.userNick = usersingleton.userNick
 
----
+                    login(
+                        user,
+                        onResult = {
+                            Log.d("LOGIN", "SUCCESS")
 
-　🧨 오류 내용
-
-	안드로이드에서 SpringBoot 서버로 데이터가 전송을 했으나 서버에서 로그가 안찍히는 오류
-
-　💡 해결 방법
-- 안드로이드 Retrofit 기능에 BaseURL에 아이피 주소를 localhost:port 작성하지 않고 10.0.0.2를 입력 후 해결
-- 10.0.0.2는 안드로이드 에뮬레이터에서 127.0.0.1 즉 루프백 주소
-
-```Android
-val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8100/")
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .build()
+                        }
+                    )
+                }
+            )
+        }
 ```
 
 </div>
