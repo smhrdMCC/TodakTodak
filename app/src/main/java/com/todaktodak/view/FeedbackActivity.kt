@@ -1,5 +1,6 @@
 package com.todaktodak.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.todaktodak.databinding.ActivityFeedbackBinding
 import com.todaktodak.retrofit.FeedBackSingleton
 import com.todaktodak.retrofit.RetrofitBuilder2
+import com.todaktodak.retrofit.usersingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,6 +23,7 @@ class FeedbackActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     lateinit var binding: ActivityFeedbackBinding
     lateinit var tts: TextToSpeech
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFeedbackBinding.inflate(layoutInflater)
@@ -28,6 +31,8 @@ class FeedbackActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         val intent: Intent = intent
         val diarySeq = intent.getStringExtra("diaryId")
+
+        binding.getUser.text = '"'+ usersingleton.userNick + '"'+" 님께 드리는 힐링 답장"
 
         // Initialize tts module before registering
         tts = TextToSpeech(this, this)
