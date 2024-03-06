@@ -327,7 +327,6 @@ val retrofit = Retrofit.Builder()
 </div>
 </details>
 
-<details>
 
 </br>
 
