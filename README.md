@@ -41,6 +41,8 @@
 
 ## 시스템 아키텍처
 
+![KakaoTalk_20240306_112022708](https://github.com/smhrdMCC/TodakTodak/assets/160091299/f1aed524-b5c6-40ae-bb32-1b763468a847)
+
 </br>
 
 ## ERD
@@ -49,6 +51,8 @@
 </br>
 
 ## 서비스 흐름도
+
+![KakaoTalk_20240306_111958457](https://github.com/smhrdMCC/TodakTodak/assets/160091299/ae7fe78d-bf57-40e0-9dd3-50f0e70520ef)
 
 </br>
 
