@@ -14,6 +14,7 @@
         android:hint="피드백이 나오는 화면"
         android:gravity="center"
         android:textAlignment="center"
+        android:fontFamily="@font/roboto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

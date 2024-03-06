@@ -41,6 +41,8 @@ class GetDiaryActivity : AppCompatActivity(){
         var info = datemailVO(date.toString(), usersingleton.userEmail)
 //        var emotion = (toString())
 
+        binding.getDiaryUserNick.setText('"'+ usersingleton.userNick + '"'+" 님의 00년 00월 00일 일기")
+
         getSendMessage(info)
 //        getBert(emotion)
         binding.feedBtn.setOnClickListener {

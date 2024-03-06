@@ -30,6 +30,7 @@ class WriteDiaryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.textView4.visibility = View.GONE
+        binding.userNick.setText('"'+ usersingleton.userNick + '"'+" 님의 00년 00월 00일 일기")
 
         binding.sendBtn.setOnClickListener {
             var diary_content = binding.writeDiary.text.toString()
