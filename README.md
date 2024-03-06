@@ -308,13 +308,76 @@ requestChatGptFeedBack(
 ---
 
 　🧨 오류 내용
-	카멜기법으로 사용하려고 하는데 table이름 자체에 _(언더바)가 들어있다 보니 오류가 발생함 		
+	작성된 다이어리를 조회하기 위해 JPA문법으로 사용하려고 하는데 table이름 _(언더바)가 들어있어 카멜기법 오류로 테이블 참조오류 발생		
 	
 
 　💡 해결 방법
 - entity 부분에서 컬럼(name="")속성을 이용하여 " "안에 실제 테이블 명을 적어주고 entity생성은 카멜기법으로 표기하여 JPA문법을 쓰기 수월하게 변경하였다
-- @Column(name = "diary_content") // 실제 컬럼명 작성
-  private String diaryContent; // 사용하고자하는 변수명을 JPA문법을 수월히 사용하기 위해 카멜기법으로 수정
+```@Column(name = "diary_content") // 실제 컬럼명 작성
+   private String diaryContent; // 사용하고자하는 변수명을 JPA문법을 수월히 사용하기 위해 카멜기법으로 수정
+```
+
+</div>
+</details>
+
+<details>
+<summary><b>Android와 Spring 서버 간 데이터 송수신 문제</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+	Android에서 객체를 생성하여 데이터를 담아 Spring서버에 요청 후 Spring에서 객체형태를 받아들이지 못함		
+	
+
+　💡 해결 방법
+- Android에서 객체 형태로 Spring에 요청하지 않고 String으로 요청
+```
+  public String saveDiary(@RequestBody String userDiary) {	
+```
+
+</div>
+</details>
+
+<details>
+<summary><b>Android와 Spring 서버 간 데이터 송수신 문제2</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+	1. String으로 받아들인 후 userContent와 userEmail을 저장하는 과정에서 consloe창에 userEmail이 Null값으로 확인
+ 	2. tb_user의 user_email을 참조해야하는 상황에서 오류가 발생
+	
+
+　💡 해결 방법 
+- tb_diary 테이블의 경우 tb_user 테이블의 user_email을 참조하므로 user_email의 데이터타입을 User타입으로 변경하였다
+- tb_diary 테이블의 user_email은 더 이상 String 타입이 아니므로 User객체를 생성하여 user_email의 값을 제대로 가져올 수 있었다.
+```
+  User user = new User();
+  user.setUserEmail(userEmail);	
+```
+
+</div>
+</details>
+
+<details>
+<summary><b>Android와 Spring 서버 간 데이터 송수신 문제3<Json 파싱하기></b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+	1. Android에서 diary_content와 user_email이 Json형태로 넘어옴
+ 	2. Json 자료를 파싱 하기위해 Gson을 이용했지만 실패
+
+　💡 해결 방법 
+- replaceAll함수와 split함수를 이용하여 해결
+
+```
+  String saveDiary = userDiary.replaceAll("\"","");
+  String[] save = saveDiary.split(":");
+```
 
 </div>
 </details>
