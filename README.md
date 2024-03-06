@@ -56,15 +56,20 @@
 <summary><b>화면 1</b></summary>
 <div markdown="1">
 </div>
-</details><details>
+</details>
+
+<details>
 <summary><b>화면 2</b></summary>
 <div markdown="1">
 </div>
-</details><details>
+</details>
+
+<details>
 <summary><b>화면 3</b></summary>
 <div markdown="1">
 </div>
 </details>
+
 </br>
 
 ## 트러블 슈팅
