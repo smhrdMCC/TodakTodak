@@ -301,6 +301,24 @@ requestChatGptFeedBack(
 </details>
 
 ### 윤강석
+<details>
+<summary><b>Spring에서 JPA문법 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+	카멜기법으로 사용하려고 하는데 table이름 자체에 _(언더바)가 들어있다 보니 오류가 발생함 		
+	
+
+　💡 해결 방법
+- entity 부분에서 컬럼(name="")속성을 이용하여 " "안에 실제 테이블 명을 적어주고 entity생성은 카멜기법으로 표기하여 JPA문법을 쓰기 수월하게 변경하였다
+- @Column(name = "diary_content") // 실제 컬럼명 작성
+  private String diaryContent; // 사용하고자하는 변수명을 JPA문법을 수월히 사용하기 위해 카멜기법으로 수정
+
+</div>
+</details>
+
 ### 정명훈
 ### 이상현
 <details>
