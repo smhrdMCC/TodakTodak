@@ -304,9 +304,83 @@ requestChatGptFeedBack(
 ### 정명훈
 ### 이상현
 <details>
-<summary><b>1번 카카오톡 SDK를 초기화 할려고 했는데 에러가 떠서 kakaoSDK.init(this,네거티브키)인데  implementation ("com.kakao.sdk:v2-all:2.15.0") 가 잘안불러 와져서 그런거였다 2번 user 정보를 가져오지 못하는 상황이였는데 이오류같은 경우에는 id를 대문자로 해서 못불어오는 거였다  3번 가져온 user 정보를 서버로 보내서 DB에 넣어서 저장하는 거였는데 DB를 찾지 못하는 오류였다 이 오류같은 경우에는 테이블 이름에 언더바가 들어가서 언오테이션을 걸어서 테이블 이름과 컬럼네임 인서터벌 업데이터벌 컬럼 데퍼니션을 걸어서 테이블을 찾아서 갈수 있게 해놨다 4번 카카오 로그인 할때 키 해시값이 모두 필요한데 그걸 해결하려고 모두의 컴퓨터에서 키해시 값을 받아 왔다.
-5번 카카오 로그인 버튼을 누르고 로그인 완료후 넘어가야하는 상황인데 LOGIN SUCCESS가 뜨면 넘어가게 할려고 했더니 LOGIN SUCCESS 가 뜨지 않아서 로그인 상태 문구가 뜨면 넘어가게 했다. 
-6번 로그인 버튼을 2번 눌러야지 정보가 불러와지는 상태였는데 그걸 해결하기 위해서 콜백과 람다 함수를 이용해서 버튼을 누르면 바로 넘어갈수 있게 해서 해결했다.</b></summary>
+<summary><b>SpringBoot 서버에서 DB의 테이블, 컬럼에 접근 못하는 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	Column 'joined_at' cannot be null
+
+　💡 해결 방법
+@Column(insertable = false, updatable = false,columnDefinition = "datetime default now()",name="joined_at")
+언오테이션에 컬럼으로 걸어서 해결
+
+```Android
+@Column(insertable = false, updatable = false,columnDefinition = "datetime default now()",name="joined_at")
+	private Date joinedAt;
+```
+
+</div>
+</details>
+
+<details>
+<summary><b>카카오 SDK 초기화</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	Unresolved reference:kakao
+
+　💡 해결 방법
+implementation ("com.kakao.sdk:v2-all:2.15.0") 
+
+</div>
+</details>
+<details>
+<summary><b>사용자의 정보 가져오는데 userInfo 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	getInfo메소드 안에서는 유저의 정보는 가져와 지는데 getInfo메소드 밖에서는 안불러와지는 오류
+
+　💡 해결 방법
+id를 대문자로 해서 못불러와지는 오류였다
+
+
+</div>
+</details>
+<details>
+<summary><b>4번부터</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	안드로이드에서 SpringBoot 서버로 데이터가 전송을 했으나 서버에서 로그가 안찍히는 오류
+
+　💡 해결 방법
+- 안드로이드 Retrofit 기능에 BaseURL에 아이피 주소를 localhost:port 작성하지 않고 10.0.0.2를 입력 후 해결
+- 10.0.0.2는 안드로이드 에뮬레이터에서 127.0.0.1 즉 루프백 주소
+
+```Android
+val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8100/")
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+```
+
+</div>
+</details>
+<details>
+<summary><b></b></summary>
 <div markdown="1">
 
 ---
