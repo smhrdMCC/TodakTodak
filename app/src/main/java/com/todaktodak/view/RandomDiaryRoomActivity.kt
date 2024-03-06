@@ -23,8 +23,10 @@ class RandomDiaryRoomActivity : AppCompatActivity() {
         val nick = intent.getStringExtra("nick")
         val content = intent.getStringExtra("content")
 
-        binding.randomRoomPartnerNickView.text = nick
-        binding.randomDiaryRoomContent.text = content
+        if (mail != usersingleton.userEmail) {
+            binding.randomRoomPartnerNickView.text = nick
+            binding.randomDiaryRoomContent.text = content
+        }
 
         binding.sendDiaryBtn.setOnClickListener {
             val inputContent = binding.replyDiaryInputBox.text.toString()
@@ -41,25 +43,19 @@ class RandomDiaryRoomActivity : AppCompatActivity() {
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if(response.isSuccessful()){
-                    Log.d("RESPONSE: ", response.body().toString())
+                if(response.isSuccessful){
                     goReplyList()
                 } else {
                     Log.d("RESPONSE ERROR: ", "2")
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
-
     fun goReplyList(){
         var intent = Intent(this, ReplyDiaryListActivity::class.java)
         startActivity(intent)
     }
-
 }
-
-

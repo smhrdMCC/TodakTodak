@@ -3,12 +3,10 @@ package com.todaktodak.view
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.size
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -20,7 +18,6 @@ import com.todaktodak.R
 import com.todaktodak.databinding.ActivityChartBinding
 import com.todaktodak.retrofit.emotionsingleton
 import com.todaktodak.retrofit.makeMonthSingleton
-import java.time.LocalDate
 
 class ChartActivity : AppCompatActivity() {
     lateinit var binding: ActivityChartBinding
@@ -34,7 +31,6 @@ class ChartActivity : AppCompatActivity() {
 
         initNutrientPieChart()
 
-        // 하단 버튼
         binding.goCalBtn.setOnClickListener {
             var intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
@@ -103,9 +99,9 @@ class ChartActivity : AppCompatActivity() {
         dataSet.setValueFormatter(PercentFormatter())
         dataSet.colors = pieColors
         dataSet.sliceSpace = 5f
-
-        val month1 : String = makeMonthSingleton.makeMonth.toString()
-        Log.d("month1",month1)
+        dataSet.valueTextColor = R.color.main
+        dataSet.valueTextSize = 10f
+        val month1 : String = makeMonthSingleton.makeMonth
 
         val month = month1.substring(5 until 7)
         dataSet.setDrawValues(false)
@@ -117,34 +113,25 @@ class ChartActivity : AppCompatActivity() {
                 legend.isEnabled = false
                 isRotationEnabled = true
                 holeRadius = 60f
-
-
-
                 centerText = month + "월의 감정"
-                //setTouchEnabled(false)
                 setCenterTextSize(15f)
                 setEntryLabelColor(Color.BLACK)
                 animateY(1200, Easing.EaseInOutCubic)
-
                 animate()
             }
             val gson = Gson()
 
-            // 원본 데이터를 JSON 형식으로 직렬화
             val jsonString = gson.toJson(entries)
 
-            // JSON 형식의 데이터를 다시 역직렬화하여 리스트로 변환
             val typeToken = object : TypeToken<List<PieEntry>>() {}.type
             val copiedList = gson.fromJson<List<PieEntry>>(jsonString, typeToken)
 
-            // 내림차순으로 정렬
             val sortedList = copiedList.sortedByDescending { it.value }
 
             textViews = arrayOf(emoSort1,emoSort2,emoSort3,emoSort4,emoSort5,emoSort6,emoSort7,emoSort8)
             for(i in 0 .. textViews.size-1){
                 textViews[i].visibility = View.INVISIBLE
             }
-            // 정렬된 데이터 중에서 인덱스 0부터 2까지 추출
             val selectedDataList = sortedList.subList(0, sortedList.size)
 
             for(i in 0 .. selectedDataList.size-1) {

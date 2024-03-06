@@ -32,10 +32,8 @@ class ReplyDiaryListActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // 나에게 온 일기 목록 불러와서 출력
         getReplyDiaryList()
 
-        // 하단 버튼
         binding.goCalBtn.setOnClickListener {
             var intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
@@ -66,7 +64,7 @@ class ReplyDiaryListActivity : AppCompatActivity() {
                 call: Call<ArrayList<replyDiary>>,
                 response: Response<ArrayList<replyDiary>>
             ) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful){
                     Log.d("RESPONSE: ", response.body().toString())
                     setReplyDiaryListView(response.body())
                 } else {

@@ -33,7 +33,6 @@ class KakaoLoginActivity : AppCompatActivity() {
         binding = ActivityKakakoMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // ViewModelProvider를 통해 ViewModel 인스턴스 생성
         kakaoOauthViewModel = ViewModelProvider(
             this,
             KakaoOauthViewModelFactory(application)

@@ -44,20 +44,17 @@ class DiaryRoomActivity : AppCompatActivity() {
                 call: Call<ArrayList<replyDiary>>,
                 response: Response<ArrayList<replyDiary>>
             ) {
-                if(response.isSuccessful()){
-                    Log.d("RESPONSE: ", response.body().toString())
+                if(response.isSuccessful){
                     setDiaryRoomListView(response.body())
                 } else {
                     Log.d("RESPONSE ERROR: ", "2")
                 }
             }
-
             override fun onFailure(call: Call<ArrayList<replyDiary>>, t: Throwable) {
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
-
     private fun sendDiary(mail: String, content: String) {
         val call = RetrofitBuilder2.api.sendDiary(toFromContent(mail, usersingleton.userEmail, content))
         call.enqueue(object : Callback<String> {
@@ -66,8 +63,7 @@ class DiaryRoomActivity : AppCompatActivity() {
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if(response.isSuccessful()){
-                    Log.d("RESPONSE: ", response.body().toString())
+                if(response.isSuccessful){
                     getDiaryRoomList(mail)
                 } else {
                     Log.d("RESPONSE ERROR: ", "2")
@@ -79,7 +75,6 @@ class DiaryRoomActivity : AppCompatActivity() {
             }
         })
     }
-
     private fun setDiaryRoomListView(body: ArrayList<replyDiary>?) {
         val adapter = DiaryRoomAdapter(body)
         var manager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 1)

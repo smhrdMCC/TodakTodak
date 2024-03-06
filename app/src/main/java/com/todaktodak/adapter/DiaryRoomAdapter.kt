@@ -15,6 +15,7 @@ class DiaryRoomAdapter(
 ) : RecyclerView.Adapter<DiaryRoomAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val nickname: TextView = itemView.findViewById(R.id.nickname)
         val diaryRoomDate: TextView = itemView.findViewById(R.id.diaryRoomDate)
         val diaryRoomContent: TextView = itemView.findViewById(R.id.diaryRoomContent)
         val layout: LinearLayout = itemView.findViewById(R.id.diaryRoomLayout)
@@ -30,19 +31,15 @@ class DiaryRoomAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        var nick = diaryInRoomList?.get(holder.adapterPosition)?.nick
         var Email = diaryInRoomList?.get(holder.adapterPosition)?.email
         var date = diaryInRoomList?.get(holder.adapterPosition)?.date
         var content = diaryInRoomList?.get(holder.adapterPosition)?.content
 
+        holder.nickname.text = nick
         holder.diaryRoomDate.text = date
         holder.diaryRoomContent.text = content
         val layoutParams = holder.itemView.layoutParams as ViewGroup.MarginLayoutParams
-
-        if(Email == usersingleton.userEmail){
-
-        }else{
-
-        }
 
     }
 }

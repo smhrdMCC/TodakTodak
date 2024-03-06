@@ -5,6 +5,6 @@ class Feedback {
 
     var aiRecommendation: String? = null
 
-    var diarySeq: Long? = null
+    //var diarySeq: Long? = null
 }
 

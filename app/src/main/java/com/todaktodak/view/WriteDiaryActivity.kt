@@ -30,8 +30,10 @@ class WriteDiaryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.textView4.visibility = View.GONE
+        var date1 = intent.getStringExtra("date1")
         binding.userNick.setText('"'+ usersingleton.userNick + '"'+" 님의 00년 00월 00일 일기")
 
+        binding.writeDiary.setHint(date1 +"\n" +"다이어리를 작성해주세요")
         binding.sendBtn.setOnClickListener {
             var diary_content = binding.writeDiary.text.toString()
             DiaryTextSingleTon.diaryText = binding.writeDiary.text.toString()
@@ -39,10 +41,8 @@ class WriteDiaryActivity : AppCompatActivity() {
             var writtenDiary = Diary()
             writtenDiary.diaryContent = diary_content
             writtenDiary.userEmail = user_email
-            var date1 = intent.getStringExtra("date1")
-            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
 
-            // Read diary
+            saveDiary(writtenDiary.diaryContent.toString() + ":" +writtenDiary.userEmail.toString() +":" + date1.toString())
 
             sendBert(diary_content)
 
@@ -76,25 +76,21 @@ class WriteDiaryActivity : AppCompatActivity() {
             var intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
         }
-
     }
     fun saveDiary(diary: String) {
         val call = RetrofitBuilder2.api.doGetDiary(diary)
-        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
-            override fun onResponse( // 통신에 성공한 경우
+        call.enqueue(object : Callback<String> {
+            override fun onResponse(
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if (response.isSuccessful()) { // 응답 잘 받은 경우
-                    Log.d("SaveRESPONSE: ", "저장 성공!!" + response.body().toString())
+                if (response.isSuccessful) {
                     DiarySeqSingleton.diarySeq = response.body().toString()
                 } else {
-                    // 통신 성공 but 응답 실패
                     Log.d("RESPONSE", "저장 실패!!")
                 }
             }
             override fun onFailure(call: Call<String>, t: Throwable) {
-                // 통신에 실패한 경우
                 Log.d("Save CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
@@ -102,24 +98,20 @@ class WriteDiaryActivity : AppCompatActivity() {
     private fun requestChatGptFeedBack(prompt: String, onResult: () -> Unit) {
         val call = RetrofitBuilder.api.updateFeedResponse(prompt)
 
-        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
-            override fun onResponse( // 통신에 성공한 경우
+        call.enqueue(object : Callback<String> {
+            override fun onResponse(
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if (response.isSuccessful) { // 응답 잘 받은 경우
-                    Log.d("GPT RESPONSE: ", "성공!" + response.body().toString())
-
-                    binding.textView4.text = response.body().toString() //chatGpt prompt
+                if (response.isSuccessful) {
+                    binding.textView4.text = response.body().toString()
                     binding.textView4.visibility = View.GONE
                     onResult.invoke()
                 } else {
-                    // 통신 성공 but 응답 실패
                     Log.d("GPT RESPONSE", "FAILURE")
                 }
             }
             override fun onFailure(call: Call<String>, t: Throwable) {
-                // 통신에 실패한 경우
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
@@ -132,62 +124,50 @@ class WriteDiaryActivity : AppCompatActivity() {
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful) {
                     Log.d("RESPONSE: ", "피드백 인서트 성공!" + response.body().toString())
 
                 } else {
-                    // 통신 성공 but 응답 실패
                     Log.d("RESPONSE", "피드백 인서트 FAILURE")
                 }
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                // 통신에 실패한 경우
                 Log.d("CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
-    // Communicate with Flask server using String format
     fun sendBert(data: String) {
         val call = RetrofitBuilderBert.api.sendDataToFlask(data)
         call.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if (response.isSuccessful) {
-                    Log.d("SendBert RESPONSE:", "Data sent & recieved successfully: " + response.body().toString())
                     aiEmotion.aiEmo = response.body().toString()
                 } else {
                     Log.d("SendBert RESPONSE:", "Failed to send data.")
-                    // Insert code if handling error needed
                 }
             }
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("SendBert CONNECTION FAILURE:", t.localizedMessage)
-                // Handle failure if needed
             }
         })
     }
-
     fun openDiary(writtenDiaryData: String){
         val call = RetrofitBuilder2.api.sendOpenDiary(writtenDiaryData)
-        call.enqueue(object : Callback<String> { // 비동기 방식 통신 메소드
-            override fun onResponse( // 통신에 성공한 경우
+        call.enqueue(object : Callback<String> {
+            override fun onResponse(
                 call: Call<String>,
                 response: Response<String>
             ) {
-                if (response.isSuccessful()) { // 응답 잘 받은 경우
+                if (response.isSuccessful) {
                     Log.d("SaveRESPONSE: ", "저장 성공!!" + response.body().toString())
                 } else {
-                    // 통신 성공 but 응답 실패
                     Log.d("RESPONSE", "저장 실패!!")
                 }
             }
             override fun onFailure(call: Call<String>, t: Throwable) {
-                // 통신에 실패한 경우
                 Log.d("Save CONNECTION FAILURE: ", t.localizedMessage)
             }
         })
     }
-
 }
-
-

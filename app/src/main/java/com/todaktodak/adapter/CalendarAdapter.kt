@@ -88,7 +88,7 @@ class CalendarAdapter(
         val red = Color.parseColor(calendar_red)
         val black = Color.parseColor(calendar_black)
 
-
+        holder.dayText.setTextColor(black)
         // 텍스트 색상 지정(토,일)
         holder.dayText.setTextColor(black)
         if((position +1)%7==0){

@@ -65,8 +65,7 @@ class RandomDiaryListActivity : AppCompatActivity() {
                 call: Call<ArrayList<randomDiary>>,
                 response: Response<ArrayList<randomDiary>>
             ) {
-                if(response.isSuccessful()){
-                    Log.d("RESPONSE: ", response.body().toString())
+                if(response.isSuccessful){
                     setRandomDiaryListView(response.body())
                 } else {
                     Log.d("RESPONSE ERROR: ", "2")
