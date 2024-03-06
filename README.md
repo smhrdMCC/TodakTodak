@@ -74,6 +74,106 @@
 
 ## 트러블 슈팅
 ### 최준성
+<details>
+<summary><b>안드로이드에서 어댑터 초기화 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	달력에 클릭이벤트를 추가하면서 어댑터를 초기화 할때 val adapter = CalendarAdapter(dayList, this) 를 사용했는데 추가한 this가 작동하지 않음
+
+　💡 해결 방법
+- 클래스의 구현 인터페이스를 선언하지 않아서 발생한 일이었다.
+- OnItemListener 인터페이스를 선언하는 것으로 문제를 해결하였다.
+
+```Android
+class MainActivity : AppCompatActivity(), OnItemListener 
+```
+
+</div>
+</details>
+
+<details>
+<summary><b>Spring Boot Gson class 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	spring boot 서버에 maven으로 gson을 설치하여 사용하려고 했으나 gson 클래스를 찾을 수 없는 오류가 발생함
+
+　💡 해결 방법
+- 안드로이드 연결을 해제하고 서버를 정지시킨 후 gson삭제 -> gson 설치 후 프로젝트 업데이트를 진행함
+
+</div>
+</details>
+
+<details>
+<summary><b>Retrofit 통신 문제</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	Retrofit객체를 생성하여 본문에 삽입해서 시도했으나 Retrofit으로 요청을 보내고 응답이 오기 전에 나머지 코드가 진행되어버려서 감정 목록이 Null로 진행되는 문제가 발생
+
+　💡 해결 방법
+- Retrofit의 응답코드 내부에 응답 이후의 코드를 넣는 방법으로 응답 이후 코드가 진행되게 만들 수 있었다.
+
+```Android
+private fun loadEmotion(selectedDate: LocalDate) {
+        val call = RetrofitBuilder2.api.getEmotion(datemailVO(searchingFromMonth(selectedDate).toString(), usersingleton.userEmail))
+        call.enqueue(object : Callback<ArrayList<emotiondate>> {
+
+            override fun onResponse(
+                call: Call<ArrayList<emotiondate>>,
+                response: Response<ArrayList<emotiondate>>
+            ) {
+                if(response.isSuccessful){
+                    setMonthView(response.body())
+                    emotionsingleton.list = response.body()!!
+                } else{
+                    Log.d("RESPONSE ERROR: ", "2")
+                }
+            }
+            override fun onFailure(call: Call<ArrayList<emotiondate>>, t: Throwable) {
+                Log.d("CONNECTION FAILURE: ", t.localizedMessage)
+            }
+        })
+    }
+```
+
+</div>
+</details>
+
+<details>
+<summary><b>안드로이드, Spring Boot 데이터 전송 문제</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	안드로이드에서 스프링서버로 데이터를 넘기는 과정에서 String타입으로 보낸 데이터를 쿼리문에 넣었을 때 결과를 얻을 수 없었음
+
+　💡 해결 방법
+- String 으로 보낸 데이터의 끝에 "가 추가되어서 결과가 나오지 않았다.
+-  " 를 제거한 후 실행하자 결과를 얻을 수 있었다.
+
+```Java
+String saveDiary = info.replaceAll("\"", "");
+		String[] save = saveDiary.split(":");
+		String content = save[0];
+		String user = save[1];
+```
+
+</div>
+</details>
+
 ### 김영준
 <details>
 <summary><b>안드로이드에서 SpringBoot 서버로 데이터 전송 오류</b></summary>
