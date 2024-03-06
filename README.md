@@ -66,8 +66,8 @@
 <details>
 <summary><b>일기 목록</b></summary>
 <div markdown="1">
-![Uploading image.png…]()
 
+![image](https://github.com/smhrdMCC/TodakTodak/assets/150218820/f503bb61-2be3-4281-aa76-dc5aed9881b4)
 
 </div>
 </details>
@@ -75,8 +75,8 @@
 <details>
 <summary><b>차트</b></summary>
 <div markdown="1">
-![image](https://github.com/smhrdMCC/TodakTodak/assets/150218820/9e1c9378-6e77-4033-bd87-c24a41621e2c)
 
+![image](https://github.com/smhrdMCC/TodakTodak/assets/150218820/9e1c9378-6e77-4033-bd87-c24a41621e2c)
 
 </div>
 </details>
@@ -84,8 +84,8 @@
 <details>
 <summary><b>교환일기</b></summary>
 <div markdown="1">
-![image](https://github.com/smhrdMCC/TodakTodak/assets/150218820/36c0983b-e2ec-443e-9721-8fd1f716a1c6)
 
+![image](https://github.com/smhrdMCC/TodakTodak/assets/150218820/36c0983b-e2ec-443e-9721-8fd1f716a1c6)
 
 </div>
 </details>
