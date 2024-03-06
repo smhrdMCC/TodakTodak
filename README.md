@@ -147,6 +147,34 @@ public class User {
 
 </div>
 </details>
+<details>
+<summary><b>Android 1개의 Activity에서 2개의 함수를 동시 실행 시 오류</b></summary>
+<div markdown="1">
+
+---
+
+　🧨 오류 내용
+
+	1개의 Activity 내에 2개의 함수를 실행을 시켜야하는 상황이 발생하였는데 첫번째 함수가 실행이 된 후 그 결과를 가지고 2번째 함수가 실행이 되야하는 상황
+
+　💡 해결 방법
+- 처음에는 sleep을 사용하여 해결을 하려고 했으나 sleep 시간 만큼 어플이 동작하지 않는 문제가 발생하였다
+- 그래서 찾은 방법이 함수와 함수 사이에 Delay를 넣어 해결을 하였으나 멘토와 상담 후 새로운 방법으로 해결하였다
+- Lambda 식 표현 방법을 사용하여 함수안에서 함수를 실행하여 해결하였다
+
+```Android
+requestChatGptFeedBack(
+	prompt = feedback.prompt.toString(),
+	onResult = {
+	
+	    feedback.aiRecommendation = binding.textView4.text.toString()
+	    saveChatGptFeedBack(feedback.aiRecommendation.toString() + ":" + DiarySeqSingleton.diarySeq + ":"+ aiEmotion.aiEmo + ":" + date1)
+	}
+)
+```
+
+</div>
+</details>
 
 ### 윤강석
 ### 정명훈
