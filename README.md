@@ -56,7 +56,9 @@
 <details>
 <summary><b>달력</b></summary>
 <div markdown="1">
-![KakaoTalk_20240229_172253329](https://github.com/smhrdMCC/TodakTodak/assets/160091299/521a1d9b-200f-45b1-b072-c906e4dea9ce)
+
+![image](https://github.com/smhrdMCC/TodakTodak/assets/150218820/c6303ff0-06b8-4cdd-9a3f-8947d2aafab8)
+
 
 </div>
 </details>
@@ -64,7 +66,8 @@
 <details>
 <summary><b>일기 목록</b></summary>
 <div markdown="1">
-![KakaoTalk_20240229_174440077](https://github.com/smhrdMCC/TodakTodak/assets/160091299/71af4878-d957-471b-94da-15e605a0900a)
+![Uploading image.png…]()
+
 
 </div>
 </details>
@@ -72,7 +75,8 @@
 <details>
 <summary><b>차트</b></summary>
 <div markdown="1">
-![KakaoTalk_20240229_172253423](https://github.com/smhrdMCC/TodakTodak/assets/160091299/afd6cd8d-8634-40fa-954a-78b5aac748f2)
+![image](https://github.com/smhrdMCC/TodakTodak/assets/150218820/9e1c9378-6e77-4033-bd87-c24a41621e2c)
+
 
 </div>
 </details>
@@ -80,7 +84,8 @@
 <details>
 <summary><b>교환일기</b></summary>
 <div markdown="1">
-![KakaoTalk_20240229_172253639](https://github.com/smhrdMCC/TodakTodak/assets/160091299/0c64f31b-e87d-49a0-90f1-02563fe6e748)
+![image](https://github.com/smhrdMCC/TodakTodak/assets/150218820/36c0983b-e2ec-443e-9721-8fd1f716a1c6)
+
 
 </div>
 </details>
