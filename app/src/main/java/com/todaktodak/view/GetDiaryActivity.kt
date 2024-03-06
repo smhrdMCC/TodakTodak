@@ -40,6 +40,9 @@ class GetDiaryActivity : AppCompatActivity(){
 
         var info = datemailVO(date.toString(), usersingleton.userEmail)
 
+        var date1 = intent.getStringExtra("date1")
+        binding.getDiaryUserNick.setText('"'+ usersingleton.userNick + '"'+" 님의"+date1+"일 일기")
+
         getSendMessage(info)
         binding.feedBtn.setOnClickListener {
             var goFeedbackButton = Intent(this, FeedbackActivity::class.java)
