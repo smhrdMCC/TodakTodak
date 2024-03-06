@@ -40,7 +40,8 @@ class GetDiaryActivity : AppCompatActivity(){
 
         var info = datemailVO(date.toString(), usersingleton.userEmail)
 
-        binding.getDiaryUserNick.setText('"'+ usersingleton.userNick + '"'+" 님의 00년 00월 00일 일기")
+        var date1 = intent.getStringExtra("date1")
+        binding.getDiaryUserNick.setText('"'+ usersingleton.userNick + '"'+" 님의"+date1+"일 일기")
 
         getSendMessage(info)
         binding.feedBtn.setOnClickListener {

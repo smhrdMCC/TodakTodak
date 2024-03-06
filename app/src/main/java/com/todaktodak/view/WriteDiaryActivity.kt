@@ -31,9 +31,8 @@ class WriteDiaryActivity : AppCompatActivity() {
 
         binding.textView4.visibility = View.GONE
         var date1 = intent.getStringExtra("date1")
-        binding.userNick.setText('"'+ usersingleton.userNick + '"'+" 님의 00년 00월 00일 일기")
 
-        binding.writeDiary.setHint(date1 +"\n" +"다이어리를 작성해주세요")
+        binding.writeDiary.setHint(date1 +"일"+"\n" +"다이어리를 작성해주세요")
         binding.sendBtn.setOnClickListener {
             var diary_content = binding.writeDiary.text.toString()
             DiaryTextSingleTon.diaryText = binding.writeDiary.text.toString()
