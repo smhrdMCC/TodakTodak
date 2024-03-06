@@ -44,6 +44,7 @@
 </br>
 
 ## ERD
+![KakaoTalk_20240304_154407861](https://github.com/smhrdMCC/TodakTodak/assets/160091299/0ff37d79-f322-46ad-9b09-1856f013adea)
 
 </br>
 
@@ -53,8 +54,10 @@
 
 ## 화면 구성
 <details>
-<summary><b>화면 1</b></summary>
+<summary><b>달력</b></summary>
 <div markdown="1">
+![KakaoTalk_20240229_172253329](https://github.com/smhrdMCC/TodakTodak/assets/160091299/a7df7b4d-a5c0-4bc8-954a-8a6b9eb6b901)
+
 </div>
 </details>
 
