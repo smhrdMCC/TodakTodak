@@ -340,7 +340,7 @@ requestChatGptFeedBack(
 </details>
 
 <details>
-<summary><b>Android와 Spring 서버 간 데이터 송수신 문제2</b></summary>
+<summary><b>Android와 Spring 서버 간 데이터 송수신 문제2 Null값 </b></summary>
 <div markdown="1">
 
 ---
@@ -362,7 +362,7 @@ requestChatGptFeedBack(
 </details>
 
 <details>
-<summary><b>Android와 Spring 서버 간 데이터 송수신 문제3<Json 파싱하기></b></summary>
+<summary><b>Android와 Spring 서버 간 데이터 송수신 문제3 Json파싱 </b></summary>
 <div markdown="1">
 
 ---
