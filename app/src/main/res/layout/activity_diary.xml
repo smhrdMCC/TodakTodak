@@ -29,14 +29,17 @@
         android:layout_height="300dp"
         android:layout_marginTop="210dp"
         android:layout_marginBottom="210dp"
-        android:fontFamily="@font/sehwace"
+        android:background="@drawable/round"
+        android:fontFamily="@font/roboto"
         android:gravity="center"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.387" />
 
     <Button
         android:id="@+id/feedBtn"
