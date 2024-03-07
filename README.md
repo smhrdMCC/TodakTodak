@@ -519,7 +519,7 @@ ambda식(람다식) 표현으로 해결
         <td align="center" colspan="5">업무 분장</td>
     </tr>
     	<tr>
-			<td><h5>
+			<td align="top"><h5>
 				- 프로젝트 총괄<br><br>
 				- DB 설계 및 구현<br><br>
                        		- 달력 기능 구현<br><br>
