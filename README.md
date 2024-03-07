@@ -540,7 +540,7 @@ ambda식(람다식) 표현으로 해결
 				- UI/UX 제작 총괄<br><br>
 				- 발표용 PPT 제작<br><br>
 			</h5></td>
-			<td><h5>
+			<td align="top"><h5>
 				- 카카오SDK 활용한 카카오 로그인 기능 구현<br><br>
 				- UI/UX 서브 제작<br><br>
 				- SpringBoot 기반 서버 구축<br><br>
