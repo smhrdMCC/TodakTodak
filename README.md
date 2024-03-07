@@ -96,6 +96,12 @@
 
 </br>
 
+## 🎥 시연 영상
+
+https://github.com/smhrdMCC/TodakTodak/assets/150218820/c4f43338-89c0-4eb9-9c14-702ded658ab1
+
+<br>
+
 ## 트러블 슈팅
 ### 최준성
 <details>
@@ -479,3 +485,80 @@ ambda식(람다식) 표현으로 해결
 
 </br>
 
+## 👨‍👦‍👦 팀원 소개
+
+<table>
+    <tr>
+        <td align="center" width="250px"><b>최준성</b></td>
+        <td align="center" width="250px"><b>김영준</b></td>
+        <td align="center" width="250px"><b>윤강석</b></td>
+        <td align="center" width="250px"><b>이상현</b></td>
+        <td align="center" width="250px"><b>정명훈</b></td>
+    </tr>
+    <tr>
+        <td align="center" colspan="5">Main</td>
+    </tr>
+    <tr>
+        <td align="center">PM, Back-end</td>
+        <td align="center">Back-end</td>
+        <td align="center">Back-end, Front-end</td>
+        <td align="center">Back-end, Front-end</td>
+        <td align="center">Deep Learning</td>
+    </tr>
+    <tr>
+        <td align="center" colspan="5">Sub</td>
+    </tr>
+    <tr>
+        <td align="center">Front-end</td>
+        <td align="center">Front-end</td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center">Back-end</td>
+    </tr>
+    <tr>
+        <td align="center" colspan="5">업무 분장</td>
+    </tr>
+    	<tr>
+			<td><h5>
+				- 프로젝트 총괄<br><br>
+				- DB 설계 및 구현<br><br>
+                       		- 달력 기능 구현<br><br>
+				- 일기 목록 구현<br><br>
+				- 교환 일기 기능 구현<br><br>
+				- SpringBoot 기반 서버 구축<br><br>
+			</h5></td>
+			<td><h5>
+				- 감정 차트 구현<br><br>
+				- Flask 서버 구축 및 ChatGPT API 연동 피드백 기능 구현<br><br>
+				- Android Retrofit 활용 SpringBoot 기반 서버와 HTTP 통신 구현<br><br>
+				- SpringBoot 기반 서버 구축<br><br>
+			</h5></td>
+			<td><h5>
+				- 다이어리 기능 구현<br><br>
+				- TTS 기능 구현<br><br>
+				- SpringBoot 기반 서버 구축 및 JPA를 활용한 Entity 설정<br><br>
+				- UI/UX 제작 총괄<br><br>
+				- 발표용 PPT 제작<br><br>
+			</h5></td>
+			<td><h5>
+				- 카카오SDK 활용한 카카오 로그인 기능 구현<br><br>
+				- UI/UX 서브 제작<br><br>
+				- SpringBoot 기반 서버 구축<br><br>
+			</h5></td>
+			<td><h5>
+				- 딥러닝 환경 구축 및 딥러닝 모델 제작, 성능 비교<br><br>
+				- 공개 데이터 수집, 데이터 전처리<br><br>
+				- Flask와 Pytorch를 활용한 감성 분석 모듈 제작 및 연동<br><br>
+			</h5></td>
+    	</tr>
+	<tr>
+		<td colspan="5" align="center">Github</td>
+	</tr>
+    	<tr>
+		<td align="center"><a href="https://github.com/Monyua/JunSeong">@JunSeong</a></td>
+		<td align="center"><a href="https://github.com/kim-yjoon/yeongjoon">@yeongjoon</a></td>
+		<td align="center"><a href="https://github.com/johnwickwickwick/YoonGangSeok">@YoonGangSeok</a></td>
+		<td align="center"><a href="https://github.com/Sang-hyuny/lee-sang-hyuny">@lee-sang-hyuny</a></td>
+		<td align="center"><a href="https://github.com/l-Username-l">@l-Username-l</a></td>
+	</tr>
+</table>
