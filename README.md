@@ -516,7 +516,7 @@ ambda식(람다식) 표현으로 해결
         <td align="center">Back-end</td>
     </tr>
     <tr>
-        <td align="top" colspan="5">업무 분장</td>
+        <td align="center" colspan="5">업무 분장</td>
     </tr>
     	<tr>
 			<td><h5>
