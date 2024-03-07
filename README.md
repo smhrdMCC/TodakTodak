@@ -519,7 +519,7 @@ ambda식(람다식) 표현으로 해결
         <td align="center" colspan="5">업무 분장</td>
     </tr>
     	<tr>
-			<td align="top"><h5>
+			<td><h5>
 				- 프로젝트 총괄<br><br>
 				- DB 설계 및 구현<br><br>
                        		- 달력 기능 구현<br><br>
@@ -540,7 +540,7 @@ ambda식(람다식) 표현으로 해결
 				- UI/UX 제작 총괄<br><br>
 				- 발표용 PPT 제작<br><br>
 			</h5></td>
-			<td align="top"><h5>
+			<td><h5>
 				- 카카오SDK 활용한 카카오 로그인 기능 구현<br><br>
 				- UI/UX 서브 제작<br><br>
 				- SpringBoot 기반 서버 구축<br><br>
