@@ -139,8 +139,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/randomDiaryList"
-        android:layout_width="408dp"
-        android:layout_height="418dp"
+        android:layout_width="409dp"
+        android:layout_height="405dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
