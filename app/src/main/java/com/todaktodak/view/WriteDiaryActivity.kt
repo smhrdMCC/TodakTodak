@@ -57,7 +57,6 @@ class WriteDiaryActivity : AppCompatActivity() {
             requestChatGptFeedBack(
                 prompt = feedback.prompt.toString(),
                 onResult = {
-
                     feedback.aiRecommendation = binding.textView4.text.toString()
                     saveChatGptFeedBack(feedback.aiRecommendation.toString() + ":" + DiarySeqSingleton.diarySeq + ":"+ aiEmotion.aiEmo + ":" + date1)
                 }
@@ -143,11 +142,11 @@ class WriteDiaryActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     aiEmotion.aiEmo = response.body().toString()
                 } else {
-                    Log.d("SendBert RESPONSE:", "Failed to send data.")
+                    Log.d("1. SendBert RESPONSE:", "Failed to send data.")
                 }
             }
             override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.d("SendBert CONNECTION FAILURE:", t.localizedMessage)
+                Log.d("1. SendBert CONNECTION FAILURE:", t.localizedMessage)
             }
         })
     }
