@@ -501,7 +501,7 @@ ambda식(람다식) 표현으로 해결
     <tr>
         <td align="center">PM, Back-end</td>
         <td align="center">Back-end</td>
-        <td align="center">Back-end, Front-end</td>
+        <td align="center">Back-end</td>
         <td align="center">Back-end, Front-end</td>
         <td align="center">Deep Learning</td>
     </tr>
@@ -511,7 +511,7 @@ ambda식(람다식) 표현으로 해결
     <tr>
         <td align="center">Front-end</td>
         <td align="center">Front-end</td>
-        <td align="center"></td>
+        <td align="center">Front-end</td>
         <td align="center"></td>
         <td align="center">Back-end</td>
     </tr>
